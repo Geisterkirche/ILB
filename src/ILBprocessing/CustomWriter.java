@@ -1,6 +1,5 @@
 package ILBprocessing;
 
-import ILBprocessing.WDSparser;
 import ILBprocessing.configuration.SharedConstants;
 import lib.tools.StatisticsCollector;
 
@@ -271,13 +270,13 @@ public class CustomWriter extends WDSparser implements SharedConstants{
                             }else{
                                 x=x+"            |";
                             }
-                            if(sysList.get(k).pairs.get(j).idTDSC!=""){
-                                int counter= sysList.get(k).pairs.get(j).idTDSC.length();
+                            if(sysList.get(k).pairs.get(j).systemTDSC !=""){
+                                int counter= sysList.get(k).pairs.get(j).systemTDSC.length();
                                 while(counter<12){
                                     x=x+" ";
                                     counter++;
                                 }
-                                x=x+((sysList.get(k).pairs.get(j).idTDSC+"|"));
+                                x=x+((sysList.get(k).pairs.get(j).systemTDSC +"|"));
                             }else{
                                 x=x+"            |";
                             }
@@ -291,13 +290,13 @@ public class CustomWriter extends WDSparser implements SharedConstants{
                             }else{
                                 x=x+"     |";
                             }
-                            if(sysList.get(k).pairs.get(j).idCCDM!=""){
-                                int counter = sysList.get(k).pairs.get(j).idCCDM.length();
+                            if(sysList.get(k).pairs.get(j).systemCCDM !=""){
+                                int counter = sysList.get(k).pairs.get(j).systemCCDM.length();
                                 while(counter<12){
                                     x=x+" ";
                                     counter++;
                                 }
-                                x=x+((sysList.get(k).pairs.get(j).idCCDM+"|"));
+                                x=x+((sysList.get(k).pairs.get(j).systemCCDM +"|"));
                             }else{
                                 x=x+"            |";
                             }
@@ -457,9 +456,9 @@ public class CustomWriter extends WDSparser implements SharedConstants{
                             }else if(sysList.get(k).idWDS!=""){
                                 int counter = sysList.get(k).idWDS.length();
                                 x=x+(("WDS "+ sysList.get(k).idWDS));
-                            }else if(sysList.get(k).pairs.get(j).idCCDM!=""){
-                                int counter = sysList.get(k).pairs.get(j).idCCDM.length();
-                                x=x+(("CCDM "+ sysList.get(k).pairs.get(j).idCCDM));
+                            }else if(sysList.get(k).pairs.get(j).systemCCDM !=""){
+                                int counter = sysList.get(k).pairs.get(j).systemCCDM.length();
+                                x=x+(("CCDM "+ sysList.get(k).pairs.get(j).systemCCDM));
                             }
                         }
                         x=coordPrint(stage, x,k,j);
@@ -537,7 +536,6 @@ public class CustomWriter extends WDSparser implements SharedConstants{
                                 x=x+"*";
                             }
                         }*/
-                        if(nameReal(k,j,stage)){
                             //System.doNotShowBcsResolved.println(x);
                             if(stage==0){
                                     outer.write(x+""+(char)10);
@@ -547,27 +545,18 @@ public class CustomWriter extends WDSparser implements SharedConstants{
                                 if(stage==1 && usedLength<length){
                                     stage--;
                                 }
-                                if(true || sysList.get(k).pairs.get(j).out==false){
                                     outer.write(x+""+(char)10);
                                     outer.flush();
-                                    sysList.get(k).pairs.get(j).out=true;
-                                }
                             }
                             if(stage==2){
-                                if(sysList.get(k).pairs.get(j).el1.doNotShowBcsResolved ==false){
-                                    sysList.get(k).pairs.get(j).el1.doNotShowBcsResolved =true;
                                     outer.write(x+""+(char)10);
                                     outer.flush();
-                                }
                             }
                             if(stage==3){
-                                if(sysList.get(k).pairs.get(j).el2.doNotShowBcsResolved ==false){
-                                    sysList.get(k).pairs.get(j).el2.doNotShowBcsResolved =true;
                                     outer.write(x+""+(char)10);
                                     outer.flush();
-                                }
                             }
-                        }
+
                     }
                 }
 

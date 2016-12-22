@@ -25,10 +25,10 @@ public class NodeORB6 {
 		idWDS2akaDD =s.substring(30, 45);
 		if(StatisticsCollector.likeBayer(idWDS2akaDD)){
 			idBayer= StatisticsCollector.rebuildIdToUnifiedBase(idWDS2akaDD);
-		}else if(StatisticsCollector.containsFlamsteed(idWDS2akaDD)){
+		}else if(StatisticsCollector.likeFlamsteed(idWDS2akaDD)){
 			idFlamsteed=StatisticsCollector.rebuildIdToUnifiedBase(idWDS2akaDD);
 		}else if(StatisticsCollector.likeDM(idWDS2akaDD)){
-			idDM=StatisticsCollector.cutDM(idWDS2akaDD);
+			idDM=StatisticsCollector.rebuildIdToUnifiedBase(idWDS2akaDD);
 		}else{
 			nameOfObserver = s.substring(30, 37).toUpperCase().replaceAll(" ","");
 			if(s.charAt(37)!=' ') {

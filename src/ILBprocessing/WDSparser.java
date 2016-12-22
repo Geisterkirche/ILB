@@ -1,28 +1,29 @@
 package ILBprocessing;
 
-import ILBprocessing.beans.*;
+import ILBprocessing.beans.NodeORB6;
+import ILBprocessing.beans.NodeWDS;
+import ILBprocessing.configuration.NotesInterpreter;
+import ILBprocessing.configuration.SharedConstants;
 import lib.model.StarSystem;
 import lib.service.SplitRule;
-import lib.tools.*;
-import ILBprocessing.configuration.NotesInterpreter;
+import lib.tools.BigFilesSplitterByHours;
+import lib.tools.StatisticsCollector;
 
-import java.io.*;
 import java.util.ArrayList;
-import ILBprocessing.configuration.SharedConstants;
 
 public class WDSparser implements SharedConstants{
     public static int iter = 0;
     public static ArrayList<NodeWDS> listWDS = new ArrayList<NodeWDS>();
     public static ArrayList<NodeORB6> listSCO = new ArrayList<NodeORB6>();
-    public static ArrayList<NodeCCDM> listCCDM = new ArrayList<NodeCCDM>();
-    public static ArrayList<NodeTDSC> listTDSC = new ArrayList<NodeTDSC>();
+    //public static ArrayList<NodeCCDM> listCCDM = new ArrayList<NodeCCDM>();
+    //public static ArrayList<NodeTDSC> listTDSC = new ArrayList<NodeTDSC>();
 
-    public static ArrayList<NodeCCDMcoords> listCCDMcoords = new ArrayList<NodeCCDMcoords>();
-    public static ArrayList<NodeINT4> listINT4 = new ArrayList<NodeINT4>();
-    public static ArrayList<NodeCEV> listCEV = new ArrayList<NodeCEV>();
-    public static ArrayList<NodeGCVS> listGCVS = new ArrayList<NodeGCVS>();
-    public static ArrayList<NodeSB9> listSB9 = new ArrayList<NodeSB9>();
-    public static ArrayList<NodeSB9main> listSB9main = new ArrayList<NodeSB9main>();
+    //public static ArrayList<NodeCCDMcoords> listCCDMcoords = new ArrayList<NodeCCDMcoords>();
+    //public static ArrayList<NodeINT4> listINT4 = new ArrayList<NodeINT4>();
+    //public static ArrayList<NodeCEV> listCEV = new ArrayList<NodeCEV>();
+    //public static ArrayList<NodeGCVS> listGCVS = new ArrayList<NodeGCVS>();
+    //public static ArrayList<NodeSB9> listSB9 = new ArrayList<NodeSB9>();
+    //public static ArrayList<NodeSB9main> listSB9main = new ArrayList<NodeSB9main>();
 
     public static ArrayList<StarSystem> sysList = new ArrayList<StarSystem>();
 
@@ -30,10 +31,7 @@ public class WDSparser implements SharedConstants{
        // System.out.println("parse WDSNotes");
        // new WDSNotesParser().mainParserNotes("D:/wdsnewnotes_main.txt");
 
-        //System.out.println("parse not splitted catalogs");
-
         ParserFactory.parseSCO();
-        System.out.println("parse SCO");
 
         /* System.doNotShowBcsResolved.println("parse TDSC");
         ParserFactory.parseTDSC();
@@ -46,8 +44,6 @@ public class WDSparser implements SharedConstants{
         System.doNotShowBcsResolved.println("parse CCDMcoords()");
         ParserFactory.parseCCDMcoords();
         */
-        System.out.println(" ");
-        System.out.println("Splitting large files on 10min-zones");
         split();
 
         System.out.println("Start processing...");
@@ -59,22 +55,16 @@ public class WDSparser implements SharedConstants{
                 System.out.println("");
             }
         }
-        BigFilesSplitterByHours.concatenator();
-        try {
-            //fix();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println("All coordinatesFromWDSasString saved. Thread terminated");
 
-        System.err.println(listSCO.size());
-        for(int i=0;i<listSCO.size();i++){
-            System.err.println(""+listSCO.get(i).idWDS+" "+listSCO.get(i).idWDS2akaDD+" "+listSCO.get(i).idDM);
-        }
+        BigFilesSplitterByHours.concatenator();
+        postProcessing();
     }
 
     public static void split(){
+        System.out.println(" ");
+        System.out.println("Splitting large files on 10min-zones");
         if(WDS_SPLIT_BEFORE_PROCESSING) {
+            System.out.println("WDS splitting enabled");
             SplitRule splitRule = (string, hour, decade) -> {
                 if(Integer.parseInt("" + string.charAt(0) + string.charAt(1) + string.charAt(2)) == hour * 10 + decade){
                     return true;
@@ -82,10 +72,11 @@ public class WDSparser implements SharedConstants{
                 return false;
             };
             BigFilesSplitterByHours.splitLargeFile(WDS_SOURCE_FILES,WDS_GENERATED_STUFF,splitRule);
-            System.out.println("WDS spliting finished");
+            System.out.println("WDS splitting finished");
         }
 
         if(CCDM_SPLIT_BEFORE_PROCESSING) {
+            System.out.println("CCDM splitting enabled");
             SplitRule splitRule = (string, hour, decade) -> {
                 if(Integer.parseInt("" + string.charAt(1) + string.charAt(2) + string.charAt(3)) == hour * 10 + decade){
                     return true;
@@ -96,6 +87,7 @@ public class WDSparser implements SharedConstants{
             System.out.println("CCDM spliting finished");
         }
         if(WCT_SPLIT_BEFORE_PROCESSING) {
+            System.out.println("WCT splitting enabled");
             SplitRule splitRule = (string, hour, decade) -> {
                 try {
                     if (("" + string.charAt(33) + string.charAt(34)).equals("\"\"") && Integer.parseInt("" + string.charAt(50) + string.charAt(51) + string.charAt(52)) == hour * 10 + decade || (""+string.charAt(50) + string.charAt(51)).equals("\"\"") && Integer.parseInt("" + string.charAt(33) + string.charAt(34) + string.charAt(35)) == hour * 10 + decade) {
@@ -107,9 +99,10 @@ public class WDSparser implements SharedConstants{
                 return false;
             };
             BigFilesSplitterByHours.splitLargeFile(WCT_SOURCE_FILES,WCT_GENERATED_STUFF,splitRule);
-            System.out.println("WCT spliting finished");
+            System.out.println("WCT splitting finished");
         }
         if(INT4_SPLIT_BEFORE_PROCESSING) {
+            System.out.println("INT4 splitting enabled");
             SplitRule splitRule = (string, hour, decade) -> {
                 try {
                     if (string.length()>2 && string.charAt(0)!=' ' && Integer.parseInt("" + string.charAt(0) + string.charAt(1) + string.charAt(2)) == hour * 10 + decade) {
@@ -121,7 +114,7 @@ public class WDSparser implements SharedConstants{
                 return false;
             };
             BigFilesSplitterByHours.splitLargeFile(INT4_SOURCE_FILES,INT4_GENERATED_STUFF,splitRule);
-            System.out.println("INT4 spliting finished");
+            System.out.println("INT4 splitting finished");
         }
     }
 
@@ -130,15 +123,10 @@ public class WDSparser implements SharedConstants{
         solve(i);
         StatisticsCollector.print();
     }
-
     public static void init() {
         listWDS = new ArrayList<NodeWDS>();
-        listCCDM = new ArrayList<NodeCCDM>();
         sysList = new ArrayList<StarSystem>();
-        listTDSC = new ArrayList<NodeTDSC>();
-        listINT4 = new ArrayList<NodeINT4>();
     }
-
     public static void solve(String i) {
         ParserFactory.parseFile(i);
         InterpreterFactory.interpr();
@@ -163,119 +151,18 @@ public class WDSparser implements SharedConstants{
         InterpreterFactory.interprSB9(i);
 */
         if(REMOVE_DUPLICATED_ENTITIES) {
-            EntitiesListTools.removeDuplicatedEntities(sysList);
+           // EntitiesListTools.removeDuplicatedEntities(sysList);
         }
-        restructNamesForComponents();
         CustomWriter.write(i);
     }
 
 
+    public static void postProcessing(){
 
-    public static void restructNamesForComponents() {
-        for (int k = 0; k < sysList.size(); k++) {
-            for (int j = 0; j < sysList.get(k).pairs.size(); j++) {
-                int a = (int) sysList.get(k).pairs.get(j).el1.hash();
-                int b = (int) sysList.get(k).pairs.get(j).el2.hash();
-                if (!sysList.get(k).hash.containsKey(a)) {
-                    sysList.get(k).hash.put(a, sysList.get(k).pairs.get(j).el1.nameInILB);
-                }
-                if (!sysList.get(k).hash.containsKey(b)) {
-                    sysList.get(k).hash.put(b, sysList.get(k).pairs.get(j).el2.nameInILB);
-                }
-            }
-            ArrayList<Integer> cacheHash = new ArrayList<Integer>(sysList.get(k).hash.keySet());
-            cacheHash = ConverterFINALIZED.sortByValue(sysList.get(k).hash);
-            ArrayList<String> names = new ArrayList<String>();
-            for (int i = 0; i < cacheHash.size(); i++) {
-                names.add(sysList.get(k).hash.get(cacheHash.get(i)));
-                //System.doNotShowBcsResolved.print(names.get(i)+"_");
-            }
-
-            for (int j = 0; j < sysList.get(k).pairs.size(); j++) {
-                sysList.get(k).pairs.get(j).el1.newName = "" + (names.indexOf(sysList.get(k).pairs.get(j).el1.nameInILB) + 1);
-                sysList.get(k).pairs.get(j).el2.newName = "" + (names.indexOf(sysList.get(k).pairs.get(j).el2.nameInILB) + 1);
-                try {
-                    if ((names.indexOf(sysList.get(k).pairs.get(j).el1.nameInILB.substring(0, sysList.get(k).pairs.get(j).el1.nameInILB.length() - 1)) + 1) != 0) {
-                        sysList.get(k).pairs.get(j).surname = "" + (names.indexOf(sysList.get(k).pairs.get(j).el1.nameInILB.substring(0, sysList.get(k).pairs.get(j).el1.nameInILB.length() - 1)) + 1);
-                    }
-                } catch (Exception e) {
-                }
-            }
+        System.err.println(listSCO.size());
+        for(int i=0;i<listSCO.size();i++){
+            System.err.println(""+listSCO.get(i).idWDS+" "+listSCO.get(i).idWDS2akaDD+" "+listSCO.get(i).idDM);
         }
-    }
-
-    public static void fix() throws IOException {
-        ArrayList<String> data = new ArrayList<String>();
-        String fileName = "ILB.txt";
-        File dataFile = new File("C:/WDSparser/" + fileName);
-        FileReader in = new FileReader(dataFile);
-        char c;
-        String s = "";
-        long x = dataFile.length();
-        for (long i = 0; i < x; i++) {
-            c = (char) in.read();
-            s += c;
-            if (c == 10 || c == 13) {
-                s = s.substring(0, s.length() - 1);
-                data.add(s);
-                s = "";
-            }
-        }
-        System.out.println("half");
-        for (int i = 0; i < data.size(); i++) {
-            for (int j = i - 50; j < i; j++) {
-                try {
-                    if (data.get(i).substring(0, 28) == (data.get(j).substring(0, 28))) {
-                        data.remove(i);
-                        System.out.println(i + "AHTUNG!!!" + j);
-                    } else if (data.get(i).contains("!")) {
-                        data.remove(i);
-                        System.out.println(i + "AHTUNG!!!" + j);
-                    }
-                } catch (Exception e) {
-                    System.out.println(i + " exception ij " + j);
-                }
-            }
-        }
-        try {
-            String fileName2 = "dataComplete.txt";
-            Writer outer = new FileWriter(new File("C:/WDSparser/" + fileName2));
-            for (int k = 0; k < data.size(); k++) {
-                outer.write(data.get(k) + "" + (char) 10);
-                outer.flush();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static boolean nameReal(int k, int j, int stage) {
-        if (sysList.get(k).pairs.get(j).pairCCDM == "ZZ") {
-            return false;
-        }
-        if (sysList.get(k).coordinatesNotFoundInWDS) {
-            //return false;
-        }
-        if (stage == 2 && sysList.get(k).pairs.get(j).el1.nameInILB.length() > 1) {
-            String a = sysList.get(k).pairs.get(j).el1.nameInILB;
-            for (int i = 0; i < a.length(); i++) {
-                if (a.charAt(i) > 64 && a.charAt(i) < 91) {
-                } else {
-                    return true;
-                }
-            }
-        } else if (stage == 3 && sysList.get(k).pairs.get(j).el2.nameInILB.length() > 1) {
-            String a = sysList.get(k).pairs.get(j).el2.nameInILB;
-            for (int i = 0; i < a.length(); i++) {
-                if (a.charAt(i) > 64 && a.charAt(i) < 91) {
-                } else {
-                    return true;
-                }
-            }
-        } else {
-            return true;
-        }
-        return true;
     }
 }
 /*
@@ -542,7 +429,7 @@ public class WDSparser implements SharedConstants{
 						break;
 					}
 					for(int h=0;h<sysList.get(i).pairs.size();h++){
-						if(sysList.get(i).pairs.get(h).idTDSC.equals(listTDSC.get(j).TDSCid)){
+						if(sysList.get(i).pairs.get(h).systemTDSC.equals(listTDSC.get(j).TDSCid)){
 							if(!sysList.get(i).wdsSystemID.substring(0,10).equals(listTDSC.get(j).WDSid)){
 								outer2.append("true"+listTDSC.get(j).TDSCid+"_"+"WDSid in TDSC"+listTDSC.get(j).WDSid+"WDSid in WCT"+sysList.get(i).wdsSystemID.substring(0,10)+(char)(10));
 								outer2.flush();

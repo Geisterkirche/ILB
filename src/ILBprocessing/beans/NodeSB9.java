@@ -37,7 +37,7 @@ public class NodeSB9 {
 			HD=s.substring(i+1,s.length());
 		}else{
 			String idWDS2= s.substring(i+1,s.length());
-			if(StatisticsCollector.containsFlamsteed(idWDS2)){
+			if(StatisticsCollector.likeFlamsteed(idWDS2)){
 				idFlamsteed=clearify(idWDS2);
 			}
 		}
@@ -61,7 +61,7 @@ public class NodeSB9 {
 			HD=s.substring(i+1,s.length());
 		}else{
 			String idWDS2= s.substring(i+1,s.length());
-			if(StatisticsCollector.containsFlamsteed(idWDS2)){
+			if(StatisticsCollector.likeFlamsteed(idWDS2)){
 				idFlamsteed=clearify(idWDS2);
 			}
 		}

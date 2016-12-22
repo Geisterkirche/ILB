@@ -1,8 +1,6 @@
 package lib.model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class StarSystem {
@@ -14,20 +12,6 @@ public class StarSystem {
 	public String TDSCid="";
 	public String observ="";
 	public boolean coordinatesNotFoundInWDS;
-	public Map<Integer,String> hash = new HashMap<Integer,String>();
 	public ArrayList<Pair> pairs= new ArrayList<Pair>();
-	public ArrayList<String> resolvedComponents = new ArrayList<String>();
-	public void checkAndMarkComponentAsResolved(String s){
-		for(int i=0;i<pairs.size();i++){
-			if(pairs.get(i).el1.nameInILB.equals(s)){
-				pairs.get(i).el1.doNotShowBcsResolved =true;
-				return;
-			}
-			if(pairs.get(i).el2.nameInILB.equals(s)){
-				pairs.get(i).el2.doNotShowBcsResolved =true;
-				return;
-			}
-		}
-		resolvedComponents.add(s);
-	}
+
 }

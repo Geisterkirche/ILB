@@ -1,5 +1,7 @@
 package ILBprocessing.beans;
 
+import lib.tools.StatisticsCollector;
+
 public class NodeWDS {
 	public String wdsSystemID;
 	public String nameOfObserver;//same as DD
@@ -22,13 +24,7 @@ public class NodeWDS {
 	}
 	public void calculateIdDM(String s){
 		idDM=s.substring(98, 106);
-		if(idDM.charAt(0)==' '){
-			idDM="";
-		}else{
-			idDM=idDM.replaceAll("  "," ");
-			idDM=idDM.replaceAll("  "," ");
-			idDM=idDM.replaceAll("  "," ");
-		}
+		idDM=StatisticsCollector.rebuildIdToUnifiedBase(idDM);
 	}
 	public void calculateModifier(String s){
 		String modifierYX=s.substring(107, 112);

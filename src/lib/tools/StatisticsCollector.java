@@ -8,96 +8,96 @@ public class StatisticsCollector {
 	public static ArrayList<String> DM = new ArrayList<String>();
 	public static ArrayList<String> HIP = new ArrayList<String>();
 
-	public static boolean containsFlamsteed(String temp){
+	public static boolean likeFlamsteed(String temp){
 		temp=temp.toUpperCase();
-		if(temp.contains("And") ||
-				temp.contains("Gem".toUpperCase()) ||
-				temp.contains("UMa".toUpperCase()) ||
-				temp.contains("CMa".toUpperCase()) ||
-				temp.contains("Lib".toUpperCase()) ||
-				temp.contains("Aqr".toUpperCase()) ||
-				temp.contains("Aur".toUpperCase()) ||
-				temp.contains("Lup".toUpperCase()) ||
-				temp.contains("Boo".toUpperCase()) ||
-				temp.contains("Com".toUpperCase()) ||
-				temp.contains("Crv".toUpperCase()) ||
-				temp.contains("Her".toUpperCase()) ||
-				temp.contains("Hya".toUpperCase()) ||
-				temp.contains("Col".toUpperCase()) ||
-				temp.contains("CVn".toUpperCase()) ||
-				temp.contains("Vir".toUpperCase()) ||
-				temp.contains("Del".toUpperCase()) ||
-				temp.contains("Dra".toUpperCase()) ||
-				temp.contains("Mon".toUpperCase()) ||
-				temp.contains("Ara".toUpperCase()) ||
-				temp.contains("Pic".toUpperCase()) ||
-				temp.contains("Cam".toUpperCase()) ||
-				temp.contains("Gru".toUpperCase()) ||
-				temp.contains("Lep".toUpperCase()) ||
-				temp.contains("Oph".toUpperCase()) ||
-				temp.contains("Ser".toUpperCase()) ||
-				temp.contains("Dor".toUpperCase()) ||
-				temp.contains("Ind".toUpperCase()) ||
-				temp.contains("Cas".toUpperCase()) ||
-				temp.contains("Car".toUpperCase()) ||
-				temp.contains("Cet".toUpperCase()) ||
-				temp.contains("Cap".toUpperCase()) ||
-				temp.contains("Pyx".toUpperCase()) ||
-				temp.contains("Pup".toUpperCase()) ||
-				temp.contains("Cyg".toUpperCase()) ||
-				temp.contains("Leo".toUpperCase()) ||
-				temp.contains("Vol".toUpperCase()) ||
-				temp.contains("Lyr".toUpperCase()) ||
-				temp.contains("Vul".toUpperCase()) ||
-				temp.contains("UMi".toUpperCase()) ||
-				temp.contains("Equ".toUpperCase()) ||
-				temp.contains("Lmi".toUpperCase()) ||
-				temp.contains("Cmi".toUpperCase()) ||
-				temp.contains("Mic".toUpperCase()) ||
-				temp.contains("Mus".toUpperCase()) ||
-				temp.contains("Ant".toUpperCase()) ||
-				temp.contains("Nor".toUpperCase()) ||
-				temp.contains("Ari".toUpperCase()) ||
-				temp.contains("Oct".toUpperCase()) ||
-				temp.contains("Aql".toUpperCase()) ||
-				temp.contains("Ori".toUpperCase()) ||
-				temp.contains("Pav".toUpperCase()) ||
-				temp.contains("Vel".toUpperCase()) ||
-				temp.contains("Peg".toUpperCase()) ||
-				temp.contains("Per".toUpperCase()) ||
-				temp.contains("For".toUpperCase()) ||
-				temp.contains("Aps".toUpperCase()) ||
-				temp.contains("Cnc".toUpperCase()) ||
-				temp.contains("Cae".toUpperCase()) ||
-				temp.contains("Psc".toUpperCase()) ||
-				temp.contains("Lyn".toUpperCase()) ||
-				temp.contains("CrB".toUpperCase()) ||
-				temp.contains("Sex".toUpperCase()) ||
-				temp.contains("Ret".toUpperCase()) ||
-				temp.contains("Sco".toUpperCase()) ||
-				temp.contains("Scl".toUpperCase()) ||
-				temp.contains("Men".toUpperCase()) ||
-				temp.contains("Sge".toUpperCase()) ||
-				temp.contains("Sgr".toUpperCase()) ||
-				temp.contains("Tel".toUpperCase()) ||
-				temp.contains("Tau".toUpperCase()) ||
-				temp.contains("Tri".toUpperCase()) ||
-				temp.contains("Tuc".toUpperCase()) ||
-				temp.contains("Phe".toUpperCase()) ||
-				temp.contains("Cha".toUpperCase()) ||
-				temp.contains("Cen".toUpperCase()) ||
-				temp.contains("Cep".toUpperCase()) ||
-				temp.contains("Cir".toUpperCase()) ||
-				temp.contains("Hor".toUpperCase()) ||
-				temp.contains("Crt".toUpperCase()) ||
-				temp.contains("Sct".toUpperCase()) ||
-				temp.contains("Eri".toUpperCase()) ||
-				temp.contains("Hyi".toUpperCase()) ||
-				temp.contains("CrA".toUpperCase()) ||
-				temp.contains("PsA".toUpperCase()) ||
-				temp.contains("Cru".toUpperCase()) ||
-				temp.contains("TrA".toUpperCase()) ||
-				temp.contains("Lac".toUpperCase())){
+		if(temp.contains("AND") ||
+				temp.contains("GEM".toUpperCase()) ||
+				temp.contains("UMA".toUpperCase()) ||
+				temp.contains("CMA".toUpperCase()) ||
+				temp.contains("LIB".toUpperCase()) ||
+				temp.contains("AQR".toUpperCase()) ||
+				temp.contains("AUR".toUpperCase()) ||
+				temp.contains("LUP".toUpperCase()) ||
+				temp.contains("BOO".toUpperCase()) ||
+				temp.contains("COM".toUpperCase()) ||
+				temp.contains("CRV".toUpperCase()) ||
+				temp.contains("HER".toUpperCase()) ||
+				temp.contains("HYA".toUpperCase()) ||
+				temp.contains("COL".toUpperCase()) ||
+				temp.contains("CVN".toUpperCase()) ||
+				temp.contains("VIR".toUpperCase()) ||
+				temp.contains("DEL".toUpperCase()) ||
+				temp.contains("DRA".toUpperCase()) ||
+				temp.contains("MON".toUpperCase()) ||
+				temp.contains("ARA".toUpperCase()) ||
+				temp.contains("PIC".toUpperCase()) ||
+				temp.contains("CAM".toUpperCase()) ||
+				temp.contains("GRU".toUpperCase()) ||
+				temp.contains("LEP".toUpperCase()) ||
+				temp.contains("OPH".toUpperCase()) ||
+				temp.contains("SER".toUpperCase()) ||
+				temp.contains("DOR".toUpperCase()) ||
+				temp.contains("IND".toUpperCase()) ||
+				temp.contains("CAS".toUpperCase()) ||
+				temp.contains("CAR".toUpperCase()) ||
+				temp.contains("CET".toUpperCase()) ||
+				temp.contains("CAP".toUpperCase()) ||
+				temp.contains("PYX".toUpperCase()) ||
+				temp.contains("PUP".toUpperCase()) ||
+				temp.contains("CYG".toUpperCase()) ||
+				temp.contains("LEC".toUpperCase()) ||
+				temp.contains("VOL".toUpperCase()) ||
+				temp.contains("LYR".toUpperCase()) ||
+				temp.contains("VUL".toUpperCase()) ||
+				temp.contains("UMI".toUpperCase()) ||
+				temp.contains("EQU".toUpperCase()) ||
+				temp.contains("LMI".toUpperCase()) ||
+				temp.contains("CMI".toUpperCase()) ||
+				temp.contains("MIC".toUpperCase()) ||
+				temp.contains("MUS".toUpperCase()) ||
+				temp.contains("ANT".toUpperCase()) ||
+				temp.contains("NOR".toUpperCase()) ||
+				temp.contains("ARI".toUpperCase()) ||
+				temp.contains("OCT".toUpperCase()) ||
+				temp.contains("AQL".toUpperCase()) ||
+				temp.contains("ORI".toUpperCase()) ||
+				temp.contains("PAV".toUpperCase()) ||
+				temp.contains("VEL".toUpperCase()) ||
+				temp.contains("PEG".toUpperCase()) ||
+				temp.contains("PER".toUpperCase()) ||
+				temp.contains("FOR".toUpperCase()) ||
+				temp.contains("APS".toUpperCase()) ||
+				temp.contains("CNC".toUpperCase()) ||
+				temp.contains("CAE".toUpperCase()) ||
+				temp.contains("PSC".toUpperCase()) ||
+				temp.contains("LYN".toUpperCase()) ||
+				temp.contains("CRB".toUpperCase()) ||
+				temp.contains("SEX".toUpperCase()) ||
+				temp.contains("RET".toUpperCase()) ||
+				temp.contains("SCO".toUpperCase()) ||
+				temp.contains("SCL".toUpperCase()) ||
+				temp.contains("MEN".toUpperCase()) ||
+				temp.contains("SGE".toUpperCase()) ||
+				temp.contains("SGR".toUpperCase()) ||
+				temp.contains("TEL".toUpperCase()) ||
+				temp.contains("TAU".toUpperCase()) ||
+				temp.contains("TRI".toUpperCase()) ||
+				temp.contains("TUC".toUpperCase()) ||
+				temp.contains("PHE".toUpperCase()) ||
+				temp.contains("CHA".toUpperCase()) ||
+				temp.contains("CEN".toUpperCase()) ||
+				temp.contains("CEP".toUpperCase()) ||
+				temp.contains("CIR".toUpperCase()) ||
+				temp.contains("HOR".toUpperCase()) ||
+				temp.contains("CRT".toUpperCase()) ||
+				temp.contains("SCT".toUpperCase()) ||
+				temp.contains("ERI".toUpperCase()) ||
+				temp.contains("HYI".toUpperCase()) ||
+				temp.contains("CRA".toUpperCase()) ||
+				temp.contains("PSA".toUpperCase()) ||
+				temp.contains("CRU".toUpperCase()) ||
+				temp.contains("TRA".toUpperCase()) ||
+				temp.contains("LAC".toUpperCase())){
 			return true;
 		}
 		return false;
@@ -136,7 +136,6 @@ public class StatisticsCollector {
 		}
 		return false;
 	}
-
 	public static boolean likeDM(String a){
 		a=a.toLowerCase();
 		if((a.contains("bd") || a.contains("cd") || a.contains("cp")) && (a.contains("+") || a.contains("-"))){
@@ -146,7 +145,7 @@ public class StatisticsCollector {
 	}
 
 	public static String rebuildIdToUnifiedBase(String a){
-		a=a.toUpperCase().replaceAll("  "," ").replaceAll("  "," ").replaceAll("  "," ").replaceAll("  "," ");
+		a=a.toUpperCase().replaceAll("  "," ").replaceAll("  "," ").replaceAll("  "," ").replaceAll("  ","").replaceAll("  ","");
 		String[] z = a.split(" ");
 		StringBuffer s = new StringBuffer();
 		for(int i=0;i<z.length;i++){
@@ -157,8 +156,12 @@ public class StatisticsCollector {
 			}
 			s.append(" ");
 		}
-		String ss = s.toString().substring(0,s.length()-1);
-		return ss;
+		try {
+			String ss = s.toString().substring(0, s.length() - 1);
+			return ss;
+		}catch(Exception e){
+			return "";
+		}
 	}
 
 

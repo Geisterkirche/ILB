@@ -1,7 +1,5 @@
 package ILBprocessing.beans;
 
-import ILBprocessing.WDSparser;
-
 public class NodeCEV {
 	public String WDScoord="";
 	public String idFlamsteed ="";
@@ -13,11 +11,11 @@ public class NodeCEV {
 		WDScoord = s.substring(123,131)+s.substring(132,138);
 		idCEV = clearify(s.substring(0,10));
 		idFlamsteed =clearify(s.substring(0,10));
-		for(int i = 0; i< WDSparser.listGCVS.size(); i++){
+		//for(int i = 0; i< WDSparser.listGCVS.size(); i++){
 			/*if(WDSparser.listGCVS.get(i)){
 
 			}*/
-		}
+		//}
 	}
 	public String clearify(String a){
 		for(int i=0;i<a.length();i++){

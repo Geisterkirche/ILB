@@ -93,7 +93,7 @@ public class NodeINT4 {
 			if(name2.length()>10){
 				name2="";
 			}
-			if(StatisticsCollector.containsFlamsteed(name2)){
+			if(StatisticsCollector.likeFlamsteed(name2)){
 				idFlamsteed =clearify(name2);
 				if(idFlamsteed.length()>9){
 					idFlamsteed ="";
@@ -105,7 +105,7 @@ public class NodeINT4 {
 					idBayer="";
 				}
 			}
-			if(StatisticsCollector.containsFlamsteed(dd1)){
+			if(StatisticsCollector.likeFlamsteed(dd1)){
 				dd1="";
 			}
 			if(StatisticsCollector.likeBayer(dd1)){

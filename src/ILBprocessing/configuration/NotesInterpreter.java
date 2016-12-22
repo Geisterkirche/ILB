@@ -20,25 +20,25 @@ public class NotesInterpreter {
                     for(int j = 0; j<WDSparser.sysList.get(sys).pairs.size(); j++){
                         //TODO here stuff with observer
                         if(WDSparser.sysList.get(sys).pairs.get(j).observer.equals(storage.get(i).pair.substring(0,7))){
-                            if(storage.get(i).yORn){
+
                                 if (storage.get(i).object.equals(Dictionary.PAIR)){
-                                    WDSparser.sysList.get(sys).pairs.get(j).keys.add(storage.get(i).property);
+                                    WDSparser.sysList.get(sys).pairs.get(j).params.put(storage.get(i).property,""+storage.get(i).yORn);
                                 }else if(storage.get(i).object.equals(Dictionary.PRIMARY)){
-                                    WDSparser.sysList.get(sys).pairs.get(j).el1.keys.add(storage.get(i).property);
+                                    WDSparser.sysList.get(sys).pairs.get(j).el1.params.put(storage.get(i).property,""+storage.get(i).yORn);
                                 }else if(storage.get(i).object.equals(Dictionary.THIS)){
-                                    WDSparser.sysList.get(sys).pairs.get(j).keys.add(storage.get(i).property);
+                                    WDSparser.sysList.get(sys).pairs.get(j).params.put(storage.get(i).property,""+storage.get(i).yORn);
                                 }else if(storage.get(i).object.equals(Dictionary.PRINCIPAL)){
-                                    WDSparser.sysList.get(sys).pairs.get(j).el1.keys.add(storage.get(i).property);
+                                    WDSparser.sysList.get(sys).pairs.get(j).el1.params.put(storage.get(i).property,""+storage.get(i).yORn);
                                 }else if(storage.get(i).object.equals(Dictionary.SECONDARY)){
-                                    WDSparser.sysList.get(sys).pairs.get(j).el2.keys.add(storage.get(i).property);
+                                    WDSparser.sysList.get(sys).pairs.get(j).el2.params.put(storage.get(i).property,""+storage.get(i).yORn);
                                 }else{
                                     if(WDSparser.sysList.get(sys).pairs.get(j).el1.nameInILB.equals(storage.get(i).object)){
-                                        WDSparser.sysList.get(sys).pairs.get(j).el1.keys.add(storage.get(i).property);
+                                        WDSparser.sysList.get(sys).pairs.get(j).el1.params.put(storage.get(i).property,""+storage.get(i).yORn);
                                     }else if(WDSparser.sysList.get(sys).pairs.get(j).el2.nameInILB.equals(storage.get(i).object)){
-                                        WDSparser.sysList.get(sys).pairs.get(j).el2.keys.add(storage.get(i).property);
+                                        WDSparser.sysList.get(sys).pairs.get(j).el2.params.put(storage.get(i).property,""+storage.get(i).yORn);
                                     }
                                 }
-                            }
+
                             Base.storage.remove(i);
                         }
                     }

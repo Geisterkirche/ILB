@@ -1,32 +1,30 @@
 package lib.model;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Component {
 	public String nameInILB ="";
-	public String nameCCDM="";
+
 	public int coord1F;
 	public int coord2F;
 	public int coord2I;
 	public int coord1I;
 	public int coord_flag=0;
-	public String newName="";
-	public int hash;
-	public boolean doNotShowBcsResolved;
-	
+
 	public String idHIP="";
 	public String idHD="";
-	public String idGCVS="";
+	public String idDM="";	//+40 5210
 	public String idSB9="";
 	public String idADS="";
 
-	public String idDM="";
-	public ArrayList<String> keys = new ArrayList<String>();
+	public HashMap<String,String> params = new HashMap<String,String>();
 	
 	
 	public Component(){
-		doNotShowBcsResolved =false;
+
 	}
+}
+/*
 	public long hash(){
 		long hash =0;
 		if(nameInILB.length()>1 && nameInILB.charAt(1)!='a' && nameInILB.charAt(1)!='b' && nameInILB.charAt(1)!='c' && nameInILB.charAt(1)!='d' && nameInILB.charAt(1)!='e' && nameInILB.charAt(1)!='f'){
@@ -56,5 +54,4 @@ public class Component {
 			hash = (long)(-name.charAt(0)+64);
 		}
 		return hash;
-	}
-}
+	}*/

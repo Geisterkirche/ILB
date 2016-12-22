@@ -1,14 +1,10 @@
 package ILBprocessing;
 
-import ILBprocessing.beans.*;
-import lib.model.Pair;
-import lib.model.StarSystem;
+import ILBprocessing.beans.NodeORB6;
+import ILBprocessing.beans.NodeWDS;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.Writer;
-import java.util.ArrayList;
 
 /**
  * Created by Алекс on 21.03.2016.
@@ -51,6 +47,7 @@ public class ParserFactory extends WDSparser{
         }
     }
     public static void parseSCO(){
+        System.out.println("parse SCO");
         try {
             File dataFile = new File(INPUT_FOLDER+SCO_SOURCE_FILE);
             FileReader in = new FileReader(dataFile);
@@ -73,7 +70,9 @@ public class ParserFactory extends WDSparser{
             e.printStackTrace();
         }
     }
-    public static void parseCCDMcoords(){
+
+}
+/* public static void parseCCDMcoords(){
         try {
             String fileName="CCDM_AK.txt";
             File dataFile = new File(INPUT_FOLDER+fileName);
@@ -208,13 +207,13 @@ public class ParserFactory extends WDSparser{
                             boolean existence=false;
                             sysList.get(j).CCDMid=star.parameter[2];
                             sysList.get(j).TDSCid=star.parameter[4];
-                            iter++;
+
                             Pair ee = new Pair();
                             ee.pairWDS=star.parameter[1];
                             ee.pairCCDM=star.parameter[3];
                             ee.pairTDSC=star.parameter[5];
-                            ee.idCCDM=star.parameter[2];//
-                            ee.idTDSC=star.parameter[4];//
+                            ee.systemCCDM =star.parameter[2];//
+                            ee.systemTDSC =star.parameter[4];//
                             ee.modifier[1]='v';
                             //System.doNotShowBcsResolved.println(star.parameter[0]+"_"+star.parameter[2]+"_"+star.parameter[4]);
                             //System.doNotShowBcsResolved.println(s);
@@ -256,8 +255,8 @@ public class ParserFactory extends WDSparser{
                                 if(sysList.get(j).pairs.get(k).pairWDS.equals(ee.pairWDS) && ee.pairWDS!=""){
                                     existence=true;
                                     sysList.get(j).idWDS=star.parameter[0];//��� ��������
-                                    sysList.get(j).pairs.get(k).idCCDM=star.parameter[2];//
-                                    sysList.get(j).pairs.get(k).idTDSC=star.parameter[4];//
+                                    sysList.get(j).pairs.get(k).systemCCDM =star.parameter[2];//
+                                    sysList.get(j).pairs.get(k).systemTDSC =star.parameter[4];//
                                     sysList.get(j).pairs.get(k).pairWDS=star.parameter[1];
                                     sysList.get(j).pairs.get(k).pairCCDM=star.parameter[3];
                                     sysList.get(j).pairs.get(k).pairTDSC=star.parameter[5];
@@ -277,8 +276,8 @@ public class ParserFactory extends WDSparser{
                                 e.pairWDS=star.parameter[1];
                                 e.pairCCDM=star.parameter[3];
                                 e.pairTDSC=star.parameter[5];
-                                e.idCCDM=star.parameter[2];
-                                e.idTDSC=star.parameter[4];
+                                e.systemCCDM =star.parameter[2];
+                                e.systemTDSC =star.parameter[4];
                                 e.modifier[1]='v';
                                 e.pairIdILB=e.pairIdILB.replaceAll(" ","");
                                 sysList.get(j).pairs.add(e);
@@ -293,8 +292,8 @@ public class ParserFactory extends WDSparser{
                                     boolean existence=false;
                                     iter++;
                                     Pair ee = new Pair();
-                                    ee.idCCDM=star.parameter[2];
-                                    ee.idTDSC=star.parameter[4];
+                                    ee.systemCCDM =star.parameter[2];
+                                    ee.systemTDSC =star.parameter[4];
                                     ee.pairWDS=star.parameter[1];
                                     ee.pairCCDM=star.parameter[3];
                                     ee.pairTDSC=star.parameter[5];
@@ -345,10 +344,10 @@ public class ParserFactory extends WDSparser{
                                         e.pairWDS=star.parameter[1];
                                         e.pairCCDM=star.parameter[3];
                                         e.pairTDSC=star.parameter[5];
-                                        ee.idCCDM=star.parameter[2];
-                                        ee.idTDSC=star.parameter[4];
-                                        e.idTDSC=star.parameter[4];
-                                        e.idCCDM=star.parameter[2];
+                                        ee.systemCCDM =star.parameter[2];
+                                        ee.systemTDSC =star.parameter[4];
+                                        e.systemTDSC =star.parameter[4];
+                                        e.systemCCDM =star.parameter[2];
                                         e.modifier[1]='v';
                                         ee.modifier[1]='v';
                                         e.pairIdILB=e.pairIdILB.replaceAll(" ","");
@@ -387,8 +386,8 @@ public class ParserFactory extends WDSparser{
                         e.pairWDS=star.parameter[1];
                         e.pairCCDM=star.parameter[3];
                         e.pairTDSC=star.parameter[5];
-                        e.idTDSC=star.parameter[4];
-                        e.idCCDM=star.parameter[2];
+                        e.systemTDSC =star.parameter[4];
+                        e.systemCCDM =star.parameter[2];
                         e.modifier[1]='v';
                         ss.pairs.add(e);
                     }
@@ -551,5 +550,4 @@ public class ParserFactory extends WDSparser{
                 }
             }
         }
-    }
-}
+    }*/
