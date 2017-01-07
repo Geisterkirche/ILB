@@ -1,8 +1,5 @@
 package ILBprocessing.configuration;
 
-/**
- * Created by Алекс on 21.03.2016.
- */
 public interface SharedConstants {
     String FILE_NAME_DEFAULT = "DATA_RELEASE";
     String FILE_RESULT_FORMAT = ".txt";

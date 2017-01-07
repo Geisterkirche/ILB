@@ -10,16 +10,7 @@ public class Component {
 	public int coord2I;
 	public int coord1I;
 	public int coord_flag=0;
-
-	public String idHIP="";
-	public String idHD="";
-	public String idDM="";	//+40 5210
-	public String idSB9="";
-	public String idADS="";
-
 	public HashMap<String,String> params = new HashMap<String,String>();
-	
-	
 	public Component(){
 
 	}

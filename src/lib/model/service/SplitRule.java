@@ -1,4 +1,4 @@
-package lib.service;
+package lib.model.service;
 
 /**
  * Created by Алекс on 24.11.2016.

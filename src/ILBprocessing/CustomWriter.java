@@ -1,20 +1,16 @@
 package ILBprocessing;
 
 import ILBprocessing.configuration.SharedConstants;
-import lib.tools.StatisticsCollector;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.Writer;
 
 /**
  * Created by Алекс on 21.03.2016.
  */
-public class CustomWriter extends WDSparser implements SharedConstants{
+public class CustomWriter extends MainEntryPoint implements SharedConstants{
 
     public CustomWriter(){
     }
     public static void write(String xxx){
+        /**
         System.out.println("writing current cache in temp files");
         try{
             String fileName=FILE_NAME_DEFAULT+xxx+FILE_RESULT_FORMAT;
@@ -97,7 +93,7 @@ public class CustomWriter extends WDSparser implements SharedConstants{
                                 }
 							/*if(sysList.get(k).pairs.get(j).modifier.contains("O")){
 								System.doNotShowBcsResolved.println("Exception x:"+sysList.get(k).wdsSystemID+" "+sysList.get(k).pairs.get(j).pairIdILB);
-							}*/
+							}*
                                 //sysList.get(k).pairs.get(j).modifier=clearify(sysList.get(k).pairs.get(j).modifier);
                                 as: for(int hk=0;hk<10;hk++){
                                     if(sysList.get(k).pairs.get(j).modifier[hk]!=0 && sysList.get(k).pairs.get(j).modifier[hk]!=' '){
@@ -185,7 +181,7 @@ public class CustomWriter extends WDSparser implements SharedConstants{
                             }
 
                             if(sysList.get(k).pairs.get(j).idHIP!=""){
-                                StatisticsCollector.validateHIP(sysList.get(k).pairs.get(j).idHIP);
+                                GlobalPoolOfIdentifiers.validateHIP(sysList.get(k).pairs.get(j).idHIP);
                                 int counter = sysList.get(k).pairs.get(j).idHIP.length();
                                 while(counter<6){
                                     x=x+" ";
@@ -197,7 +193,7 @@ public class CustomWriter extends WDSparser implements SharedConstants{
                             }
 
                             if(sysList.get(k).pairs.get(j).idHD!=""){
-                                StatisticsCollector.validateHD(sysList.get(k).pairs.get(j).idHD);
+                                GlobalPoolOfIdentifiers.validateHD(sysList.get(k).pairs.get(j).idHD);
                                 int counter = sysList.get(k).pairs.get(j).idHD.length();
                                 while(counter<6){
                                     x=x+" ";
@@ -260,7 +256,7 @@ public class CustomWriter extends WDSparser implements SharedConstants{
                                 x=x+"          |";
                             }
                             if(sysList.get(k).pairs.get(j).idDM!=""){
-                                StatisticsCollector.validateDM(sysList.get(k).pairs.get(j).idDM);
+                                GlobalPoolOfIdentifiers.validateDM(sysList.get(k).pairs.get(j).idDM);
                                 int counter = sysList.get(k).pairs.get(j).idDM.length();
                                 while(counter<12){
                                     x=x+" ";
@@ -333,7 +329,7 @@ public class CustomWriter extends WDSparser implements SharedConstants{
                             }
                             x=x+"|";
                             if(sysList.get(k).pairs.get(j).el1.idHIP!=""){
-                                StatisticsCollector.validateHIP(sysList.get(k).pairs.get(j).el1.idHIP);
+                                GlobalPoolOfIdentifiers.validateHIP(sysList.get(k).pairs.get(j).el1.idHIP);
                                 int counter2 = sysList.get(k).pairs.get(j).el1.idHIP.length();
                                 while(counter2<6){
                                     x=x+" ";
@@ -344,7 +340,7 @@ public class CustomWriter extends WDSparser implements SharedConstants{
                                 x=x+"      |";
                             }
                             if(sysList.get(k).pairs.get(j).el1.idHD!=""){
-                                StatisticsCollector.validateHD(sysList.get(k).pairs.get(j).el1.idHD);
+                                GlobalPoolOfIdentifiers.validateHD(sysList.get(k).pairs.get(j).el1.idHD);
                                 int counter2 = sysList.get(k).pairs.get(j).el1.idHD.length();
                                 while(counter2<6){
                                     x=x+" ";
@@ -356,7 +352,7 @@ public class CustomWriter extends WDSparser implements SharedConstants{
                             }
                             x=x+"     |          |      |          |          |";
                             if(sysList.get(k).pairs.get(j).el1.idDM!=""){
-                                StatisticsCollector.validateDM(sysList.get(k).pairs.get(j).el1.idDM);
+                                GlobalPoolOfIdentifiers.validateDM(sysList.get(k).pairs.get(j).el1.idDM);
                                 int counter3 = sysList.get(k).pairs.get(j).el1.idDM.length();
                                 while(counter3<12){
                                     x=x+" ";
@@ -391,7 +387,7 @@ public class CustomWriter extends WDSparser implements SharedConstants{
                             }
                             x=x+"|";
                             if(sysList.get(k).pairs.get(j).el2.idHIP!=""){
-                                StatisticsCollector.validateHIP(sysList.get(k).pairs.get(j).el2.idHIP);
+                                GlobalPoolOfIdentifiers.validateHIP(sysList.get(k).pairs.get(j).el2.idHIP);
                                 int counter2 = sysList.get(k).pairs.get(j).el2.idHIP.length();
                                 while(counter2<6){
                                     x=x+" ";
@@ -402,7 +398,7 @@ public class CustomWriter extends WDSparser implements SharedConstants{
                                 x=x+"      |";
                             }
                             if(sysList.get(k).pairs.get(j).el2.idHD!=""){
-                                StatisticsCollector.validateHD(sysList.get(k).pairs.get(j).el2.idHD);
+                                GlobalPoolOfIdentifiers.validateHD(sysList.get(k).pairs.get(j).el2.idHD);
                                 int counter2 = sysList.get(k).pairs.get(j).el2.idHD.length();
                                 while(counter2<6){
                                     x=x+" ";
@@ -414,7 +410,7 @@ public class CustomWriter extends WDSparser implements SharedConstants{
                             }
                             x=x+"     |          |      |          |          |";
                             if(sysList.get(k).pairs.get(j).el2.idDM!=""){
-                                StatisticsCollector.validateDM(sysList.get(k).pairs.get(j).el2.idDM);
+                                GlobalPoolOfIdentifiers.validateDM(sysList.get(k).pairs.get(j).el2.idDM);
                                 int counter3 = sysList.get(k).pairs.get(j).el2.idDM.length();
                                 while(counter3<12){
                                     x=x+" ";
@@ -535,7 +531,7 @@ public class CustomWriter extends WDSparser implements SharedConstants{
                             }else{
                                 x=x+"*";
                             }
-                        }*/
+                        }*
                             //System.doNotShowBcsResolved.println(x);
                             if(stage==0){
                                     outer.write(x+""+(char)10);
@@ -640,6 +636,6 @@ public class CustomWriter extends WDSparser implements SharedConstants{
                 x=x+"*";
             }
         }
-        return x;
+        return x;*/
     }
 }

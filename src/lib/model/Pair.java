@@ -13,12 +13,6 @@ public class Pair extends Component{
 	public String pairCCDM="";//AB and the same
 	public String pairTDSC="";//AB and the same
 
-	public String observer="";
-
-	public String idFlamsteed ="";
-	public String idBayer="";
-	public String idCEV="";
-
 	public char[] modifier;  // [VO_____]
 
 	public String systemCCDM ="";

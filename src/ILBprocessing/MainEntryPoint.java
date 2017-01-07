@@ -1,49 +1,29 @@
 package ILBprocessing;
 
-import ILBprocessing.beans.NodeORB6;
-import ILBprocessing.beans.NodeWDS;
-import ILBprocessing.configuration.NotesInterpreter;
+import ILBprocessing.beans.NodeCCDMPair;
+import ILBprocessing.beans.NodeORB6FINALIZED;
+import ILBprocessing.beans.NodeWDSFINALIZED;
 import ILBprocessing.configuration.SharedConstants;
 import lib.model.StarSystem;
-import lib.service.SplitRule;
+import lib.model.service.SplitRule;
 import lib.tools.BigFilesSplitterByHours;
-import lib.tools.StatisticsCollector;
+import lib.tools.GlobalPoolOfIdentifiers;
 
 import java.util.ArrayList;
 
-public class WDSparser implements SharedConstants{
+public class MainEntryPoint implements SharedConstants{
     public static int iter = 0;
-    public static ArrayList<NodeWDS> listWDS = new ArrayList<NodeWDS>();
-    public static ArrayList<NodeORB6> listSCO = new ArrayList<NodeORB6>();
-    //public static ArrayList<NodeCCDM> listCCDM = new ArrayList<NodeCCDM>();
-    //public static ArrayList<NodeTDSC> listTDSC = new ArrayList<NodeTDSC>();
-
-    //public static ArrayList<NodeCCDMcoords> listCCDMcoords = new ArrayList<NodeCCDMcoords>();
-    //public static ArrayList<NodeINT4> listINT4 = new ArrayList<NodeINT4>();
-    //public static ArrayList<NodeCEV> listCEV = new ArrayList<NodeCEV>();
-    //public static ArrayList<NodeGCVS> listGCVS = new ArrayList<NodeGCVS>();
-    //public static ArrayList<NodeSB9> listSB9 = new ArrayList<NodeSB9>();
-    //public static ArrayList<NodeSB9main> listSB9main = new ArrayList<NodeSB9main>();
+    public static ArrayList<NodeWDSFINALIZED> listWDS = new ArrayList<NodeWDSFINALIZED>();
+    public static ArrayList<NodeORB6FINALIZED> listSCO = new ArrayList<NodeORB6FINALIZED>();
+    public static ArrayList<NodeCCDMPair> listCCDMPairs = new ArrayList<NodeCCDMPair>();
 
     public static ArrayList<StarSystem> sysList = new ArrayList<StarSystem>();
 
     public static void main(String[] args) {
        // System.out.println("parse WDSNotes");
-       // new WDSNotesParser().mainParserNotes("D:/wdsnewnotes_main.txt");
+       // new MainEntryPoint().mainParserNotes("D:/wdsnewnotes_main.txt");
 
         ParserFactory.parseSCO();
-
-        /* System.doNotShowBcsResolved.println("parse TDSC");
-        ParserFactory.parseTDSC();
-        System.doNotShowBcsResolved.println("parse GCVS");
-        ParserFactory.parseGCVS();
-        System.doNotShowBcsResolved.println("parse CEV");
-        ParserFactory.parseCEV();
-        System.doNotShowBcsResolved.println("parse SB9");
-        ParserFactory.parseSB9();
-        System.doNotShowBcsResolved.println("parse CCDMcoords()");
-        ParserFactory.parseCCDMcoords();
-        */
         split();
 
         System.out.println("Start processing...");
@@ -56,7 +36,7 @@ public class WDSparser implements SharedConstants{
             }
         }
 
-        BigFilesSplitterByHours.concatenator();
+     //   BigFilesSplitterByHours.concatenator();
         postProcessing();
     }
 
@@ -74,7 +54,6 @@ public class WDSparser implements SharedConstants{
             BigFilesSplitterByHours.splitLargeFile(WDS_SOURCE_FILES,WDS_GENERATED_STUFF,splitRule);
             System.out.println("WDS splitting finished");
         }
-
         if(CCDM_SPLIT_BEFORE_PROCESSING) {
             System.out.println("CCDM splitting enabled");
             SplitRule splitRule = (string, hour, decade) -> {
@@ -121,29 +100,31 @@ public class WDSparser implements SharedConstants{
     public static void iteration(String i) {
         init();
         solve(i);
-        StatisticsCollector.print();
+        GlobalPoolOfIdentifiers.printCount();
     }
     public static void init() {
-        listWDS = new ArrayList<NodeWDS>();
+        listWDS = new ArrayList<NodeWDSFINALIZED>();
         sysList = new ArrayList<StarSystem>();
+        listCCDMPairs = new ArrayList<NodeCCDMPair>();
     }
     public static void solve(String i) {
         ParserFactory.parseFile(i);
-        InterpreterFactory.interpr();
-        NotesInterpreter.interpreteNotes();
-        listWDS.clear();
+        ParserFactory.parseCCDM(i);
+
+        InterpreterFactory.interprWDS();
+        //NotesInterpreter.interpreteNotes();
 
         System.out.println("Processing..");
         InterpreterFactory.interprSCO();
 /*
         ParserFactory.parseWCT(i);
         ParserFactory.parseINT4(i);
-        ParserFactory.parseCCDM(i);
+        *//*
 
         InterpreterFactory.predInterprCCDM();
         InterpreterFactory.interprCCDMr();
         InterpreterFactory.interprCCDMcoords();
-        listCCDM.clear();
+        listCCDMComponents.clear();
 
         InterpreterFactory.interprTDSC();
         InterpreterFactory.interprINT4();
@@ -156,48 +137,47 @@ public class WDSparser implements SharedConstants{
         CustomWriter.write(i);
     }
 
-
     public static void postProcessing(){
 
-        System.err.println(listSCO.size());
+        System.err.println("fail on matching SCO nodes: "+listSCO.size());
         for(int i=0;i<listSCO.size();i++){
-            System.err.println(""+listSCO.get(i).idWDS+" "+listSCO.get(i).idWDS2akaDD+" "+listSCO.get(i).idDM);
+            System.err.println(""+listSCO.get(i).source);
         }
     }
 }
 /*
 	@Deprecated
 	private static void outputCCDM(){
-		int zz=listCCDM.size();
+		int zz=listCCDMComponents.size();
 		for(int i=0;i<zz;i++){
-			//if(listCCDM.get(i).astrometric){
+			//if(listCCDMComponents.get(i).astrometric){
 			if(true){
-				//System.doNotShowBcsResolved.print(listCCDM.get(i).ADS);
-				for(int z=0;z<10-listCCDM.get(i).ADS.length();z++){
-					//System.doNotShowBcsResolved.print(" ");
+				//System.doNotShowBcsResolved.printCount(listCCDMComponents.get(i).ADS);
+				for(int z=0;z<10-listCCDMComponents.get(i).ADS.length();z++){
+					//System.doNotShowBcsResolved.printCount(" ");
 				}
-				//System.doNotShowBcsResolved.print(listCCDM.get(i).astrometric);
-				//System.doNotShowBcsResolved.print(listCCDM.get(i).DM);
-				for(int z=0;z<10-listCCDM.get(i).DM.length();z++){
-					//System.doNotShowBcsResolved.print(" ");
+				//System.doNotShowBcsResolved.printCount(listCCDMComponents.get(i).astrometric);
+				//System.doNotShowBcsResolved.printCount(listCCDMComponents.get(i).DM);
+				for(int z=0;z<10-listCCDMComponents.get(i).DM.length();z++){
+					//System.doNotShowBcsResolved.printCount(" ");
 				}
-				//System.doNotShowBcsResolved.print(listCCDM.get(i).HD);
-				for(int z=0;z<10-listCCDM.get(i).HD.length();z++){
-					//System.doNotShowBcsResolved.print(" ");
+				//System.doNotShowBcsResolved.printCount(listCCDMComponents.get(i).HD);
+				for(int z=0;z<10-listCCDMComponents.get(i).HD.length();z++){
+					//System.doNotShowBcsResolved.printCount(" ");
 				}
-				//System.doNotShowBcsResolved.print(listCCDM.get(i).HIP);
-				for(int z=0;z<10-listCCDM.get(i).HIP.length();z++){
-					//System.doNotShowBcsResolved.print(" ");
+				//System.doNotShowBcsResolved.printCount(listCCDMComponents.get(i).HIP);
+				for(int z=0;z<10-listCCDMComponents.get(i).HIP.length();z++){
+					//System.doNotShowBcsResolved.printCount(" ");
 				}
-				//System.doNotShowBcsResolved.print(listCCDM.get(i).idsID);
-				for(int z=0;z<10-listCCDM.get(i).idsID.length();z++){
-					//System.doNotShowBcsResolved.print(" ");
+				//System.doNotShowBcsResolved.printCount(listCCDMComponents.get(i).idsID);
+				for(int z=0;z<10-listCCDMComponents.get(i).idsID.length();z++){
+					//System.doNotShowBcsResolved.printCount(" ");
 				}
-				//System.doNotShowBcsResolved.print(listCCDM.get(i).wdsID);
-				for(int z=0;z<10-listCCDM.get(i).wdsID.length();z++){
-					//System.doNotShowBcsResolved.print(" ");
+				//System.doNotShowBcsResolved.printCount(listCCDMComponents.get(i).wdsID);
+				for(int z=0;z<10-listCCDMComponents.get(i).wdsID.length();z++){
+					//System.doNotShowBcsResolved.printCount(" ");
 				}
-				//System.doNotShowBcsResolved.println(listCCDM.get(i).nameOfObserver);
+				//System.doNotShowBcsResolved.println(listCCDMComponents.get(i).nameOfObserver);
 			}
 		}
 	}
@@ -206,29 +186,29 @@ public class WDSparser implements SharedConstants{
 		int zz=listTDSC.size();
 //		for(int i=0;i<zz;i++){
 //			if(true){
-//				//System.doNotShowBcsResolved.print(listTDSC.get(i).CCDMidPAIR);
+//				//System.doNotShowBcsResolved.printCount(listTDSC.get(i).CCDMidPAIR);
 //				for(int z=0;z<10-listTDSC.get(i).CCDMidPAIR.length();z++){
-//					//System.doNotShowBcsResolved.print(" ");
+//					//System.doNotShowBcsResolved.printCount(" ");
 //				}
-//				//System.doNotShowBcsResolved.print(listTDSC.get(i).pairTDSC);
+//				//System.doNotShowBcsResolved.printCount(listTDSC.get(i).pairTDSC);
 //				for(int z=0;z<3-listTDSC.get(i).pairTDSC.length();z++){
-//					//System.doNotShowBcsResolved.print(" ");
+//					//System.doNotShowBcsResolved.printCount(" ");
 //				}
-//				//System.doNotShowBcsResolved.print(listTDSC.get(i).HD);
+//				//System.doNotShowBcsResolved.printCount(listTDSC.get(i).HD);
 //				for(int z=0;z<10-listTDSC.get(i).HD.length();z++){
-//					//System.doNotShowBcsResolved.print(" ");
+//					//System.doNotShowBcsResolved.printCount(" ");
 //				}
-//				//System.doNotShowBcsResolved.print(listTDSC.get(i).HIPid);
+//				//System.doNotShowBcsResolved.printCount(listTDSC.get(i).HIPid);
 //				for(int z=0;z<10-listTDSC.get(i).HIPid.length();z++){
-//					//System.doNotShowBcsResolved.print(" ");
+//					//System.doNotShowBcsResolved.printCount(" ");
 //				}
-//				System.doNotShowBcsResolved.print(listTDSC.get(i).TDSCid);
+//				System.doNotShowBcsResolved.printCount(listTDSC.get(i).TDSCid);
 //				for(int z=0;z<10-listTDSC.get(i).TDSCid.length();z++){
-//					System.doNotShowBcsResolved.print(" ");
+//					System.doNotShowBcsResolved.printCount(" ");
 //				}
-//				System.doNotShowBcsResolved.print(listTDSC.get(i).WDSid);
+//				System.doNotShowBcsResolved.printCount(listTDSC.get(i).WDSid);
 //				for(int z=0;z<10-listTDSC.get(i).WDSid.length();z++){
-//					System.doNotShowBcsResolved.print(" ");
+//					System.doNotShowBcsResolved.printCount(" ");
 //				}
 //				System.doNotShowBcsResolved.println();
 //			}
@@ -253,7 +233,7 @@ public class WDSparser implements SharedConstants{
 	@Deprecated
 	private static void interprWDS2() throws IOException{
 		String fileName="logExtraPairsInWDS.txt";
-		Writer outer2 = new FileWriter(new File("C:/WDSparser/"+fileName));
+		Writer outer2 = new FileWriter(new File("C:/MainEntryPoint/"+fileName));
 		for(int i = 0; i< sysList.size(); i++){
 			ArrayList<String> names = new ArrayList<String>();
 			for(int j = 0; j< sysList.get(i).pairs.size(); j++){
@@ -286,7 +266,7 @@ public class WDSparser implements SharedConstants{
 	private static void interprCCDM2() throws IOException{
 		String fileName="logEx2.txt";
 		
-		Writer outer2 = new FileWriter(new File("C:/WDSparser/"+fileName));
+		Writer outer2 = new FileWriter(new File("C:/MainEntryPoint/"+fileName));
 		int h= sysList.size();
 		for(int i=0;i<h;i++){
 			for(int j=0; j<h;j++){
@@ -310,9 +290,9 @@ public class WDSparser implements SharedConstants{
 		ArrayList<StringPair> str = new ArrayList<StringPair>();
 		try { 	
 				String fileName2="logWCT.txt";
-				Writer outer2 = new FileWriter(new File("C:/WDSparser/"+fileName2));
+				Writer outer2 = new FileWriter(new File("C:/MainEntryPoint/"+fileName2));
 				String fileName="dataWCT.dat";
-				File dataFile = new File("C:/WDSparser/"+fileName);	
+				File dataFile = new File("C:/MainEntryPoint/"+fileName);
 				FileReader in = new FileReader(dataFile);
 				char c;
 				int xLog=0;
@@ -340,13 +320,13 @@ public class WDSparser implements SharedConstants{
 			for(int j=i;j<x;j++){
 				if(str.get(i).a!="" && str.get(i).a.equals(str.get(j).a)){
 					if(!str.get(i).b.equals(str.get(j).b) && str.get(j).b!="" && str.get(i).b!=""){
-						//System.doNotShowBcsResolved.print("DIFF_CCDM WDS1 "+str.get(i).a+" CCDM1 "+str.get(i).b+"      ");
+						//System.doNotShowBcsResolved.printCount("DIFF_CCDM WDS1 "+str.get(i).a+" CCDM1 "+str.get(i).b+"      ");
 						//System.doNotShowBcsResolved.println("WDS2 "+str.get(j).a+" CCDM2 "+str.get(j).b);
 					}
 				}
 				if(str.get(i).b!="" && str.get(i).b.equals(str.get(j).b)){
 					if(!str.get(i).a.equals(str.get(j).a) && str.get(j).a!="" && str.get(i).a!=""){
-						//System.doNotShowBcsResolved.print("DIFF_WDS  WDS1 "+str.get(i).a+" CCDM1 "+str.get(i).b+"      ");
+						//System.doNotShowBcsResolved.printCount("DIFF_WDS  WDS1 "+str.get(i).a+" CCDM1 "+str.get(i).b+"      ");
 						//System.doNotShowBcsResolved.println("WDS2 "+str.get(j).a+" CCDM2 "+str.get(j).b);
 					}
 				}
@@ -358,9 +338,9 @@ public class WDSparser implements SharedConstants{
 		ArrayList<StringPair> str = new ArrayList<StringPair>();
 		try { 	
 				String fileName2="logWCT.txt";
-				Writer outer2 = new FileWriter(new File("C:/WDSparser/"+fileName2));
+				Writer outer2 = new FileWriter(new File("C:/MainEntryPoint/"+fileName2));
 				String fileName="dataWCT.dat";
-				File dataFile = new File("C:/WDSparser/"+fileName);	
+				File dataFile = new File("C:/MainEntryPoint/"+fileName);
 				FileReader in = new FileReader(dataFile);
 				char c;
 				int xLog=0;
@@ -415,7 +395,7 @@ public class WDSparser implements SharedConstants{
 		int xLog=0;
 		long timePrev=System.nanoTime();
 		String fileName3="logTDSCerrs.txt";
-		Writer outer3 = new FileWriter(new File("C:/WDSparser/"+fileName3));
+		Writer outer3 = new FileWriter(new File("C:/MainEntryPoint/"+fileName3));
 		int gg= sysList.size();
 		int hh=listTDSC.size();
 		for(int i=0;i<gg;i++){

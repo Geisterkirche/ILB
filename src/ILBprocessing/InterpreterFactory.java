@@ -1,20 +1,58 @@
 package ILBprocessing;
 
+import ILBprocessing.beans.NodeORB6FINALIZED;
 import ILBprocessing.datasources.ORB6DS;
+import ILBprocessing.datasources.WDSDS;
 import lib.model.Pair;
 import lib.model.StarSystem;
-import lib.tools.ConverterFINALIZED;
+import lib.model.service.KeysDictionary;
+import lib.tools.resolvingRulesImplementation.MatchingByIDRuleImplementation;
+import lib.tools.resolvingRulesImplementation.MatchingBySystemIDRuleImplementation;
 
-/**
- * Created by Алекс on 22.03.2016.
- */
-public class InterpreterFactory extends WDSparser {
-    public static void interpr(){
+import java.util.ArrayList;
+
+public class InterpreterFactory extends MainEntryPoint {
+    public static void interprWDS(){
         int xLog=0;
         long timePrev=System.nanoTime();
         int d= listWDS.size();
         for(int i=0;i<d;i++){
-            firstClassificationOfpair(i);
+            //create coordinatesNotFoundInWDS sysList
+            StarSystem s= new StarSystem();
+            s.data= listWDS.get(i).coordinatesFromWDSasString;
+            s.params.put(KeysDictionary.WDSSYSTEM,listWDS.get(i).params.get(KeysDictionary.WDSSYSTEM));
+            s.coordinatesNotFoundInWDS = listWDS.get(i).coordinatesNotFoundInWDS;
+
+            //check if such sysList not exists
+            boolean uniqueSystem=true;
+            int sysNumber=0;
+            int h= sysList.size();
+            for(int j=0;j<h;j++){
+                if(s.params.get(KeysDictionary.WDSSYSTEM).equals(sysList.get(j).params.get(KeysDictionary.WDSSYSTEM))){
+                    uniqueSystem=false;
+                    sysNumber=j;
+                    break;
+                }
+            }
+            if(uniqueSystem){
+                sysList.add(s);
+                try {
+                    Pair e = new Pair();
+                    new WDSDS().propagate(e, listWDS.get(i));
+                    s.pairs.add(e);
+                }catch (Exception e){
+                    System.err.println(e.getMessage());
+                }
+            }else{
+                try {
+                    Pair e = new Pair();
+                    new WDSDS().propagate(e, listWDS.get(i));
+                    sysList.get(sysNumber).pairs.add(e);
+                }catch (Exception e){
+                    System.err.println(e.getMessage());
+                }
+            }
+
             if(xLog*500<=i){
                 System.out.println("............snap:"+i+"/"+d+ "interpreted "+ (System.nanoTime()-timePrev)/1000000+"ms");
                 timePrev=System.nanoTime();
@@ -23,183 +61,16 @@ public class InterpreterFactory extends WDSparser {
         }
     }
     public static void interprSCO(){
-        try{
-            int f=listSCO.size();
-            for(int i=0;i<f;i++){
-                level1: for(int j = 0; j< sysList.size(); j++){
-                    if((listSCO.get(i).idWDS).equals(sysList.get(j).idWDS)){
-                        for(int k=0;k<sysList.get(j).pairs.size();k++){
-                            if(listSCO.get(i).pairWDS!="" && sysList.get(j).pairs.get(k).pairWDS.equals(listSCO.get(i).pairWDS)){
-                                ORB6DS.propagate(sysList.get(j).pairs.get(k),listSCO.get(i));
-                                listSCO.remove(i);
-                                i--;
-                                f--;
-                                break level1;
-                            }else if(sysList.get(j).pairs.get(k).observer.equals(listSCO.get(i).nameOfObserver)){
-                                ORB6DS.propagate(sysList.get(j).pairs.get(k),listSCO.get(i));
-                                listSCO.remove(i);
-                                i--;
-                                f--;
-                                break level1;
-                            }else if(sysList.get(j).pairs.get(k).idDM.equals(listSCO.get(i).idDM)){
-                                ORB6DS.propagate(sysList.get(j).pairs.get(k),listSCO.get(i));
-                                listSCO.remove(i);
-                                i--;
-                                f--;
-                                break level1;
-                            }else if(sysList.get(j).pairs.get(k).modifier[0]=='o'){
-                                ORB6DS.propagate(sysList.get(j).pairs.get(k),listSCO.get(i));
-                                listSCO.remove(i);
-                                i--;
-                                f--;
-                                break level1;
-                            }
-                        }
-                    }
-                }
-            }
-        }catch(Exception g){
-            g.printStackTrace();
-        }
-    }
-
-    //WDS helpers
-    private static void firstClassificationOfpair(int i) {
-        //create coordinatesNotFoundInWDS sysList
-        StarSystem s= new StarSystem();
-        s.wdsSystemID = listWDS.get(i).wdsSystemID;
-        s.data= listWDS.get(i).coordinatesFromWDSasString;
-        s.observ= listWDS.get(i).nameOfObserver;
-        s.idWDS= listWDS.get(i).wdsSystemID;
-        s.coordinatesNotFoundInWDS = listWDS.get(i).coordinatesNotFoundInWDS;
-
-        //check if such sysList not exists
-        boolean uniqueSystem=true;
-        int sysNumber=0;
-        int h= sysList.size();
-        for(int j=0;j<h;j++){
-            if(s.wdsSystemID.substring(0,10).equals(sysList.get(j).wdsSystemID.substring(0,10))){
-                uniqueSystem=false;
-                sysNumber=j;
-                break;
-            }
-        }
-        if(uniqueSystem){
-            sysList.add(s);
-            s.pairs.add(assign(i));
-        }else{
-            assign(i);
-            sysList.get(sysNumber).pairs.add(assign(i));
-        }
-    }
-    private static Pair assign(int i) {
-        Pair e = new Pair();
-        e.observer= listWDS.get(i).nameOfObserver;
-        e.idDM= listWDS.get(i).idDM;
-        e.rho= listWDS.get(i).rho;
-        e.theta= listWDS.get(i).theta;
-        e.modifier[0]= listWDS.get(i).modifier2[0];
-        if(listWDS.get(i).modifier2[1]!=0){
-            e.modifier[0]= listWDS.get(i).modifier2[1];
-        }
-        e.pairWDS= listWDS.get(i).pairNameXXXXXfromWDS.replaceAll(" ","");
-        e.nameComponentsByPairNameForWDS();
-        parseCoordinatesDirectlyFromWDS(e,i);
-        return e;
-    }
-    public static void parseCoordinatesDirectlyFromWDS(Pair e, int i){
-        //global error tracker. Should be never throwed;
-        try{
-            //
-            //
-
-            //here can't be exception XXXXXX.YY-YYYYYY.Y
-            e.el1.coord1I=Integer.parseInt(listWDS.get(i).coordinatesFromWDSasString.substring(0,6));
-            e.el1.coord_flag=11;
-
-            // YYYYYY.XX-YYYYYY.Y sometimes missing
-            try{
-                e.el1.coord1F=Integer.parseInt(listWDS.get(i).coordinatesFromWDSasString.substring(7,9));
-            }catch(NumberFormatException exc1){
-                System.err.println("ERR01 caught while parsing "+ listWDS.get(i).coordinatesFromWDSasString);
-                try {
-                    e.el1.coord1F=Integer.parseInt(listWDS.get(i).coordinatesFromWDSasString.substring(7,8));
-                    e.el1.coord_flag=-11;
-                }catch(NumberFormatException exc2){
-                    System.err.println("ERR01b caught while parsing "+ listWDS.get(i).coordinatesFromWDSasString);
-                    e.el1.coord1F = 0;
-                    e.el1.coord_flag=-11;
-                }
-            }
-
-            // YYYYYY.YY-XXXXXX.Y should be always clear
-            try{
-                e.el1.coord2I=Integer.parseInt(listWDS.get(i).coordinatesFromWDSasString.substring(9,16));
-            }catch(NumberFormatException exc) {
-                    System.err.println("ERR02 caught while parsing "+ listWDS.get(i).coordinatesFromWDSasString);
-                    e.el1.coord2I = 0;
-                    e.el1.coord_flag = -11;
-            }
-
-            // YYYYYY.YY-YYYYYY.X sometimes missing
-            try{
-                e.el1.coord2F=Integer.parseInt(listWDS.get(i).coordinatesFromWDSasString.substring(17,18));
-            }catch(Exception exc){
-                System.err.println("ERR03 caught while parsing "+ listWDS.get(i).coordinatesFromWDSasString);
-                e.el1.coord2F=0;
-                e.el1.coord_flag=-11;
-            }
-
-            if(listWDS.get(i).rho!=0){
-                e.el2.coord_flag=12;
-                try{
-                    e.el2.coord1I=(int)(long) ConverterFINALIZED.radToHrs(ConverterFINALIZED.hrsToRad(e.el1.coord1I,e.el1.coord1F)+ listWDS.get(i).rho*Math.sin(listWDS.get(i).theta/180*Math.PI)/Math.cos(ConverterFINALIZED.grToRad(e.el1.coord2I,e.el1.coord2F)));
-                }catch(NumberFormatException exc){
-                    System.err.println("ERR04 caught while processing with e.el2.coord1I "+ listWDS.get(i).coordinatesFromWDSasString);
-                    e.el2.coord1I=0;
-                    e.el2.coord_flag=-12;
-                }
-                try{
-                    e.el2.coord1F=(int)(long)(100*(ConverterFINALIZED.radToHrs(ConverterFINALIZED.hrsToRad(e.el1.coord1I,e.el1.coord1F)+ listWDS.get(i).rho*Math.sin(listWDS.get(i).theta/180*Math.PI)/Math.cos(ConverterFINALIZED.grToRad(e.el1.coord2I,e.el1.coord2F)))-e.el2.coord1I));
-                }catch(NumberFormatException exc){
-                    System.err.println("ERR05 caught while processing with e.el2.coord1F "+ listWDS.get(i).coordinatesFromWDSasString);
-                    e.el2.coord1F=0;
-                    e.el2.coord_flag=-12;
-                }
-                try{
-                    e.el2.coord2I=(int)(long) ConverterFINALIZED.radToGr(ConverterFINALIZED.grToRad(e.el1.coord2I,e.el1.coord2F)+ listWDS.get(i).rho*Math.cos(listWDS.get(i).theta/180*Math.PI));
-                }catch(NumberFormatException exc){
-                    System.err.println("ERR06 caught while processing with e.el2.coord2I "+ listWDS.get(i).coordinatesFromWDSasString);
-                    e.el2.coord2I=0;
-                    e.el2.coord_flag=-12;
-                }
-                try{
-                    e.el2.coord2F=(int)(long)(10*(ConverterFINALIZED.radToGr(ConverterFINALIZED.grToRad(e.el1.coord2I,e.el1.coord2F)+ listWDS.get(i).rho*Math.cos(listWDS.get(i).theta/180*Math.PI))-e.el2.coord2I));
-                }catch(NumberFormatException exc){
-                    System.err.println("ERR07 caught while processing with e.el2.coord2F "+ listWDS.get(i).coordinatesFromWDSasString);
-                    e.el2.coord2F=0;
-                    e.el2.coord_flag=-12;
-                }
-                if(e.el2.coord2I<0){
-                    e.el2.coord2F*=-1;
-                }
-            }
-
-            //
-            //Case for fatal error catched. Transaction should be rolled back(?) (should we implement ORM?)
-            //
-        }catch(Exception td){
-            System.err.println("ERR08 FATAL error caught"+ listWDS.get(i).coordinatesFromWDSasString);
-            e.el1.coord_flag=-1;
-            td.printStackTrace();
-        }
+        listSCO= (ArrayList<NodeORB6FINALIZED>)MatchingByIDRuleImplementation.resolve(KeysDictionary.OBSERVER,listSCO, new ORB6DS());
+        listSCO= (ArrayList<NodeORB6FINALIZED>)MatchingByIDRuleImplementation.resolve(KeysDictionary.DM,listSCO, new ORB6DS());
+        listSCO= (ArrayList<NodeORB6FINALIZED>)MatchingBySystemIDRuleImplementation.resolve(KeysDictionary.WDSSYSTEM,listSCO, new ORB6DS());
     }
 }
 
 /* public static void interprTDSC(){//"log4.txt"
         try{
             //String fileName="logTDSC.txt";
-            //Writer outer2 = new FileWriter(new File("C:/WDSparser/"+fileName));
+            //Writer outer2 = new FileWriter(new File("C:/MainEntryPoint/"+fileName));
             int f= sysList.size();
             int h=listTDSC.size();
             for(int j=0;j<f;j++){
@@ -260,55 +131,54 @@ public static void interprCCDM(){//"log3.txt"
         int matches=0;
         long timePrev=System.nanoTime();
         try{
-        int f=listCCDM.size();
-        System.out.println("listCCDM.size()= "+listCCDM.size());
+        int f=listCCDMComponents.size();
+        System.out.println("listCCDMComponents.size()= "+listCCDMComponents.size());
         int h;
         for(int i=0;i<f;i++){
         h= sysList.size();
         upper:{ for(int j=0;j<h;j++){
-        if(sysList.get(j).CCDMid!=null && listCCDM.get(i).ccdmID.equals(sysList.get(j).CCDMid)){
+        if(sysList.get(j).CCDMid!=null && listCCDMComponents.get(i).ccdmID.equals(sysList.get(j).CCDMid)){
         for(int dd = 0; dd< sysList.get(j).pairs.size(); dd++){
-        //������� �������.
-        if(sysList.get(j).pairs.get(dd).pairCCDM.equals(listCCDM.get(i).pairCCDM)){
+        if(sysList.get(j).pairs.get(dd).pairCCDM.equals(listCCDMComponents.get(i).pairCCDM)){
         //iter++;
         int k=dd;
         if(sysList.get(j).pairs.get(k).idHD==""){
-        if(listCCDM.get(i).HD!=""){
-        sysList.get(j).pairs.get(k).idHD=listCCDM.get(i).HD;
-        if((""+listCCDM.get(i).componentInfo)== sysList.get(j).pairs.get(k).el1.nameInILB){
-        sysList.get(j).pairs.get(k).el1.idHD=listCCDM.get(i).HD;
+        if(listCCDMComponents.get(i).HD!=""){
+        sysList.get(j).pairs.get(k).idHD=listCCDMComponents.get(i).HD;
+        if((""+listCCDMComponents.get(i).componentInfo)== sysList.get(j).pairs.get(k).el1.nameInILB){
+        sysList.get(j).pairs.get(k).el1.idHD=listCCDMComponents.get(i).HD;
         }else{
-        sysList.get(j).pairs.get(k).el1.idHD=listCCDM.get(i).HD;
-        sysList.get(j).pairs.get(k).el2.idHD=listCCDM.get(i).HD;
+        sysList.get(j).pairs.get(k).el1.idHD=listCCDMComponents.get(i).HD;
+        sysList.get(j).pairs.get(k).el2.idHD=listCCDMComponents.get(i).HD;
         }
         }
         }
         if(sysList.get(j).pairs.get(k).idHIP=="" ){
-        if(listCCDM.get(i).HIP!=""){
-        sysList.get(j).pairs.get(k).idHIP=listCCDM.get(i).HIP;
-        if((""+listCCDM.get(i).componentInfo)== sysList.get(j).pairs.get(k).el1.nameInILB){
-        sysList.get(j).pairs.get(k).el1.idHIP=listCCDM.get(i).HIP;
+        if(listCCDMComponents.get(i).HIP!=""){
+        sysList.get(j).pairs.get(k).idHIP=listCCDMComponents.get(i).HIP;
+        if((""+listCCDMComponents.get(i).componentInfo)== sysList.get(j).pairs.get(k).el1.nameInILB){
+        sysList.get(j).pairs.get(k).el1.idHIP=listCCDMComponents.get(i).HIP;
         }else{
-        sysList.get(j).pairs.get(k).el2.idHIP=listCCDM.get(i).HIP;
-        sysList.get(j).pairs.get(k).el1.idHIP=listCCDM.get(i).HIP;
+        sysList.get(j).pairs.get(k).el2.idHIP=listCCDMComponents.get(i).HIP;
+        sysList.get(j).pairs.get(k).el1.idHIP=listCCDMComponents.get(i).HIP;
         }
         }
         }
         if(sysList.get(j).pairs.get(k).idADS==""){
-        sysList.get(j).pairs.get(k).idADS=listCCDM.get(i).ADS;
+        sysList.get(j).pairs.get(k).idADS=listCCDMComponents.get(i).ADS;
         }
         if(sysList.get(j).pairs.get(k).idDM=="" ){
-        if(listCCDM.get(i).DM!=""){
-        sysList.get(j).pairs.get(k).idDM=listCCDM.get(i).DM;
-        if((""+listCCDM.get(i).componentInfo)== sysList.get(j).pairs.get(k).el1.nameInILB){
-        sysList.get(j).pairs.get(k).el1.idDM=listCCDM.get(i).DM;
+        if(listCCDMComponents.get(i).DM!=""){
+        sysList.get(j).pairs.get(k).idDM=listCCDMComponents.get(i).DM;
+        if((""+listCCDMComponents.get(i).componentInfo)== sysList.get(j).pairs.get(k).el1.nameInILB){
+        sysList.get(j).pairs.get(k).el1.idDM=listCCDMComponents.get(i).DM;
         }else{
-        sysList.get(j).pairs.get(k).el2.idDM=listCCDM.get(i).DM;
-        sysList.get(j).pairs.get(k).el1.idDM=listCCDM.get(i).DM;
+        sysList.get(j).pairs.get(k).el2.idDM=listCCDMComponents.get(i).DM;
+        sysList.get(j).pairs.get(k).el1.idDM=listCCDMComponents.get(i).DM;
         }
         }
         }
-        if(listCCDM.get(i).astrometric){
+        if(listCCDMComponents.get(i).astrometric){
         sysList.get(j).pairs.get(k).modifier[4]='a';
         }else{
         sysList.get(j).pairs.get(k).modifier[4]='v';
@@ -328,7 +198,7 @@ public static void interprCCDM(){//"log3.txt"
         }catch(Exception g){
         g.printStackTrace();
         }
-        System.out.println("f= "+listCCDM.size());
+        System.out.println("f= "+listCCDMComponents.size());
         System.out.println("matches= "+matches);
         }
 public static void interprINT4() {//"logINT4.txt"
@@ -336,7 +206,7 @@ public static void interprINT4() {//"logINT4.txt"
         long timePrev=System.nanoTime();
         try{
         String fileName="logINT4.txt";
-        Writer outer2 = new FileWriter(new File("C:/WDSparser/"+fileName));
+        Writer outer2 = new FileWriter(new File("C:/MainEntryPoint/"+fileName));
         int f=listINT4.size();
         int h;
         boolean exists = false;
@@ -498,8 +368,8 @@ public static void interprINT4() {//"logINT4.txt"
         }
         if(exists == false){
         StarSystem s= new StarSystem();
-        //System.doNotShowBcsResolved.println(listCCDM.get(i).ccdmID+"_");
-        //s.coordinatesFromWDSasString=listCCDM.get(i).coordinatesFromWDSasString;
+        //System.doNotShowBcsResolved.println(listCCDMComponents.get(i).ccdmID+"_");
+        //s.coordinatesFromWDSasString=listCCDMComponents.get(i).coordinatesFromWDSasString;
         Pair e = new Pair();
         e.pairIdILB ="AB";
         e.el1.nameInILB ="A";
@@ -551,7 +421,7 @@ public static void interprCEV() {//"logCEV.txt"+
         long timePrev=System.nanoTime();
         try{
         String fileName="logCEV.txt";
-        Writer outer2 = new FileWriter(new File("C:/WDSparser/"+fileName));
+        Writer outer2 = new FileWriter(new File("C:/MainEntryPoint/"+fileName));
         int f=listCEV.size();
         int h;
         for(int i=0;i<f;i++){
@@ -626,7 +496,7 @@ public static void interprCEV() {//"logCEV.txt"+
         }
         }
 public static void interprSB9(String key1) {//"log8.txt"
-        System.out.println("interpr SB9");
+        System.out.println("interprWDS SB9");
         try{
         String fileName="log8.txt";
         int f=listSB9.size();
@@ -721,19 +591,19 @@ public static void interprSB9(String key1) {//"log8.txt"
         }
         }
 public static void predInterprCCDM(){
-        int f=listCCDM.size();
+        int f=listCCDMComponents.size();
         int h;
         for(int i=0;i<f;i++){
-        if(listCCDM.get(i).pairCCDM!="ZZ"){
+        if(listCCDMComponents.get(i).pairCCDM!="ZZ"){
         try{
-        if(listCCDM.get(i).pairCCDM.charAt(0)=='A'){
+        if(listCCDMComponents.get(i).pairCCDM.charAt(0)=='A'){
         int j=i-1;
         while(j>0){
-        if(listCCDM.get(j).pairCCDM=="ZZ"){
-        //listCCDM.get(i).coord_I1_1=listCCDM.get(j).coord_I2_1;
-        //listCCDM.get(i).coord_I1_2=listCCDM.get(j).coord_I2_2;
-        //listCCDM.get(i).coord_F1_1=listCCDM.get(j).coord_F2_1;
-        //listCCDM.get(i).coord_F1_2=listCCDM.get(j).coord_F2_2;
+        if(listCCDMComponents.get(j).pairCCDM=="ZZ"){
+        //listCCDMComponents.get(i).coord_I1_1=listCCDMComponents.get(j).coord_I2_1;
+        //listCCDMComponents.get(i).coord_I1_2=listCCDMComponents.get(j).coord_I2_2;
+        //listCCDMComponents.get(i).coord_F1_1=listCCDMComponents.get(j).coord_F2_1;
+        //listCCDMComponents.get(i).coord_F1_2=listCCDMComponents.get(j).coord_F2_2;
         break;
         }
         j--;
@@ -741,11 +611,11 @@ public static void predInterprCCDM(){
         }else{
         int j=i-1;
         while(j>0){
-        if(listCCDM.get(j).pairCCDM.charAt(1)==listCCDM.get(i).pairCCDM.charAt(0)){
-        //listCCDM.get(i).coord_I1_1=listCCDM.get(j).coord_I2_1;
-        //listCCDM.get(i).coord_I1_2=listCCDM.get(j).coord_I2_2;
-        //listCCDM.get(i).coord_F1_1=listCCDM.get(j).coord_F2_1;
-        //listCCDM.get(i).coord_F1_2=listCCDM.get(j).coord_F2_2;
+        if(listCCDMComponents.get(j).pairCCDM.charAt(1)==listCCDMComponents.get(i).pairCCDM.charAt(0)){
+        //listCCDMComponents.get(i).coord_I1_1=listCCDMComponents.get(j).coord_I2_1;
+        //listCCDMComponents.get(i).coord_I1_2=listCCDMComponents.get(j).coord_I2_2;
+        //listCCDMComponents.get(i).coord_F1_1=listCCDMComponents.get(j).coord_F2_1;
+        //listCCDMComponents.get(i).coord_F1_2=listCCDMComponents.get(j).coord_F2_2;
         break;
         }
         j--;
@@ -791,10 +661,10 @@ public static void interprCCDMcoords(){
 public static void ccdmFillZZ(Component el1, int i){
         try{
         while(i>=0){
-        if(listCCDM.get(i).pairCCDM=="ZZ"){
-        el1.idDM=listCCDM.get(i).DM;
-        el1.idHIP=listCCDM.get(i).HIP;
-        el1.idHD=listCCDM.get(i).HD;
+        if(listCCDMComponents.get(i).pairCCDM=="ZZ"){
+        el1.idDM=listCCDMComponents.get(i).DM;
+        el1.idHIP=listCCDMComponents.get(i).HIP;
+        el1.idHD=listCCDMComponents.get(i).HD;
         return;
         }
         i--;
@@ -809,10 +679,10 @@ public static void interprCCDMr(){//"log3.txt"
         long timePrev=System.nanoTime();
         try{
         String fileName="log3.txt";
-        Writer outer2 = new FileWriter(new File("C:/WDSparser/"+fileName));
+        Writer outer2 = new FileWriter(new File("C:/MainEntryPoint/"+fileName));
 //		System.doNotShowBcsResolved.println(listSCO.size());
 //		System.doNotShowBcsResolved.println(sysList.size());
-        int f=listCCDM.size();
+        int f=listCCDMComponents.size();
         int h;
         for(int i=0;i<f;i++){
         h= sysList.size();
@@ -820,18 +690,18 @@ public static void interprCCDMr(){//"log3.txt"
         upper: for(int j=0;j<h;j++){
         for(int dd = 0; dd< sysList.get(j).pairs.size(); dd++){
         boolean zzFixed=false;
-        if(listCCDM.get(i).pairCCDM!="ZZ" && listCCDM.get(i).wdsID!=null && sysList.get(j).idWDS!=null && sysList.get(j).idWDS.length()>10 && (listCCDM.get(i).wdsID).equals(sysList.get(j).idWDS.substring(0, 10)) ||
-        sysList.get(j).pairs.get(dd).systemCCDM !=null && listCCDM.get(i).ccdmID.equals(sysList.get(j).pairs.get(dd).systemCCDM) ||
-        sysList.get(j).CCDMid!=null && listCCDM.get(i).ccdmID.equals(sysList.get(j).CCDMid)){
+        if(listCCDMComponents.get(i).pairCCDM!="ZZ" && listCCDMComponents.get(i).wdsID!=null && sysList.get(j).idWDS!=null && sysList.get(j).idWDS.length()>10 && (listCCDMComponents.get(i).wdsID).equals(sysList.get(j).idWDS.substring(0, 10)) ||
+        sysList.get(j).pairs.get(dd).systemCCDM !=null && listCCDMComponents.get(i).ccdmID.equals(sysList.get(j).pairs.get(dd).systemCCDM) ||
+        sysList.get(j).CCDMid!=null && listCCDMComponents.get(i).ccdmID.equals(sysList.get(j).CCDMid)){
         systemExistence=true;
         boolean existence=false;
         iter++;
         int number = 0;
         Pair ee = new Pair();
-        ee.pairIdILB =listCCDM.get(i).pairCCDM;
-        ee.pairCCDM=listCCDM.get(i).pairCCDM;
-        ee.systemCCDM =listCCDM.get(i).ccdmID;
-        ee.observer=listCCDM.get(i).nameOfObserver;
+        ee.pairIdILB =listCCDMComponents.get(i).pairCCDM;
+        ee.pairCCDM=listCCDMComponents.get(i).pairCCDM;
+        ee.systemCCDM =listCCDMComponents.get(i).ccdmID;
+        ee.observer=listCCDMComponents.get(i).nameOfObserver;
         ee.pairIdILB=ee.pairIdILB.replaceAll(" ","");
         ee.dispWithoutRepeatCheckerInWriter(j);
         for(int k = 0; k< sysList.get(j).pairs.size(); k++){
@@ -840,40 +710,40 @@ public static void interprCCDMr(){//"log3.txt"
         existence=true;
         number=i;
         if(sysList.get(j).pairs.get(k).idHD==""){
-        if(listCCDM.get(i).HD!=""){
-        sysList.get(j).pairs.get(k).idHD=listCCDM.get(i).HD;
-        if((""+listCCDM.get(i).componentInfo)== sysList.get(j).pairs.get(k).el1.nameInILB){
-        sysList.get(j).pairs.get(k).el1.idHD=listCCDM.get(i).HD;
+        if(listCCDMComponents.get(i).HD!=""){
+        sysList.get(j).pairs.get(k).idHD=listCCDMComponents.get(i).HD;
+        if((""+listCCDMComponents.get(i).componentInfo)== sysList.get(j).pairs.get(k).el1.nameInILB){
+        sysList.get(j).pairs.get(k).el1.idHD=listCCDMComponents.get(i).HD;
         }else{
-        sysList.get(j).pairs.get(k).el2.idHD=listCCDM.get(i).HD;
+        sysList.get(j).pairs.get(k).el2.idHD=listCCDMComponents.get(i).HD;
         }
         }
         }
         if(sysList.get(j).pairs.get(k).idHIP=="" ){
-        if(listCCDM.get(i).HIP!=""){
-        sysList.get(j).pairs.get(k).idHIP=listCCDM.get(i).HIP;
-        if((""+listCCDM.get(i).componentInfo)== sysList.get(j).pairs.get(k).el1.nameInILB){
-        sysList.get(j).pairs.get(k).el1.idHIP=listCCDM.get(i).HIP;
+        if(listCCDMComponents.get(i).HIP!=""){
+        sysList.get(j).pairs.get(k).idHIP=listCCDMComponents.get(i).HIP;
+        if((""+listCCDMComponents.get(i).componentInfo)== sysList.get(j).pairs.get(k).el1.nameInILB){
+        sysList.get(j).pairs.get(k).el1.idHIP=listCCDMComponents.get(i).HIP;
         }else{
-        sysList.get(j).pairs.get(k).el2.idHIP=listCCDM.get(i).HIP;
+        sysList.get(j).pairs.get(k).el2.idHIP=listCCDMComponents.get(i).HIP;
         }
         }
         }
         if(sysList.get(j).pairs.get(k).idADS==""){
-        sysList.get(j).pairs.get(k).idADS=listCCDM.get(i).ADS;
+        sysList.get(j).pairs.get(k).idADS=listCCDMComponents.get(i).ADS;
         }
         if(sysList.get(j).pairs.get(k).idDM=="" ){
-        if(listCCDM.get(i).DM!=""){
-        sysList.get(j).pairs.get(k).idDM=listCCDM.get(i).DM;
-        if((""+listCCDM.get(i).componentInfo)== sysList.get(j).pairs.get(k).el1.nameInILB){
-        sysList.get(j).pairs.get(k).el1.idHIP=listCCDM.get(i).DM;
+        if(listCCDMComponents.get(i).DM!=""){
+        sysList.get(j).pairs.get(k).idDM=listCCDMComponents.get(i).DM;
+        if((""+listCCDMComponents.get(i).componentInfo)== sysList.get(j).pairs.get(k).el1.nameInILB){
+        sysList.get(j).pairs.get(k).el1.idHIP=listCCDMComponents.get(i).DM;
         }else{
-        sysList.get(j).pairs.get(k).el2.idHIP=listCCDM.get(i).DM;
+        sysList.get(j).pairs.get(k).el2.idHIP=listCCDMComponents.get(i).DM;
         }
         }
         }
-        sysList.get(j).pairs.get(k).systemCCDM =listCCDM.get(i).ccdmID;
-        if(listCCDM.get(i).astrometric){
+        sysList.get(j).pairs.get(k).systemCCDM =listCCDMComponents.get(i).ccdmID;
+        if(listCCDMComponents.get(i).astrometric){
         sysList.get(j).pairs.get(k).modifier[4]='a';
         //System.doNotShowBcsResolved.println("ASTROMETRIC!");
         }else{
@@ -882,31 +752,31 @@ public static void interprCCDMr(){//"log3.txt"
         break upper;
         }
         }
-        if(!existence && listCCDM.get(i).pairCCDM!="ZZ"){
-        outer2.write("err: ccdmID:"+listCCDM.get(i).ccdmID+" pairNameXXXXXfromWDS:"+listCCDM.get(i).pairCCDM+" "+(char)10);
+        if(!existence && listCCDMComponents.get(i).pairCCDM!="ZZ"){
+        outer2.write("err: ccdmID:"+listCCDMComponents.get(i).ccdmID+" pairNameXXXXXfromWDS:"+listCCDMComponents.get(i).pairCCDM+" "+(char)10);
         outer2.flush();
         Pair eea = new Pair();
-        eea.pairIdILB =listCCDM.get(i).pairCCDM;
-        eea.systemCCDM =listCCDM.get(i).ccdmID;
-        eea.pairCCDM=listCCDM.get(i).pairCCDM;
-        eea.observer=listCCDM.get(i).nameOfObserver;
+        eea.pairIdILB =listCCDMComponents.get(i).pairCCDM;
+        eea.systemCCDM =listCCDMComponents.get(i).ccdmID;
+        eea.pairCCDM=listCCDMComponents.get(i).pairCCDM;
+        eea.observer=listCCDMComponents.get(i).nameOfObserver;
         eea.el1=ee.el1;
         eea.el2=ee.el2;
-        eea.idHD=listCCDM.get(i).HD;
-        eea.idHIP=listCCDM.get(i).HIP;
-        eea.idADS=listCCDM.get(i).ADS;
-        eea.idDM=listCCDM.get(i).DM;
-        eea.el2.idDM=listCCDM.get(i).DM;
-        eea.el2.idHIP=listCCDM.get(i).HIP;
-        eea.el2.idHD=listCCDM.get(i).HD;
+        eea.idHD=listCCDMComponents.get(i).HD;
+        eea.idHIP=listCCDMComponents.get(i).HIP;
+        eea.idADS=listCCDMComponents.get(i).ADS;
+        eea.idDM=listCCDMComponents.get(i).DM;
+        eea.el2.idDM=listCCDMComponents.get(i).DM;
+        eea.el2.idHIP=listCCDMComponents.get(i).HIP;
+        eea.el2.idHD=listCCDMComponents.get(i).HD;
         if(eea.el1.nameInILB.equals("A")){
         if(zzFixed==false){
         ccdmFillZZ(eea.el1, i);
         zzFixed=true;
         }
         }
-        if(listCCDM.get(i).astrometric){
-        outer2.write("Close pairNameXXXXXfromWDS: ccdmID:"+listCCDM.get(i).ccdmID+" pairNameXXXXXfromWDS:"+listCCDM.get(i).pairCCDM+" "+(char)10);
+        if(listCCDMComponents.get(i).astrometric){
+        outer2.write("Close pairNameXXXXXfromWDS: ccdmID:"+listCCDMComponents.get(i).ccdmID+" pairNameXXXXXfromWDS:"+listCCDMComponents.get(i).pairCCDM+" "+(char)10);
         outer2.flush();
         boolean closeExists=false;
         for(int ij = 0; ij< sysList.get(j).pairs.size(); ij++){
@@ -940,42 +810,42 @@ public static void interprCCDMr(){//"log3.txt"
         if(systemExistence==false){
         StarSystem s= new StarSystem();
         sysList.add(s);
-        s.wdsSystemID =listCCDM.get(i).ccdmID+listCCDM.get(i).nameOfObserver;
-        //System.doNotShowBcsResolved.println(listCCDM.get(i).ccdmID+"_");
-        //s.coordinatesFromWDSasString=listCCDM.get(i).coordinatesFromWDSasString;
-        s.observ=listCCDM.get(i).nameOfObserver;
+        s.wdsSystemID =listCCDMComponents.get(i).ccdmID+listCCDMComponents.get(i).nameOfObserver;
+        //System.doNotShowBcsResolved.println(listCCDMComponents.get(i).ccdmID+"_");
+        //s.coordinatesFromWDSasString=listCCDMComponents.get(i).coordinatesFromWDSasString;
+        s.observ=listCCDMComponents.get(i).nameOfObserver;
         s.coordinatesNotFoundInWDS =true;
-        s.CCDMid=listCCDM.get(i).ccdmID;
+        s.CCDMid=listCCDMComponents.get(i).ccdmID;
         s.data=s.CCDMid.substring(0,5)+"0.00"+s.CCDMid.substring(5,10)+"00.0";
         Pair ee = new Pair();
-        ee.pairIdILB =listCCDM.get(i).pairCCDM;
-        //ee.el1.coord1I=listCCDM.get(i).coord_I1_1;
-        //ee.el1.coord1F=listCCDM.get(i).coord_F1_1;
-        //ee.el1.coord2I=listCCDM.get(i).coord_I1_2;
-        //ee.el1.coord2F=listCCDM.get(i).coord_F1_2;
-//				ee.el2.coord1I=listCCDM.get(i).coord_I2_1;
-//				ee.el2.coord1F=listCCDM.get(i).coord_F2_1;
-//				ee.el2.coord2I=listCCDM.get(i).coord_I2_2;
-//				ee.el2.coord2F=listCCDM.get(i).coord_F2_2;
+        ee.pairIdILB =listCCDMComponents.get(i).pairCCDM;
+        //ee.el1.coord1I=listCCDMComponents.get(i).coord_I1_1;
+        //ee.el1.coord1F=listCCDMComponents.get(i).coord_F1_1;
+        //ee.el1.coord2I=listCCDMComponents.get(i).coord_I1_2;
+        //ee.el1.coord2F=listCCDMComponents.get(i).coord_F1_2;
+//				ee.el2.coord1I=listCCDMComponents.get(i).coord_I2_1;
+//				ee.el2.coord1F=listCCDMComponents.get(i).coord_F2_1;
+//				ee.el2.coord2I=listCCDMComponents.get(i).coord_I2_2;
+//				ee.el2.coord2F=listCCDMComponents.get(i).coord_F2_2;
         ee.pairIdILB=ee.pairIdILB.replaceAll(" ","");
         ee.dispWithoutRepeatCheckerInWriter(-1);
         Pair e = new Pair();
         e.pairIdILB =ee.pairIdILB;
         e.el1=ee.el1;
         e.el2=ee.el2;
-        e.pairCCDM=listCCDM.get(i).pairCCDM;
-        e.systemCCDM =listCCDM.get(i).ccdmID;
-        e.idHD=listCCDM.get(i).HD;
-        e.idHIP=listCCDM.get(i).HIP;
-        e.idADS=listCCDM.get(i).ADS;
-        e.idDM=listCCDM.get(i).DM;
-        e.el2.idDM=listCCDM.get(i).DM;
-        e.el2.idHIP=listCCDM.get(i).HIP;
-        e.el2.idHD=listCCDM.get(i).HD;
+        e.pairCCDM=listCCDMComponents.get(i).pairCCDM;
+        e.systemCCDM =listCCDMComponents.get(i).ccdmID;
+        e.idHD=listCCDMComponents.get(i).HD;
+        e.idHIP=listCCDMComponents.get(i).HIP;
+        e.idADS=listCCDMComponents.get(i).ADS;
+        e.idDM=listCCDMComponents.get(i).DM;
+        e.el2.idDM=listCCDMComponents.get(i).DM;
+        e.el2.idHIP=listCCDMComponents.get(i).HIP;
+        e.el2.idHD=listCCDMComponents.get(i).HD;
         if(e.el1.nameInILB.equals("A")){
         ccdmFillZZ(e.el1, i);
         }
-        if(listCCDM.get(i).astrometric){
+        if(listCCDMComponents.get(i).astrometric){
         e.modifier[4]='a';
         e.pairIdILB ="AB";
         e.el1.nameInILB ="A";

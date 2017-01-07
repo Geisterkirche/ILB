@@ -3,10 +3,13 @@ package lib.tools;
 import java.util.ArrayList;
 
 
-public class StatisticsCollector {
+public class GlobalPoolOfIdentifiers {
 	public static ArrayList<String> HD = new ArrayList<String>();
 	public static ArrayList<String> DM = new ArrayList<String>();
 	public static ArrayList<String> HIP = new ArrayList<String>();
+	public static ArrayList<String> ADS = new ArrayList<String>();
+	public static ArrayList<String> BAYER = new ArrayList<String>();
+	public static ArrayList<String> FLAMSTEED = new ArrayList<String>();
 
 	public static boolean likeFlamsteed(String temp){
 		temp=temp.toUpperCase();
@@ -138,39 +141,34 @@ public class StatisticsCollector {
 	}
 	public static boolean likeDM(String a){
 		a=a.toLowerCase();
-		if((a.contains("bd") || a.contains("cd") || a.contains("cp")) && (a.contains("+") || a.contains("-"))){
-				return true;
+		if((a.contains("+") || a.contains("-"))){
+			return true;
 		}
 		return false;
 	}
 
 	public static String rebuildIdToUnifiedBase(String a){
-		a=a.toUpperCase().replaceAll("  "," ").replaceAll("  "," ").replaceAll("  "," ").replaceAll("  ","").replaceAll("  ","");
-		String[] z = a.split(" ");
-		StringBuffer s = new StringBuffer();
-		for(int i=0;i<z.length;i++){
-			for(int j=0;j<z[i].length();j++){
-				if((""+z[i].charAt(j)).equals((""+z[i].charAt(j)).replaceAll("\\w|\\d|\\+|\\-",""))){
-					s.append(z[i].charAt(j));
-				}
-			}
-			s.append(" ");
-		}
-		try {
-			String ss = s.toString().substring(0, s.length() - 1);
-			return ss;
-		}catch(Exception e){
-			return "";
+		a=a.toUpperCase().replaceAll("    "," ").replaceAll("   "," ").replaceAll("  "," ").replaceAll("[^a-zA-Z0-9,+-]","");
+		return a;
+	}
+	public static String rebuildIdForDM(String a){
+		//remove all words after '+' or '-'. cut part with CP, CD etc
+		a=rebuildIdToUnifiedBase(a);
+		String[] s = a.split("\\+|\\-");
+		if(a.contains("-")) {
+			return "-"+s[s.length - 1];
+		}else{
+			return "+"+s[s.length - 1];
 		}
 	}
-
-
+	@Deprecated
 	public static  boolean containHD(String hd){
 		if(HD.contains(hd)){
 			return true;
 		}
 		return false;
 	}
+	@Deprecated
 	public static  boolean validateHD(String hd){
 		if(!containHD(hd)){
 			HD.add(hd);
@@ -180,12 +178,14 @@ public class StatisticsCollector {
 			return false;
 		}
 	}
+	@Deprecated
 	public static  boolean containDM(String hd){
 		if(DM.contains(hd)){
 			return true;
 		}
 		return false;
 	}
+	@Deprecated
 	public static  boolean validateDM(String hd){
 		if(!containDM(hd)){
 			DM.add(hd);
@@ -195,12 +195,14 @@ public class StatisticsCollector {
 			return false;
 		}
 	}
+	@Deprecated
 	public static  boolean containHIP(String hd){
 		if(HIP.contains(hd)){
 			return true;
 		}
 		return false;
 	}
+	@Deprecated
 	public static boolean validateHIP(String hd){
 		if(!containHIP(hd)){
 			HIP.add(hd);
@@ -211,12 +213,8 @@ public class StatisticsCollector {
 		}
 	}
 
-	public static void print(){
-		System.out.println("HIP size:"+HIP.size());
-		System.out.println("HD size:"+HD.size());
-		System.out.println("DM size:"+DM.size());
-	};
 
+	@Deprecated
 	public static String cutDM(String dm) {
 		dm=dm.toLowerCase();
 		if(dm.contains("bd")){
@@ -241,4 +239,13 @@ public class StatisticsCollector {
 		}
 		return dm;
 	}
+
+	public static void printCount(){
+		System.out.println("HIP size:"+HIP.size());
+		System.out.println("HD size:"+HD.size());
+		System.out.println("DM size:"+DM.size());
+		System.out.println("ADS size:"+ADS.size());
+		System.out.println("BAYER size:"+BAYER.size());
+		System.out.println("FLAMSTEED size:"+FLAMSTEED.size());
+	};
 }

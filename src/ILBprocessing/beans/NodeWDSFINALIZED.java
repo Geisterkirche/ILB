@@ -1,10 +1,11 @@
 package ILBprocessing.beans;
 
-import lib.tools.StatisticsCollector;
+import lib.model.service.KeysDictionary;
+import lib.model.service.NodeForParsedCatalogue;
+import lib.tools.GlobalPoolOfIdentifiers;
 
-public class NodeWDS {
-	public String wdsSystemID;
-	public String nameOfObserver;//same as DD
+public class NodeWDSFINALIZED extends NodeForParsedCatalogue {
+
 	public String pairNameXXXXXfromWDS;
 	public boolean coordinatesNotFoundInWDS;
 	public String coordinatesFromWDSasString; //  055957.08+530946.2
@@ -13,7 +14,8 @@ public class NodeWDS {
 	public double rho;
 	public char[] modifier2 = new char[2];// V
 	
-	public NodeWDS(String s){
+	public NodeWDSFINALIZED(String s){
+		source=s;
 		coordinatesNotFoundInWDS =false;
 		calculateIdDM(s);
 		calculateModifier(s);
@@ -24,7 +26,10 @@ public class NodeWDS {
 	}
 	public void calculateIdDM(String s){
 		idDM=s.substring(98, 106);
-		idDM=StatisticsCollector.rebuildIdToUnifiedBase(idDM);
+        if(idDM.replaceAll("  ","").length()>3) {
+            idDM = GlobalPoolOfIdentifiers.rebuildIdForDM(idDM);
+            GlobalPoolOfIdentifiers.DM.add(idDM);
+        }
 	}
 	public void calculateModifier(String s){
 		String modifierYX=s.substring(107, 112);
@@ -49,7 +54,7 @@ public class NodeWDS {
 		}
 	}
 	public void calculateIdentifier(String s){
-		wdsSystemID =s.substring(0, 10);
+        params.put(KeysDictionary.WDSSYSTEM,s.substring(0, 10));
 	};
 	public void calculateData(String s){
 		coordinatesFromWDSasString =s.substring(111, s.length());
@@ -57,14 +62,14 @@ public class NodeWDS {
 			coordinatesFromWDSasString = coordinatesFromWDSasString.substring(1, coordinatesFromWDSasString.length());
 		}
 		if(coordinatesFromWDSasString.charAt(0)=='.'){
-			coordinatesFromWDSasString = wdsSystemID.substring(0, 5)+"0.00"+ wdsSystemID.substring(5, 10)+"00.0";
+			coordinatesFromWDSasString = s.substring(0, 5)+"0.00"+ s.substring(5, 10)+"00.0";
 			coordinatesNotFoundInWDS =true;
 		}
 		try {
 			rho = Double.parseDouble(s.substring(52, 57)) * Math.PI / 60 / 10800;
 			if(rho==-1){
 				rho=0;
-				System.err.println("found pair with rho=-1: "+wdsSystemID+nameOfObserver+pairNameXXXXXfromWDS);
+				System.err.println("found pair with rho=-1: "+source);
 			}
 		}catch (Exception e){
 			System.err.println("ERR10 Exception caught"+s.substring(52, 57));
@@ -79,7 +84,7 @@ public class NodeWDS {
 		}
 	};
 	public void calculateNameOfObserver(String s){
-		nameOfObserver=s.substring(10, 17).toUpperCase().replaceAll(" ","");
+        params.put(KeysDictionary.OBSERVER, GlobalPoolOfIdentifiers.rebuildIdToUnifiedBase(s.substring(10, 23)));
 	}
 	public void calculatePair(String s){
 		pairNameXXXXXfromWDS =s.substring(17, 22);
@@ -89,7 +94,7 @@ public class NodeWDS {
 				pairNameXXXXXfromWDS ="AB";
 			}
 		}catch(Exception e){
-			System.err.println("ERR11 FATAL Exception caught while parsing nameInILB for"+wdsSystemID+nameOfObserver+pairNameXXXXXfromWDS);
+			System.err.println("ERR11 FATAL Exception caught while parsing nameInILB for"+source);
 			e.printStackTrace();
 		}
 	}

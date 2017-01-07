@@ -1,7 +1,7 @@
 package lib.tools;
 
 import ILBprocessing.configuration.SharedConstants;
-import lib.service.SplitRule;
+import lib.model.service.SplitRule;
 
 import java.io.*;
 
