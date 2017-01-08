@@ -1,9 +1,8 @@
 package ILBprocessing;
 
-import ILBprocessing.beans.helpers.NodeCCDMComponent;
 import ILBprocessing.beans.NodeORB6FINALIZED;
 import ILBprocessing.beans.NodeWDSFINALIZED;
-import lib.model.service.KeysDictionary;
+import ILBprocessing.beans.helpers.NodeCCDMComponent;
 
 import java.io.File;
 import java.io.FileReader;
@@ -109,13 +108,6 @@ public class ParserFactory extends MainEntryPoint {
                 }
             }
             NodeCCDMComponent.translateToPairs(listCCDMComponents,listCCDMPairs);
-            for(int i=0;i<5;i++){
-                System.out.print(MainEntryPoint.listCCDMPairs.get(i).params.get(KeysDictionary.CCDMSYSTEM));
-                System.out.print(" " + MainEntryPoint.listCCDMPairs.get(i).params.get(KeysDictionary.COORD_F1_1));
-                System.out.print(" " + MainEntryPoint.listCCDMPairs.get(i).params.get(KeysDictionary.COORD_F2_1));
-                if(MainEntryPoint.listCCDMPairs.get(i).params.containsKey(KeysDictionary.OBSERVER)) System.out.print(" " + MainEntryPoint.listCCDMPairs.get(i).params.get(KeysDictionary.OBSERVER));
-                System.out.println();
-            }
             System.out.println("Success. fileLength="+dataFile.length());
         } catch (Exception e) {
             e.printStackTrace();

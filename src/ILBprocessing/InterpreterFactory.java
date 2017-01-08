@@ -1,11 +1,14 @@
 package ILBprocessing;
 
+import ILBprocessing.beans.NodeCCDMPair;
 import ILBprocessing.beans.NodeORB6FINALIZED;
+import ILBprocessing.datasources.CCDMDS;
 import ILBprocessing.datasources.ORB6DS;
 import ILBprocessing.datasources.WDSDS;
 import lib.model.Pair;
 import lib.model.StarSystem;
 import lib.model.service.KeysDictionary;
+import lib.tools.resolvingRulesImplementation.MatchingByCoordinatesRuleImplementation;
 import lib.tools.resolvingRulesImplementation.MatchingByIDRuleImplementation;
 import lib.tools.resolvingRulesImplementation.MatchingBySystemIDRuleImplementation;
 
@@ -65,6 +68,9 @@ public class InterpreterFactory extends MainEntryPoint {
         listSCO= (ArrayList<NodeORB6FINALIZED>)MatchingByIDRuleImplementation.resolve(KeysDictionary.DM,listSCO, new ORB6DS());
         listSCO= (ArrayList<NodeORB6FINALIZED>)MatchingBySystemIDRuleImplementation.resolve(KeysDictionary.WDSSYSTEM,listSCO, new ORB6DS());
     }
+    public static void interprCCDM(){
+        listCCDMPairs= (ArrayList<NodeCCDMPair>) MatchingByCoordinatesRuleImplementation.resolve(listCCDMPairs, new CCDMDS());
+   }
 }
 
 /* public static void interprTDSC(){//"log4.txt"

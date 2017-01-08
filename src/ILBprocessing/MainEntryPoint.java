@@ -112,6 +112,7 @@ public class MainEntryPoint implements SharedConstants{
         ParserFactory.parseCCDM(i);
 
         InterpreterFactory.interprWDS();
+        InterpreterFactory.interprCCDM();
         //NotesInterpreter.interpreteNotes();
 
         System.out.println("Processing..");

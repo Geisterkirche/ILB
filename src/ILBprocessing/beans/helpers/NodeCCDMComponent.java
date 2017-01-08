@@ -4,11 +4,13 @@ import ILBprocessing.MainEntryPoint;
 import ILBprocessing.beans.NodeCCDMPair;
 import lib.model.service.KeysDictionary;
 import lib.model.service.NodeForParsedCatalogue;
+import lib.tools.ConverterFINALIZED;
 import lib.tools.GlobalPoolOfIdentifiers;
 
 import java.util.ArrayList;
 
 public class NodeCCDMComponent extends NodeForParsedCatalogue {
+    public String source = "";
     public String pairCCDM = "";
     public String nameOfObserver = "";
     public String wdsID = "";
@@ -18,13 +20,14 @@ public class NodeCCDMComponent extends NodeForParsedCatalogue {
     public String ADS = "";
     public String HIP = "";
     public char componentInfo;
-    public int coord_I2_1 = 0;
-    public int coord_I2_2 = 0;
+    public int coord_I2_1 = 0;// in 00149-3209 00149
+    public int coord_I2_2 = 0;// in 00149-3209 -3209
     public int coord_F2_1 = 0;
     public int coord_F2_2 = 0;
     public boolean astrometric = false;
 
     public NodeCCDMComponent(String s) {
+        source=s;
         ccdmID = s.substring(1, 11);
         if (s.charAt(12) == 'A') {
             componentInfo = 'A';
@@ -56,27 +59,35 @@ public class NodeCCDMComponent extends NodeForParsedCatalogue {
         }
         wdsID = s.substring(114, 125).replaceAll("N","+").replaceAll("S","-");
     }
+    public void parseCoordinates(String s) {//refactored. finished method
+        try {
+            coord_I2_1 = (int) Integer.parseInt(s.substring(1, 6));
+            if (s.charAt(6) != ' ') {
+                coord_I2_2 = (int) Integer.parseInt(s.substring(6, 11));
+            } else {
+                coord_I2_2 = (int) Integer.parseInt(s.substring(7, 11));
+            }
 
-    public void parseCoordinates(String s) {
-        coord_I2_1 = (int) Integer.parseInt(s.substring(1, 6));
-        if (s.charAt(6) != ' ') {
-            coord_I2_2 = (int) Integer.parseInt(s.substring(6, 11));
-        } else {
-            coord_I2_2 = (int) Integer.parseInt(s.substring(7, 11));
-        }
-        if (s.charAt(27) != ' ') {
-            if (s.charAt(23) != ' ') {
-                coord_I2_1 += (int) Integer.parseInt(s.substring(23, 27));
-            } else {
-                coord_I2_1 += (int) Integer.parseInt(s.substring(24, 27));
+            if (s.charAt(27) != ' ') {
+                if (s.charAt(23) != ' ') {
+                    coord_I2_1 += (int) Integer.parseInt(s.substring(23, 27));
+                    coord_F2_1 = (int) Integer.parseInt("" + "" + s.charAt(23) + s.substring(28, 30));
+                } else {
+                    coord_I2_1 += (int) Integer.parseInt(s.substring(24, 27));
+                    coord_F2_1 = (int) Integer.parseInt("" + s.substring(28, 30));
+                }
+
+                if (s.charAt(30) != ' ') {
+                    coord_I2_2 += (int) Integer.parseInt(s.substring(30, 35));
+                    coord_F2_2 = (int) Integer.parseInt("" + s.charAt(30) + s.charAt(36));
+                } else {
+                    coord_I2_2 += (int) Integer.parseInt(s.substring(31, 35));
+                    coord_F2_2 = (int) Integer.parseInt("" + s.charAt(36));
+                }
             }
-            coord_F2_1 = (int) Integer.parseInt(s.substring(28, 30));
-            if (s.charAt(30) != ' ') {
-                coord_I2_2 += (int) Integer.parseInt(s.substring(30, 35));
-            } else {
-                coord_I2_2 += (int) Integer.parseInt(s.substring(31, 35));
-            }
-            coord_F2_2 = (int) Integer.parseInt("" + s.charAt(36));
+        }catch (Exception e){
+            e.printStackTrace();
+            System.err.println("causedBy:"+s);
         }
     }
     public static void translateToPairs(ArrayList<NodeCCDMComponent> listComp,ArrayList<NodeCCDMPair> listPair){
@@ -84,7 +95,7 @@ public class NodeCCDMComponent extends NodeForParsedCatalogue {
             if(listComp.get(i).componentInfo!='A'){
                 NodeCCDMPair e = new NodeCCDMPair();
                 e.params.put(KeysDictionary.CCDMSYSTEM,listComp.get(i).ccdmID);
-                char target = listComp.get(i).pairCCDM.charAt(1);
+                char target = listComp.get(i).pairCCDM.charAt(0);
                 for(int j=0;j<listComp.size();j++){
                     if(listComp.get(j).componentInfo==target){
                         propagateToPairNode(e,listComp.get(j));
@@ -92,6 +103,7 @@ public class NodeCCDMComponent extends NodeForParsedCatalogue {
                     }
                 }
                 propagateToPairNode(e,listComp.get(i));
+                e.source=listComp.get(i).source;
                 MainEntryPoint.listCCDMPairs.add(e);
             }
         }
@@ -127,6 +139,7 @@ public class NodeCCDMComponent extends NodeForParsedCatalogue {
             e.params.put(KeysDictionary.COORD_I2_2,""+c.coord_I2_2);
             e.params.put(KeysDictionary.COORD_F2_1,""+c.coord_F2_1);
             e.params.put(KeysDictionary.COORD_F2_2,""+c.coord_F2_2);
+            ConverterFINALIZED.calculateRhoTheta(e);
         }
     }
 }

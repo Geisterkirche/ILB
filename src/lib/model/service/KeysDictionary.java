@@ -4,6 +4,11 @@ package lib.model.service;
  * Created by Алекс on 07.01.2017.
  */
 public interface KeysDictionary {
+    String RHO = "RHO";
+    String THETA = "THETA";
+    String X = "X";
+    String Y = "Y";
+
     String HD = "HD";
     String HIP = "HIP";
     String DM = "DM"; 	//BD+85   63
