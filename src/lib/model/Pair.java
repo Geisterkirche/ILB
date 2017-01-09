@@ -2,9 +2,6 @@ package lib.model;
 
 public class Pair extends Component{
 
-	public double rho=0;
-	public double theta=0;
-
 	public Component el1;//reference to pair or component
 	public Component el2;//reference to pair or component
 

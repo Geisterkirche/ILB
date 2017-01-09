@@ -19,8 +19,8 @@ public class WDSDS implements Datasourse {
             e.params.put(KeysDictionary.DM,node.idDM);
             e.params.put(KeysDictionary.OBSERVER,node.params.get(KeysDictionary.OBSERVER));
 
-            e.rho= node.rho;
-            e.theta= node.theta;
+            e.params.put(KeysDictionary.RHO,""+node.rho);
+            e.params.put(KeysDictionary.THETA,""+node.theta);
             e.modifier[0]= node.modifier2[0];
             if(node.modifier2[1]!=0){
                 e.modifier[0]= node.modifier2[1];
@@ -118,5 +118,9 @@ public class WDSDS implements Datasourse {
             e.el1.coord_flag=-1;
             td.printStackTrace();
         }
+        e.el1.rightCoordX=ConverterFINALIZED.hrsToRad(e.el1.coord1I,e.el1.coord1F)/Math.PI*180;
+        e.el1.rightCoordY=ConverterFINALIZED.grToRad(e.el1.coord2I,e.el1.coord2F)/Math.PI*180;
+        e.el2.rightCoordX=ConverterFINALIZED.hrsToRad(e.el2.coord1I,e.el2.coord1F)/Math.PI*180;
+        e.el2.rightCoordY=ConverterFINALIZED.grToRad(e.el2.coord2I,e.el2.coord2F)/Math.PI*180;
     }
 }

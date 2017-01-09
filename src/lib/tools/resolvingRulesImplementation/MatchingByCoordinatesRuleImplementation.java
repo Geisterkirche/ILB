@@ -30,7 +30,7 @@ public class MatchingByCoordinatesRuleImplementation extends MainEntryPoint {
             }
             if (!tooManyMatches && alreadyMatched) {
                 try {
-                    System.err.println("MATCH! "+ list.get(i).source);
+                    System.err.print("MATCH by coordinates!"+ list.get(i).source);
                     datasourceClass.getClass().newInstance().propagate(matchedTo, list.get(i));
                     list.remove(i);
                     i--;
@@ -39,24 +39,27 @@ public class MatchingByCoordinatesRuleImplementation extends MainEntryPoint {
                     e.printStackTrace();
                 }
             }else{
-               // System.err.println("FAIL! "+tooManyMatches +" "+ alreadyMatched);
+                if(tooManyMatches) {
+                    System.err.print("UNRESOLVED! tooManyMatches:"+ list.get(i).source);
+                }else{
+                    System.err.print("UNRESOLVED! not found matches:"+ list.get(i).source);
+                }
             }
         }
         return list;
     }
     public static boolean corresponds(Pair e, NodeForParsedCatalogue n){
-        double x1 = Double.parseDouble(e.el1.coord1I+"."+e.el1.coord1F);
-        double y1 = Double.parseDouble(e.el1.coord2I+"."+e.el1.coord2F);
+        double x1 = e.el1.rightCoordX;
+        double y1 = e.el1.rightCoordY;
         double x2 = Double.parseDouble(n.params.get(KeysDictionary.X));
         double y2 = Double.parseDouble(n.params.get(KeysDictionary.Y));
 
         double r = Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
 
         if(r<MatchingParameters.COORDINATES_MATCHING_LIMIT){
-            System.err.println(e.el1.coord1I+" " + e.el1.coord1F+" "+e.el1.coord2I+" " + e.el1.coord2F);
-            System.err.println("x1: "+x1+"y1: "+y1);
-            System.err.println("x2: "+x2+"y2: "+y2);
-            System.err.println();
+            //System.err.println();
+            //System.err.println("rightCoord: "+ e.el1.rightCoordX+" | "+e.el1.rightCoordY);
+            //System.err.println("matched to: "+ n.params.get(KeysDictionary.X)+" | "+n.params.get(KeysDictionary.Y));
             return true;
         }else {
             return false;

@@ -1,0 +1,903 @@
+call:interprCCDM()
+Total list size:360
+RULE 1 EXECUTION STARTED
+MatchingByAnglesImplementation.resolve(listCCDMPairs, new CCDMDS())
+resolved: 6.7 :6.6 and 107.0 : 107.0
+MATCH both angles!  00000+3852 B  BU  860 +001.65-0028.2 90 1881 107   6.7  7 11.4    -0005-0001                             A17157  23549N3819B      3
+resolved: 1.8 :1.8 and 88.0 : 84.0
+MATCH both angles!  00002+0146 B  WEI  45                   1879 088   1.8 11 10.5                                           A17156N 23551N0113B       
+resolved: 8.5 :8.5 and 11.0 : 10.0
+MATCH both angles!  00002-2519 B  COO                       1932 011   8.5  2  9.5 G                                                 23550S2553B       
+  notCorrespondsToCriteria 00003+7305 B  HJ 3231 -000.73+0001.0 65 1905 283  19.5  1 13.0                                           B12689  23553N7232B       
+resolved: 41.9 :44.7 and 297.0 : 296.0
+MATCH both angles!  00003+7305 C  HJ 3231 -004.77+0015.9 65 1905 297  41.9  1 11.1                                           B12689  23553N7232C       
+resolved: 1.1 :1.4 and 8.0 : 8.0
+MATCH both angles!  00003+6557 B  MLR 280                   1971   8   1.1  1 10.9                                                   23552N6523B       
+resolved: 0.7 :0.9 and 41.0 : 43.0
+MATCH both angles!  00003-0941 B  RST4137                   1937 041   0.7  3 11.5                                                   23552S1005B       
+  notCorrespondsToCriteria 00003-4417 B  I  1477                   1959 292   0.5 12  7.3                                                   23552S4451B     25
+resolved: 13.2 :12.4 and 48.0 : 48.0
+MATCH both angles!  00004+6026 B  STI1248 +001.95-0020.6 10 1901 048  13.2  1 10.9   *+0027+0012          +60 1615.6                 23553N5952B       
+resolved: 10.8 :11.5 and 279.0 : 279.0
+MATCH both angles!  00004+5044 B  HJ 1923 -001.54+0022.4 65 1907 279  10.8  3 11.8                                           B12685  23553N5011B       
+  notCorrespondsToCriteria 00004+2655 B  AG  299                                                                                    B12686N 23552N2622B     34
+resolved: 0.2 :0.2 and 332.0 : 332.0
+MATCH both angles!  00004-4711 B  HDS     +001.27+0013.7 82 1991 332   0.2  1 11.7   *-0007+0007                                                     37
+resolved: 8.2 :8.2 and 224.0 : 225.0
+MATCH both angles!  00005+6713 B  HJ 1924                   1908 224   8.2  2 11.1                                           A17160  23554N6640B     40
+resolved: 14.5 :14.4 and 123.0 : 124.0
+MATCH both angles!  00005+5903 B  STI3079 +004.18-0028.1 65 1910 123  14.5  1 13.9                                                   23554N5829B       
+resolved: 12.4 :13.8 and 190.0 : 194.0
+MATCH both angles!  00005+5610 B  STI3078 +002.51-0038.1 65 1906 190  12.4  3 12.7                                                   23554N5536B       
+resolved: 4.6 :4.6 and 339.0 : 340.0
+MATCH both angles!  00005+4917 B  HU  700                   1902 339   4.6  3 13.6                                           A17161  23554N4844B       
+resolved: 4.7 :5.0 and 150.0 : 149.0
+MATCH both angles!  00005+3114 B  COU 645                   1970 150   4.7  1 14.3                                                   23553N3040B       
+  notCorrespondsToCriteria 00005+2031 B  COU 444                   1968  39   3.8  1 13.3                                                   23554N1957B       
+resolved: 6.0 :5.8 and 152.0 : 152.0
+MATCH both angles!  00005+0829 B  BU  732                   1878 152   6.0  6 11.4                                           A17162  23553N0757B       
+resolved: 152.5 :153.1 and 143.0 : 143.0
+MATCH both angles!  00005+0829 C  BU  732 +001.81-0052.9 10 1913 143 152.5  1  8.7 F2*+0001+0003+07 5115.0+08 3288.6 224772  A17162  23553N0757C       
+resolved: 2.8 :2.8 and 244.0 : 242.0
+MATCH both angles!  00005-7212 B  B  1902                   1931 244   2.8  1 12.0                                                   23553S7246B     45
+resolved: 0.6 :0.7 and 27.0 : 28.0
+MATCH both angles!  00006-5238 B  FIN 294                   1930 027   0.6  2 11.0                                                   23554S5312B       
+  notCorrespondsToCriteria 00006-5306 B  HJ 5437                   1959 312   1.9 13 10.3                                                   23554S5339B     50
+resolved: 3.7 :3.8 and 267.0 : 273.0
+MATCH both angles!  00006-6641 B  GLI 289                   1889 267   3.7  5  9.4                                                   23554S6714B     55
+  notCorrespondsToCriteria 00007+6103 B  STI1249 -001.89+0022.5 65 1913 263  11.5  1 13.1                                                   23556N6030B       
+resolved: 2.7 :2.4 and 332.0 : 338.0
+MATCH both angles!  00007+0013 B  RST5178                   1942 332   2.7  2 13.5                                                   23555S0020B     56
+resolved: 15.0 :15.6 and 233.0 : 234.0
+MATCH both angles!  00008+3647 B  ES  221                   1904 233  15.0  6  9.4                                           A17164  23557N3613B     70
+resolved: 0.4 :0.4 and 322.0 : 329.0
+MATCH both angles!  00008-3244 B  I  1478                   1925 322   0.4  5  9.8                                                   23557S3318B       
+  notCorrespondsToCriteria 00009+5915 B  STI3081                   1906 081   5.7  2 12.8                                                   23558N5842B       
+resolved: 1.2 :1.2 and 65.0 : 64.0
+MATCH both angles!  00009-1739 B  RST3339                   1933 065   1.2  4 10.8                                                   23558S1812B       
+resolved: 0.7 :0.7 and 33.0 : 35.0
+MATCH both angles!  00009-2025 B  DON1056                   1929 033   0.7  4 12.2                                                   23558S2059B       
+resolved: 66.0 :66.4 and 259.0 : 261.0
+MATCH both angles!  00010-2326 B  LDS2070 -000.61-0035.0 10 1952 259  66.0  1 10.7 G0*+0070-0079-2417944.2  192316.8 224831          23560S2400B       
+resolved: 1.7 :1.7 and 356.0 : 355.0
+MATCH both angles!  00010-4234 B  I  1088                   1914 356   1.7  6 10.7                                                   23559S4308B       
+resolved: 1.7 :1.8 and 295.0 : 297.0
+MATCH both angles!  00010-4919 B  RST1178                   1930 295   1.7  2 13.2                                                   23559S4953B       
+resolved: 2.8 :3.2 and 258.0 : 256.0
+MATCH both angles!  00010-5445 B  RST1177                   1930 258   2.8  2 11.3                                                   23558S5519B       
+resolved: 100.5 :101.2 and 353.0 : 354.0
+MATCH both angles!  00011+6935 B  STT4253 -003.36+0072.7 10 1875 353 100.5  5  8.0 B9*+0020+0007+68 1417.0+69 1054.6 224836  B12691  23560N6901B     86
+resolved: 6.0 :6.0 and 42.0 : 42.0
+MATCH both angles!  00011+6336 B  MLB 240                   1909 042   6.0  2 11.6                                           A17165  23560N6303B       
+  notCorrespondsToCriteria 00012+2502 B  POU5882                   1897 051   9.6  2 13.1                                                   23560N2429B       
+resolved: 11.8 :11.6 and 204.0 : 204.0
+MATCH both angles!  00012+1358 B  WNO                       1976 204  11.8  3 10.9                                                   23561N1324B     96
+resolved: 58.1 :57.7 and 89.0 : 89.0
+MATCH both angles!  00013+6021 B  STT4254 +005.55+0019.6 10 1953 089  58.1  7  8.7 A *-0012-0001+59 2812.0+60 1621.6 224869  B12693  23561N5948B       
+resolved: 155.7 :155.0 and 324.0 : 324.0
+MATCH both angles!  00013+6021 P  STT4254 -014.51+0144.9 65 1879 324 155.7  3 11.1                                           B12693  23561N5948P       
+resolved: 134.4 :133.3 and 129.0 : 130.0
+MATCH both angles!  00013+6021BQ  STT4254 +019.54-0065.7 65 1879 129 134.4  3 11.0                                           B12693  23561N5948Q       
+resolved: 15.0 :15.3 and 265.0 : 264.0
+MATCH both angles!  00013+0742 B  DU    4 +001.02+0005.0 10 1869 265  15.0  4 10.2 F8*-0029-0062          +07 3452.6         B12694  23562N0709B       
+  notCorrespondsToCriteria 00013-7011 B  GLI 290 -000.38-0011.9 10 1919 297  28.4  1 10.0   *+0080-0015-70 3035.4                           23561S7045B       
+not enough data:  00014+3937 B* HLD  60                   1881           99  9.6                                           A17178  23563N3905B    110
+  notCorrespondsToCriteria 00014+3937 B* HLD  60                   1881           99  9.6                                           A17178  23563N3905B    110
+  notCorrespondsToCriteria 00015+5603 B  HJ 1925 -001.17+0039.4 65 1905 338  16.4  1 11.4                                           B12695  23562N5531B       
+  notCorrespondsToCriteria 00015+3044 B  HO  208                   1956 208   0.9 13 10.2                                           A17167  23564N3011B    114
+resolved: 2.8 :2.7 and 207.0 : 204.0
+MATCH both angles!  00015-6203 B  B   628                   1927 207   2.8  1 13.5                                                   23563S6236B       
+resolved: 2.0 :2.1 and 242.0 : 244.0
+MATCH both angles!  00016+6437 B  MLR  79                   1970 242   2.0  1 13.0                                                   23565N6404B       
+resolved: 2.6 :3.2 and 33.0 : 36.0
+MATCH both angles!  00016+1659 B  J   215                   1952 033   2.6  7 13.4                                           A17170  23565N1625B       
+resolved: 9.5 :10.2 and 241.0 : 243.0
+MATCH both angles!  00017+5905 B  STI3083                   1910 241   9.5  1 13.9                                                   23566N5832B       
+resolved: 0.9 :0.8 and 108.0 : 115.0
+MATCH both angles!  00017-0911 B  RST4737                   1938 108   0.9  2 10.9                                                   23566S0944B       
+resolved: 1.7 :1.6 and 291.0 : 299.0
+MATCH both angles!  00018+6437 B  HU  798                   1904 291   1.7  3 10.9                                           A17171  23567N6404B       
+resolved: 0.1 :0.2 and 340.0 : 348.0
+MATCH both angles!  00018-2548 B  B   630                   1932 340   0.1  6 10.2                                           A17173N 23567S2621B    146
+resolved: 1.5 :1.8 and 189.0 : 187.0
+MATCH both angles!  00018-3613 B  B   629                   1925 189   1.5  3 11.5                                                   23567S3646B       
+resolved: 11.4 :11.1 and 319.0 : 322.0
+MATCH both angles!  00018-5715 B  HJ 5438                   1914 319  11.4  1 13.5                                                   23567S5748B       
+resolved: 4.4 :4.1 and 343.0 : 342.0
+MATCH both angles!  00019+6319 B  BU  482                   1877 343   4.4  7 10.4                                           A17172  23568N6246B       
+resolved: 9.8 :10.4 and 124.0 : 125.0
+MATCH both angles!  00019+6319 C  BU  482                   1880 124   9.8  6 11.3                                           A17172  23568N6246C       
+  notCorrespondsToCriteria 00019-4137 B  I  1060                   1912 340   0.7  6 10.9                                                   23568S4210B    151
+resolved: 4.8 :5.0 and 238.0 : 238.0
+MATCH both angles!  00019-4835 B  B  1405                   1930 238   4.8  1 12.5                                                   23568S4909B       
+resolved: 4.2 :4.5 and 54.0 : 54.0
+MATCH both angles!  00020+4531 B  BRT1164                   1894 054   4.2  6  9.6                                           A17123  23569N4458B       
+resolved: 19.7 :18.1 and 8.0 : 9.0
+MATCH both angles!  00020+4531 C  J   864 +001.97+0037.5 65 1954 008  19.7  3 14.0                                           A17123  23569N4457C       
+resolved: 8.7 :8.6 and 112.0 : 115.0
+MATCH both angles!  00021+5821 B  STI3085                   1910 112   8.7  1 13.3                                                   23570N5747B       
+not enough data:  00021+2706 B* BU  733                   1878           99 11.0                                           A17175  23569N2633B    171
+not enough data:  00021+2706 B* BU  733                   1878           99 11.0                                           A17175  23569N2633B    171
+not enough data:  00021+2706 B* BU  733                   1878           99 11.0                                           A17175  23569N2633B    171
+not enough data:  00021+2706 B* BU  733                   1878           99 11.0                                           A17175  23569N2633B    171
+  notCorrespondsToCriteria 00021+2706 B* BU  733                   1878           99 11.0                                           A17175  23569N2633B    171
+  notCorrespondsToCriteria 00021+2706 C  BU  733 -002.84+0065.6 10 1932 330  75.5 99  8.6   *-0012-0027+26 4735.0+26 2847.6         A17175  23569N2633C    162
+  notCorrespondsToCriteria 00021+2706 D  BU  733                   1921 296 109.9 16 13.0                                           A17175  23569N2633D       
+  notCorrespondsToCriteria 00021-6817 B  I   699 +003.17+0008.0 40 1955 120   3.7  3 10.6                                                   23570S6850B    169
+resolved: 12.6 :12.9 and 247.0 : 248.0
+MATCH both angles!  00022+5958 B  BU                        1898 247  12.6  3 12.1                                                 N 23571N5925B       
+resolved: 2.1 :2.2 and 136.0 : 137.0
+MATCH both angles!  00022+5715 B  FOX  52                   1912 136   2.1  3 10.8                                           A17176  23571N5643B       
+resolved: 10.5 :10.5 and 306.0 : 300.0
+MATCH both angles!  00023+6225 B  STI1257 -001.60+0034.0 65 1913 306  10.5  1 13.7                                                   23572N6152B       
+resolved: 2.0 :2.3 and 107.0 : 103.0
+MATCH both angles!  00023+3829 B  COU 945                   1972 107   2.0  1 11.2                                                   23571N3756B       
+resolved: 1.3 :1.4 and 353.0 : 347.0
+MATCH both angles!  00023+3257 B  HO  209                   1884 353   1.3  8 11.4                                           A17179  23572N3225B       
+  notCorrespondsToCriteria 00023+3257 C  HO  209 +002.02+0014.1 65 1936 142  17.1  5 13.3                                           A17179  23572N3225C       
+resolved: 1.0 :1.2 and 335.0 : 343.0
+MATCH both angles!  00023-1042 B  RST4138                   1937 335   1.0  2 11.7                                                   23572S1116B       
+resolved: 3.3 :3.0 and 288.0 : 287.0
+MATCH both angles!  00023-2708 B  HJ 5440                   1834 288   3.3 15  8.9                                           A17177  23571S2742B    178
+resolved: 3.0 :3.0 and 320.0 : 330.0
+MATCH both angles!  00023-2943 B  B   631                        320   3.0    13.0                                                   23572S3017B    183
+resolved: 9.7 :9.8 and 80.0 : 80.0
+MATCH both angles!  00023-7238 B  HJ 5439                   1917 080   9.7  1 12.0                                                   23571S7311B       
+  notCorrespondsToCriteria 00024+1047 B  A  1249                   1958 245   0.3  8  9.9                                           A17180N 23573N1013B    190
+  notCorrespondsToCriteria 00024+1047 C  BGH     -002.41+0007.4 10      120  63.2  1  8.4 G0*-0037-0115+09 5313.0+10 3289.6 224984  A17180N 23573N1013C    185
+resolved: 3.4 :3.6 and 320.0 : 321.0
+MATCH both angles!  00025+2518 B  POU5883                   1898 320   3.4  1 13.2                                                   23573N2445B       
+resolved: 2.8 :2.7 and 128.0 : 128.0
+MATCH both angles!  00025-5654 B  B  1022                   1927 128   2.8  2 12.5                                                   23574S5727B       
+resolved: 15.2 :15.1 and 70.0 : 71.0
+MATCH both angles!  00026+6606 B  STF3053 +002.37+0002.2 10 1832 070  15.2 18  7.5 A2*-0001+0020+65 1988.0+65    2.6 225010  A    1  23575N6532B    209
+resolved: 98.5 :98.7 and 290.0 : 290.0
+MATCH both angles!  00026+6606 C  STF3053 -015.20+0030.1 65 1911 290  98.5  2 10.8                                           A    1  23575N6532C       
+resolved: 1.0 :1.5 and 207.0 : 206.0
+MATCH both angles!  00026+5534 B  A  1499                   1906 207   1.0  8  9.9                                           A    3  23575N5501B       
+  notCorrespondsToCriteria 00026+1841 B  HDS     -002.57+0000.1 82 1991 165   0.2  1 10.6   *-0013+0017                                                    201
+not enough data:  00026-0829 B* A   428                   1902           21  9.5                                           A    4  23575S0903B    210
+  notCorrespondsToCriteria 00026-0829 B* A   428                   1902           21  9.5                                           A    4  23575S0903B    210
+resolved: 10.1 :9.9 and 290.0 : 290.0
+MATCH both angles!  00027+5958 B  ARG  47 +001.81-0020.2 10 1892 290  10.1  9 10.7 A *-0006+0001          +59    2.6 240479  A    7  23576N5924B       
+resolved: 16.9 :16.7 and 23.0 : 24.0
+MATCH both angles!  00028+8017 B  STF3051 +000.90+0012.0 91 1832 023  16.9 13  9.8   *+0035+0025          +80    2.6         A    5  23576N7943B    227
+resolved: 0.6 :0.3 and 301.0 : 296.0
+MATCH both angles!  00028+7812 B  HU  799                   1945 301   0.6  3 10.4 F8                                        A    6  23577N7739B       
+resolved: 14.0 :15.0 and 337.0 : 333.0
+MATCH both angles!  00028+5742 B  STI3086 +001.98+0015.2 65 1910 337  14.0  1 13.9                                                   23577N5709B       
+resolved: 23.6 :23.9 and 87.0 : 85.0
+MATCH both angles!  00028+3549 B  HO  622 -000.05-0002.6 65 1896 087  23.6  2 12.3                                           A    8  23576N3516B       
+  notCorrespondsToCriteria 00028+0208 B  BU  281                   1959 179   1.5 99 11.0                                           A    9  23576N0135B    223
+  notCorrespondsToCriteria 00028+0208 C  HJ  998 -002.30+0026.4 65 1922 332  35.0  9 11.7                                           A    9  23576N0135C       
+resolved: 0.1 :0.2 and 162.0 : 162.0
+MATCH both angles!  00028-2353 B  B   632                   1931 162   0.1  3 10.3                                           A   11  23577S2426B       
+resolved: 34.0 :34.7 and 8.0 : 9.0
+MATCH both angles!  00029+7122 B  STF3052 +002.76+0005.2 10 1831 008  34.0 10  9.1   *-0003+0006          +71    2.6         B12712  23578N7048B    235
+  notCorrespondsToCriteria 00029+4715 B  A   800                   1904 290   1.5 25  8.8                                           A   10  23577N4642B    229
+resolved: 3.5 :3.3 and 324.0 : 325.0
+MATCH both angles!  00029+2845 B  MLB 509                   1926 324   3.5  1 11.6                                           A   12  23578N2811B       
+  notCorrespondsToCriteria 00030+0323 B  WEI  46                                                                                    B12714N 23578N0250B    239
+resolved: 27.9 :26.8 and 78.0 : 75.0
+MATCH both angles!  00030-0054 B  HJ  999                   1905 078  27.9  2 13.4                                           B12713  23579S0129B       
+resolved: 1.1 :1.4 and 54.0 : 50.0
+MATCH both angles!  00030-5402 B  RST2232                   1936 054   1.1  2 12.0                                                   23579S5435B       
+resolved: 1.6 :1.6 and 177.0 : 177.0
+MATCH both angles!  00031+6942 B  BU  861                   1881 177   1.6  9 11.8                                           A   13  23579N6909B       
+  notCorrespondsToCriteria 00031+6942 C  BU  861 +000.87+0019.5 65 1902 046  16.4  2 14.8                                           A   13  23579N6909C       
+  notCorrespondsToCriteria 00031+6942 D  BU  861                   1907 273  16.8  1 15.6                                           A   13  23579N6909D       
+resolved: 0.4 :0.3 and 327.0 : 334.0
+MATCH both angles!  00031+5228 B  HDS     -000.19-0005.2 82 1991 327   0.4  1 11.1   *-0008-0016                                                    250
+resolved: 5.3 :5.4 and 143.0 : 138.0
+MATCH both angles!  00031+2929 B  MLB 510                   1926 143   5.3  1 13.2                                           A   15  23580N2856B    252
+resolved: 33.8 :33.6 and 181.0 : 181.0
+MATCH both angles!  00031+0816 B  STF3054 -002.29-0018.5 10 1828 181  33.8  8 10.0   *-0025-0032          +07    4.6         B12715  23579N0743B    247
+  notCorrespondsToCriteria 00031+0722 B  HJ 3233 -002.46-0029.9 65 1905 210  12.7  1 12.0                                           B12717  23579N0649B       
+resolved: 82.4 :83.0 and 326.0 : 326.0
+MATCH both angles!  00031+0722 C  HJ 3233 -004.54+0049.4 65 1982 326  82.4    10.2 K5*+0002-0005          +07    3.6         B12717 *23579N0649C       
+resolved: 7.6 :7.4 and 162.0 : 164.0
+MATCH both angles!  00032+5442 B  STI3087                   1907 162   7.6  1 13.2                                                   23580N5408B       
+  notCorrespondsToCriteria 00032+4508 B  HJ 1927 -001.98-0026.7 10 1907 076  15.0  2  9.4 F *+0004-0017          +44    4.6 225067  A   14  23580N4434B       
+resolved: 1.0 :1.3 and 201.0 : 201.0
+MATCH both angles!  00033+8239 B  HJ 3234                   1830 201   1.0  1 12.6                                           B12721  23582N8206B       
+resolved: 19.3 :19.9 and 43.0 : 42.0
+MATCH both angles!  00033+8239 C  HJ 3234 +006.11+0038.5 65 1904 043  19.3  1 13.0                                           B12721  23582N8206C       
+  notCorrespondsToCriteria 00033+6053 B  HJ 1928 -000.67+0010.7 65 1901 195  13.6  2 10.9                                           B12720  23582N6020B       
+  notCorrespondsToCriteria 00033+6053 C  HJ 1928                   1909 045  20.0  1 14.0                                           B12720  23582N6020C       
+  notCorrespondsToCriteria 00033+5834 B  STI3088                   1910 012   2.8  1 12.9                                                   23582N5800B       
+resolved: 0.3 :0.3 and 228.0 : 235.0
+MATCH both angles!  00033+5332 B  A  1500                   1906 228   0.3  4 10.1                                           A   17  23582N5259B       
+resolved: 8.7 :9.3 and 79.0 : 82.0
+MATCH both angles!  00033+5332 C  A  1500                   1917 079   8.7  2 13.0                                           A   17  23582N5259C       
+resolved: 4.4 :4.4 and 240.0 : 243.0
+MATCH both angles!  00033+3357 B  ES 2209                   1925 240   4.4  1 12.5                                           A   19  23582N3323B       
+resolved: 1.1 :1.1 and 188.0 : 185.0
+MATCH both angles!  00033-0100 B  RST5179                   1942 188   1.1  2 11.3                                                   23582S0133B       
+  notCorrespondsToCriteria 00033-0409 B  RST4738                   1939 076   1.5  1 12.3                                                   23582S0442B    267
+resolved: 0.6 :0.7 and 40.0 : 40.0
+MATCH both angles!  00033-1100 B  RST4139                   1950 040   0.6  4 12.7                                                   23581S1133B       
+resolved: 3.6 :3.6 and 156.0 : 156.0
+MATCH both angles!  00033-2337 B  B   633                   1925 156   3.6  2 12.5                                           A   16  23582S2410B    261
+resolved: 0.2 :0.2 and 215.0 : 214.0
+MATCH both angles!  00034+6338 B  CHR 121                   1986 215   0.2  5                                                       W00034+6338B    274
+  notCorrespondsToCriteria 00034-2900 B  B   634                   1943 307   0.5  5 10.1                                           A   18  23583S2933B    275
+resolved: 0.3 :0.3 and 270.0 : 270.0
+MATCH both angles!  00035+7800 B  MLR 368                   1972 270   0.3  1 12.0                                                   23584N7727B       
+resolved: 13.4 :14.0 and 162.0 : 162.0
+MATCH both angles!  00036+6042 B  STI1261 -000.69-0034.5 65 1913 162  13.4  1 13.1                                                   23584N6008B       
+resolved: 2.6 :2.8 and 255.0 : 255.0
+MATCH both angles!  00036+3433 B  OL   77                   1919 255   2.6  3 12.6                                           A   21  23584N3401B       
+resolved: 0.8 :0.9 and 182.0 : 174.0
+MATCH both angles!  00037+5329 B  WOR  30                   1964 182   0.8  1                                                        23586N5255B       
+resolved: 0.9 :0.9 and 151.0 : 151.0
+MATCH both angles!  00037+3752 B  COU 846                   1972 151   0.9  1 13.2                                                   23586N3719B       
+  notCorrespondsToCriteria 00038+1251 B  HJ 3235 +000.02+0023.0 65 1830 082  15.0  1 11.2                                           B12722  23586N1219B       
+  notCorrespondsToCriteria 00039+6041 B  PTT  19                   1916 007   7.8  1 11.1                                           A   23  23587N6007B       
+resolved: 26.5 :29.0 and 312.0 : 308.0
+MATCH both angles!  00039+5723 B  HJ 1926                   1906 312  26.5  2 11.8                                           B12718  23587N5650B       
+  notCorrespondsToCriteria 00039+5723 C  HJ 1926                   1908 082  28.3  1 12.1                                                   23587N5650C       
+not enough data:  00039+5723 D  HJ 1926                   1908 160        1 14.0                                                   23587N5650D    303
+not enough data:  00039+5723 D  HJ 1926                   1908 160        1 14.0                                                   23587N5650D    303
+not enough data:  00039+5723 D  HJ 1926                   1908 160        1 14.0                                                   23587N5650D    303
+  notCorrespondsToCriteria 00039+5723 D  HJ 1926                   1908 160        1 14.0                                                   23587N5650D    303
+  notCorrespondsToCriteria 00039+5627 B  STI3090                   1917 035   2.6  1 12.8                                                   23588N5554B       
+resolved: 15.8 :16.6 and 129.0 : 124.0
+MATCH both angles!  00039+5518 B  STI3089 -000.31-0012.3 65 1917 129  15.8  1 13.2                                                   23587N5445B       
+  notCorrespondsToCriteria 00039+2759 B  A   429                   1954 159   0.6 18  9.6                                           A   24  23588N2725B       
+resolved: 5.1 :5.4 and 289.0 : 287.0
+MATCH both angles!  00039+2759 C  HJ 1929 -001.17-0008.3 10 1875 289   5.1 11  9.2   *-0015+0001          +27    4.6         A   24  23588N2725C       
+  notCorrespondsToCriteria 00039-5750 B  I   700                   1954 096   0.6  6  9.6                                                   23588S5823B    306
+resolved: 3.3 :3.3 and 194.0 : 193.0
+MATCH both angles!  00040+2130 B  J   628                   1911 194   3.3  7  9.8                                           A   25  23589N2058B       
+resolved: 5.6 :5.5 and 360.0 : 359.0
+MATCH both angles!  00040+1209 B  STF3055                   1831 360   5.6  8 11.4                                           A   26  23589N1135B    316
+resolved: 122.6 :122.7 and 32.0 : 32.0
+MATCH both angles!  00040+1209 C  STF3055                   1912 032 122.6  1 12.6                                           A   26  23589N1135C       
+resolved: 3.2 :3.2 and 64.0 : 59.0
+MATCH both angles!  00040-4807 B  COO 264                   1887 064   3.2  7  9.6                                                   23589S4841B    313
+  notCorrespondsToCriteria 00041+6051 B  HJ 1930                   1901 164  10.9  3 10.2                                                   23589N6017B       
+resolved: 246.0 :246.1 and 196.0 : 196.0
+MATCH both angles!  00042+6217 B  S   838 -008.29-0220.6 10 1824 196 246.0  2 10.0 B *-0008+0006+61 2585.0+61    2.6 225160  B12727  23590N6144B    319
+resolved: 8.1 :8.2 and 14.0 : 16.0
+MATCH both angles!  00042+6005 B  STI1263                   1910 014   8.1  1 12.8                                                   23591N5932B       
+resolved: 21.9 :22.6 and 113.0 : 117.0
+MATCH both angles!  00042+4959 B  HJ 1931                   1907 113  21.9  1 10.7                                           B12726  23590N4925B       
+resolved: 13.4 :13.1 and 160.0 : 161.0
+MATCH both angles!  00042+2701 B  SMA                       1907 160  13.4  2 11.0                                                   23590N2626B       
+resolved: 23.0 :22.4 and 303.0 : 303.0
+MATCH both angles!  00042-1008 B  LDS3116                   1960 303  23.   1 20.0                                                   23590S1042B       
+resolved: 7.0 :7.1 and 303.0 : 307.0
+MATCH both angles!  00043+4235 B  HJ 1932                   1893 303   7.0  4  9.4                                           A   27  23592N4202B       
+resolved: 0.6 :0.4 and 80.0 : 76.0
+MATCH both angles!  00043-4449 B  DON1057                   1929 080   0.6  2 12.3                                                   23592S4522B       
+resolved: 5.2 :5.2 and 168.0 : 170.0
+MATCH both angles!  00046+4206 B  STT 514                   1847 168   5.2 14  8.7                                           A   30  23595N4132B    365
+resolved: 0.6 :0.7 and 148.0 : 144.0
+MATCH both angles!  00046+3416 B  STF3056                   1959 148   0.6 99  8.0                                           A   32  23595N3343B    374
+  notCorrespondsToCriteria 00046+3416 C                            1926 361  23.1 20  9.0                                           A   32  23595N3343C    375
+resolved: 95.7 :95.3 and 238.0 : 238.0
+MATCH both angles!  00046+3416 D  STF3056                   1912 238  95.7  1  9.7                                           A   32  23595N3343D       
+  notCorrespondsToCriteria 00047+3547 B  HU  800                   1904 072   0.2  3  9.5                                           A   31N 23595N3514B       
+resolved: 10.9 :11.1 and 97.0 : 93.0
+MATCH both angles!  00048+5510 B  STI3091 +000.22+0001.5 65 1917 097  10.9  1 13.2                                                   23596N5437B       
+resolved: 1.6 :1.8 and 341.0 : 347.0
+MATCH both angles!  00048+4358 B  A   203                   1958 341   1.6 24  9.1                                           A   39  23597N4325B    391
+not enough data:  00048+3810 B* BU  862                   1881           24 10.4                                           A   34  23596N3737B    385
+  notCorrespondsToCriteria 00048+3810 B* BU  862                   1881           24 10.4                                           A   34  23596N3737B    385
+resolved: 4.3 :4.0 and 349.0 : 345.0
+MATCH both angles!  00048-0952 B  HU  100                   1899 349   4.3  6 11.1                                           A   35  23597S1025B       
+resolved: 6.7 :7.3 and 350.0 : 356.0
+MATCH both angles!  00049+5934 B  STI1264                   1910 350   6.7  2 13.8                                                   23597N5900B       
+resolved: 3.7 :3.8 and 299.0 : 298.0
+MATCH both angles!  00049+5832 B  STF3057                   1832 299   3.7 26  8.7                                           A   36  23598N5758B    398
+resolved: 9.0 :9.0 and 174.0 : 168.0
+MATCH both angles!  00049+4939 B  ES  864                   1909 174   9.0  1 10.9                                           A   37  23598N4905B       
+  notCorrespondsToCriteria 00049+3005 B  A  1250                   1956 064   0.6  9 10.6                                           A   40  23597N2932B    392
+  notCorrespondsToCriteria 00049+2639 B  FOX                       1907 122  23.1  1 11.1                                           A   42  23598N2606B       
+  notCorrespondsToCriteria 00049-3229 B  SEE 500                   1937 179   1.1  4 12.2                                                   23598S3303B       
+resolved: 1.5 :1.8 and 128.0 : 126.0
+MATCH both angles!  00050+6631 B  MLR 101                   1970 128   1.5  1 12.5                                                   23598N6558B    412
+resolved: 4.0 :4.0 and 338.0 : 337.0
+MATCH both angles!  00050+4540 B  BU  997                   1959 338   4.0 99  9.0                                           A   41N 23598N4507B    404
+resolved: 1.4 :1.5 and 307.0 : 300.0
+MATCH both angles!  00050+2125 B  J   629                   1957 307   1.4  8  9.7                                           A   44  23599N2052B       
+  notCorrespondsToCriteria 00052+4514 B  ES 1293                   1914 120  12.9  2 13.5                                           A   46  00000N4440B       
+resolved: 21.6 :21.7 and 235.0 : 236.0
+MATCH both angles!  00052+4514 C  BU  997                   1906 235  21.6  6  9.5                                           A   46  00000N4440C    421
+resolved: 12.7 :12.5 and 51.0 : 51.0
+MATCH both angles!  00052+3020 B  STF3058 -002.09-0006.7 10 1831 051  12.7 12 10.1   *-0048-0017          +30    4.6         A   47  00000N2946B    426
+resolved: 1.5 :1.5 and 323.0 : 330.0
+MATCH both angles!  00052-4547 B  B   635                   1926 323   1.5  4 12.7                                                   00001S4620B       
+resolved: 1.0 :1.0 and 5.0 : 5.0
+MATCH both angles!  00052-5548 B  B  2061                   1930 005   1.0    13.0                                                   00001S5621B       
+resolved: 2.3 :2.0 and 331.0 : 323.0
+MATCH both angles!  00053+8242 B  STF3059                   1833 331   2.3  7 11.9                                           A   43  00000N8208B       
+resolved: 0.5 :0.6 and 109.0 : 105.0
+MATCH both angles!  00053+3533 B  COU 746                   1972 109   0.5  1 10.4                                                   00002N3500B       
+resolved: 1.6 :1.6 and 302.0 : 308.0
+MATCH both angles!  00054+4521 B  ES 1192                   1913 302   1.6  5 10.3                                           A   50  00003N4447B       
+resolved: 0.4 :0.5 and 328.0 : 331.0
+MATCH both angles!  00054+3349 B  COU 646                   1971 328   0.4  1 10.5                                                   00003N3315B       
+resolved: 89.1 :88.9 and 336.0 : 339.0
+MATCH both angles!  00054+1620 B  STT4255 -002.25+0066.6 10 1874 336  89.1  6  9.0 G *+0001-0023+15 4934.0+16    4.6     41  B12741  00002N1547B       
+resolved: 29.7 :30.7 and 312.0 : 313.0
+MATCH both angles!  00055+7617 B  HJ 3237                   1905 312  29.7  1 11.5                                           B12744  00003N7544B    455
+resolved: 3.8 :4.0 and 75.0 : 74.0
+MATCH both angles!  00055+6512 B  MLB 242                   1910 075   3.8  2 10.4                                           A   45  00003N6440B       
+resolved: 13.0 :12.6 and 51.0 : 53.0
+MATCH both angles!  00055+6133 B  STI   1 -000.26+0011.2 65 1913 051  13.0  2 12.6                                                   00003N6100B       
+resolved: 4.6 :4.6 and 255.0 : 260.0
+MATCH both angles!  00055+5031 B  HU  501                   1902 255   4.6  4 13.3                                           A   49  00003N4958B       
+resolved: 0.2 :0.2 and 307.0 : 304.0
+MATCH both angles!  00055+3406 B  HU 1201                   1905 307   0.2 20  9.5                                           A   51  00003N3333B    461
+resolved: 23.3 :25.6 and 163.0 : 163.0
+MATCH both angles!  00055+3406 C  HO  490                   1948 163  23.3  4 13.4                                           A   51  00003N3333C       
+  notCorrespondsToCriteria 00055-1835 B  RST3340                   1951 066   0.2  6 10.4                                                   00003S1909B       
+resolved: 4.5 :4.6 and 334.0 : 334.0
+MATCH both angles!  00056+5516 B  A  1251                   1906 334   4.5  5 14.1                                           A   52  00004N5443B       
+resolved: 6.3 :5.7 and 91.0 : 88.0
+MATCH both angles!  00056+4236 B  ES 1480                   1916 091   6.3  1 12.8                                           A   53  00004N4202B       
+resolved: 1.1 :1.4 and 74.0 : 78.0
+MATCH both angles!  00056+2736 B  J   865                   1912 074   1.1  5 10.8                                           A   54  00004N2703B       
+resolved: 25.6 :25.4 and 9.0 : 8.0
+MATCH both angles!  00056+2736 C  J   865 -000.16+0039.2 65 1918 009  25.6  2 11.4                                           A   54  00004N2703C       
+  notCorrespondsToCriteria 00057+5457 B  STI1266                   1917 185  12.1  1 13.2                                                   00006N5423B       
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+  notCorrespondsToCriteria 00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+  notCorrespondsToCriteria 00057+4548 C  STT 547 -010.54+0026.0 65 1925 230  44.5  2 13.3                                           A   48  00002N4516C       
+  notCorrespondsToCriteria 00057+4548 D  STT 547 -007.74-0029.5 65 1925 182  84.1  6 11.3                                           A   48  00002N4516D       
+  notCorrespondsToCriteria 00057+4548 E  STT 547 -001.12+0098.4 65 1925 056  77.1  5                                                A   48  00002N4516E       
+resolved: 327.6 :327.9 and 254.0 : 254.0
+resolved: 327.6 :326.4 and 254.0 : 255.0
+  tooManyMatches 00057+4548 F  STT 547 -030.94-0047.7 65 1897 254 327.6  1 10.1 M2*+0842-0118+44 4548.0                   A   48  00002N4516F    428
+resolved: 1.9 :2.1 and 123.0 : 123.0
+MATCH both angles!  00057+4239 B  A   110                   1900 123   1.9 16 10.0                                           A   55  00006N4206B       
+resolved: 5.2 :5.1 and 42.0 : 45.0
+MATCH both angles!  00057+2432 B  POU   1                   1898 042   5.2  1 14.0                                                   00006N2358B       
+resolved: 7.7 :7.6 and 148.0 : 149.0
+MATCH both angles!  00057+1750 B  STF3061 +002.65+0017.8 10 1829 148   7.7 38  8.7   *+0026-0013          +17    6.6         A   56  00006N1717B    482
+resolved: 11.6 :12.2 and 258.0 : 263.0
+MATCH both angles!  00058+5725 B  STI1268 -002.66+0020.2 65 1911 258  11.6  1 13.3                                                   00006N5652B       
+resolved: 11.3 :11.7 and 300.0 : 301.0
+MATCH both angles!  00058+5653 B  STI1267                   1911 300  11.3  2 12.7                                                   00006N5620B       
+resolved: 0.3 :0.3 and 261.0 : 261.0
+MATCH both angles!  00058-6833 B  HDS     +002.87-0005.0 82 1991 261   0.3  1 12.4   *-0062-0035                                                    488
+resolved: 1.1 :1.1 and 329.0 : 329.0
+MATCH both angles!  00059+7844 B  HDS     -002.92+0019.6 82 1991 329   1.1  1 13.0   *+0097+0044                                                    487
+  notCorrespondsToCriteria 00059+5705 B  STI1269                   1911 023   7.2  2 13.3                                                   00007N5632B       
+resolved: 3.4 :3.4 and 127.0 : 135.0
+MATCH both angles!  00059+1805 B  STF3060 +001.67-0027.7 10 1959 127   3.4 99  9.7   *-0132-0132             91708.8         A   60  00008N1732B    495
+  notCorrespondsToCriteria 00059+1805 C  STF3060 -003.29-0026.3 65 1933 265  76.5  4 11.4                                           A   60  00008N1732C       
+  notCorrespondsToCriteria 00059-1426 B  HJ 3238                   1830 246  25.0  1 12.6                                           B12749  00008S1459B       
+  notCorrespondsToCriteria 00059-3020 B  RST5180                   1951 289   0.3  2  9.9                                                   00008S3053B       
+resolved: 4.8 :5.4 and 324.0 : 329.0
+MATCH both angles!  00059-3020 C  SEE   1                   1896 324   4.8  6 10.8                                           B12751  00008S3053C       
+resolved: 2.0 :1.8 and 346.0 : 345.0
+MATCH both angles!  00059-3521 B  JSP   1                   1928 346   2.0  2 11.4                                                   00008S3555B       
+resolved: 1.9 :1.9 and 123.0 : 122.0
+MATCH both angles!  00060+7334 B  BU  863                   1881 123   1.9  5 12.2                                           A   57  00007N7302B       
+resolved: 3.2 :3.0 and 161.0 : 161.0
+MATCH both angles!  00060+6052 B  KR   67                   1937 161   3.2  7  9.8                                           A   58  00008N6019B       
+resolved: 6.3 :5.9 and 93.0 : 96.0
+MATCH both angles!  00060+5855 B  STI1270                   1910 093   6.3  2 13.6                                                   00008N5821B       
+resolved: 2.4 :2.4 and 113.0 : 108.0
+MATCH both angles!  00060+4937 B  HU  502                   1902 113   2.4 10 10.9                                           A   59  00008N4904B    497
+resolved: 24.2 :24.1 and 219.0 : 219.0
+MATCH both angles!  00060-2039 B  HJ 3236 -003.60-0012.1 66 1919 219  24.2  3 11.0                                           B12754  00008S2112B       
+resolved: 0.5 :0.5 and 46.0 : 46.0
+MATCH both angles!  00061+4025 B  HDS     -001.72+0007.0 82 1991  46   0.5  1 10.1   *-0003-0003                                                    508
+resolved: 2.8 :2.6 and 89.0 : 86.0
+MATCH both angles!  00061+1313 B  J   143                   1959 089   2.8  8 11.7                                           A   62  00009N1242B       
+  notCorrespondsToCriteria 00061+0943 B  HDS     +002.03-0006.2 82 1991 285   0.1  1  8.9   *+0021-0011                                                    510
+resolved: 0.6 :0.6 and 313.0 : 313.0
+MATCH both angles!  00062+8753 B  HDS     -001.57+0022.3 82 1991 313   0.6  1 12.1   *-0009+0016                                                    513
+resolved: 9.5 :9.4 and 228.0 : 226.0
+MATCH both angles!  00062+3918 B  ALI 714                   1928 228   9.5  2 12.9                                                   00011N3845B       
+  notCorrespondsToCriteria 00062+2346 B  HU  401                   1901 215   0.8 11 10.3                                           A   63  00010N2313B       
+resolved: 3.7 :4.2 and 330.0 : 330.0
+MATCH both angles!  00062+2003 B  J  1320                   1953 330   3.7  2 13.0                                           A   64  00012N1929B       
+  notCorrespondsToCriteria 00062-0153 B  HDS     +001.14-0013.4 82 1991 324   0.5  1 11.7   *-0010-0047                                                    515
+resolved: 34.0 :34.3 and 281.0 : 282.0
+MATCH both angles!  00062-2909 B  LDS2086                   1954 281  34.0  1 20.6                                                   00011S2943B       
+resolved: 5.7 :5.7 and 135.0 : 135.0
+MATCH both angles!  00062-6414 B  I   433 +003.43-0032.6 90 1911 135   5.7  4 10.3    -0079-0015                                     00012S6448B    519
+not enough data:  00063+5826 B* STF3062                   1831           99  7.5                                           A   61  00010N5753B    518
+  notCorrespondsToCriteria 00063+5826 B* STF3062                   1831           99  7.5                                           A   61  00010N5753B    518
+resolved: 12.1 :13.2 and 76.0 : 73.0
+MATCH both angles!  00063+5717 B  STI1271 +003.81+0026.9 65 1918 076  12.1  1 12.8                                                   00012N5644B       
+  notCorrespondsToCriteria 00063-4905 B  HDO 180 +001.28+0023.9 90 1900 176   5.4  5 11.5    +0585-0037                                     00011S4938B    522
+resolved: 13.6 :13.7 and 261.0 : 261.0
+MATCH both angles!  00064+5900 B  SMA     +001.09+0000.5 65 1904 261  13.6  3 11.5                                                   00012N5827B       
+  notCorrespondsToCriteria 00064+5715 B  STI1272                   1917 351   5.5  3 12.1                                                   00012N5641B       
+resolved: 2.0 :2.0 and 179.0 : 181.0
+MATCH both angles!  00064+3436 B  HU 1001                   1904 179   2.0 11 11.7                                           A   65  00012N3403B       
+  notCorrespondsToCriteria 00065+2900 B  BUP                       1909 250 158.6  9  8.9                                                   00014N2829B       
+  notCorrespondsToCriteria 00065+2900 C  BUP                       1909 185 153.2  5 10.0                                                   00014N2829C       
+  notCorrespondsToCriteria 00065+2900CD  BU                        1907 210   3.3  5 10.5                                           A   69N 00014N2827D       
+  notCorrespondsToCriteria 00065+0549 B  LDS3123                   1960 141  23.   1 16.9                                                   00014N0516B       
+resolved: 7.3 :7.4 and 206.0 : 206.0
+MATCH both angles!  00065+0155 B  HJ 1000 -002.15+0015.9 10 1908 206   7.3  5 10.6   *+0040-0073          +01    5.6         A   67  00013N0121B       
+resolved: 8.4 :9.9 and 166.0 : 168.0
+MATCH both angles!  00066+5631 B  STI1275                   1917 166   8.4  1 12.8                                                   00014N5557B    542
+resolved: 6.5 :6.6 and 52.0 : 51.0
+MATCH both angles!  00066-2324 B  B     3                   1925 052   6.5  2 13.2                                           A   71  00015S2358B       
+  notCorrespondsToCriteria 00067-4803 B  CPO                       1904 045   1.9  1 12.8                                                   00016S4836B       
+resolved: 10.4 :9.9 and 292.0 : 291.0
+MATCH both angles!  00068+5430 B  ES  611                   1908 292  10.4  3  9.9                                           A   72  00016N5357B       
+  notCorrespondsToCriteria 00068+0427 B  BU 1155                   1890 090   0.4 12 10.1                                           A   73  00017N0354B       
+resolved: 1.1 :0.9 and 106.0 : 105.0
+MATCH both angles!  00068-1210 B  HU    1                   1899 106   1.1  8 11.1                                           A   74  00016S1243B       
+  notCorrespondsToCriteria 00068-2106 B  RSU     -002.86+0033.9 40 1978 255   9.9                                                          *00017S2139B    553
+resolved: 1.1 :1.1 and 108.0 : 108.0
+MATCH both angles!  00068-4055 B  RST1179                   1931 108   1.1  3 13.5                                                   00017S4128B       
+  notCorrespondsToCriteria 00069+6626 B  MLR 102                   1970 104   0.2  1  9.5                                                   00017N6552B       
+resolved: 20.1 :20.2 and 193.0 : 194.0
+MATCH both angles!  00069-3036 B  RSU     +001.33-0030.9 40 1977 193  20.1  1 12.0                                                  *00018S3110B    570
+resolved: 14.2 :14.3 and 284.0 : 285.0
+MATCH both angles!  00071+3614 B  ALI  12 -001.94+0009.6 65 1932 284  14.2  1 12.9                                                   00019N3541B       
+resolved: 0.3 :0.3 and 201.0 : 201.0
+MATCH both angles!  00071-1551 B  HDS     +001.61-0000.8 82 1991 201   0.3  1 11.8   *+0072-0029                                                    584
+  notCorrespondsToCriteria 00072+6309 B  ES 1934                   1913 073   4.3  3 10.8                                           A   75  00019N6236B       
+resolved: 0.6 :0.6 and 49.0 : 47.0
+MATCH both angles!  00072+6309 P  MLR 105                   1970  49   0.6  1  9.9                                           A   75  00019N6236P       
+resolved: 8.7 :9.0 and 134.0 : 137.0
+MATCH both angles!  00073+3741 B  ES 1935                   1922 134   8.7  2 10.2                                           A   78  00022N3707B       
+  notCorrespondsToCriteria 00073+2058 B  HDS     +000.19-0006.7 82 1991 165   3.1  1 11.5   *-0027+0021                                                    601
+resolved: 0.4 :0.4 and 321.0 : 323.0
+MATCH both angles!  00073+0742 B  HDS     +000.37+0013.1 82 1991 321   0.4  1  8.5   *-0006-0010                                                    603
+resolved: 1.1 :1.1 and 176.0 : 178.0
+MATCH both angles!  00074-1102 B  HDS     -001.11-0001.3 82 1991 176   1.1  1 12.7   *-0028-0013                                                    608
+  notCorrespondsToCriteria 00075+6008 B  ES 1706                   1918 079   2.0  1 11.4                                           A   79  00023N5935B       
+resolved: 1.0 :0.9 and 80.0 : 76.0
+MATCH both angles!  00075+2030 B  KU    3                   1901 080   1.0 13 10.2                                           A   80  00023N1956B       
+resolved: 24.8 :26.9 and 64.0 : 66.0
+MATCH both angles!  00075-7730 B  HJ 5442                   1918 064  24.8  1 12.0                                                   00026S7803B       
+resolved: 3.0 :3.7 and 87.0 : 84.0
+MATCH both angles!  00076+5246 B  A  1253                   1943 087   3.0  4 12.7                                           A   81  00024N5213B    622
+  notCorrespondsToCriteria 00076+4009 B  STF3064                   1955 003  24.8  9 10.0                                           A   82N 00025N3936B       
+resolved: 1.5 :1.7 and 335.0 : 338.0
+MATCH both angles!  00076+3140 B  BU 1014                   1891 335   1.5  5 12.5                                           A   83  00024N3107B    619
+  notCorrespondsToCriteria 00076-0433 B  STF3063                   1957 211   1.6 18 11.1                                           A   84  00025S0506B       
+resolved: 5.4 :5.3 and 31.0 : 31.0
+MATCH both angles!  00076-6039 B  I   434 -000.75+0033.9 90 1911 031   5.4  2 10.8    +0058-0046                                     00026S6112B    618
+resolved: 1.1 :0.9 and 240.0 : 238.0
+MATCH both angles!  00077+3711 B  A  1501                   1959 240   1.1  8 12.6                                           A   86  00026N3638B    634
+resolved: 10.0 :9.5 and 272.0 : 281.0
+MATCH both angles!  00077+2519 B  POU   2 -000.00+0027.1 65 1898 272  10.0  1 14.0                                                   00026N2446B       
+resolved: 3.7 :4.3 and 229.0 : 221.0
+MATCH both angles!  00077-2058 B  BRT 294                   1920 229   3.7  1 11.5                                                   00026S2131B       
+resolved: 0.1 :0.1 and 70.0 : 70.0
+MATCH both angles!  00077-5615 B  HDS     -000.99+0001.7 82 1991  70   0.1  1 11.2   *+0020+0003                                                    632
+  notCorrespondsToCriteria 00078+6321 B  HU 1002                   1904 300   0.7  4 11.0                                           A   85  00026N6248B       
+resolved: 15.0 :15.0 and 8.0 : 8.0
+MATCH both angles!  00078+5723 B  HJ 3241 -001.23-0001.3 10 1903 008  15.0  6  9.6   * 0000+0002          +57   16.6         A   87N 00026N5649B       
+  notCorrespondsToCriteria 00078+4508 B  ES 1357                   1915 138   5.1  1 14.2                                           A   88  00026N4434B       
+resolved: 1.8 :1.9 and 153.0 : 156.0
+MATCH both angles!  00078-2231 B  SEE   2                   1959 153   1.8  7 11.0                                           A   89  00027S2304B    636
+  notCorrespondsToCriteria 00079+4943 B  ES  443                   1907 033   4.3  1 10.7                                           A   90  00028N4910B       
+resolved: 4.0 :4.4 and 180.0 : 180.0
+MATCH both angles!  00079+0318 B  J   301                   1909 180   4.0  4 13.9                                           A   91N 00028N0244B       
+resolved: 7.0 :7.1 and 299.0 : 299.0
+MATCH both angles!  00079+0047 B  BAL 942                   1897 299   7.0  3 11.6                                                   00027N0015B       
+resolved: 11.3 :11.7 and 142.0 : 145.0
+MATCH both angles!  00080+6035 B  STI   6 +003.71+0017.9 65 1910 142  11.3  1 13.5                                                   00028N6002B       
+  notCorrespondsToCriteria 00080-1414 B  STF3065 -000.70+0024.3 10 1878 108   9.6 12  9.8   *+0090-0071            147097.8         A   92  00029S1447B    645
+resolved: 109.5 :112.0 and 115.0 : 113.0
+MATCH both angles!  00081+3123 B  STT4256 +003.68-0014.4 10 1923 115 109.5 11  7.9 A3*+0067+0018+30    3.0+31   10.6    341  B   15  00029N3050B    659
+  notCorrespondsToCriteria 00081+3123 P  STT4256                   1912 260  20.1  1 13.6                                           B   15  00029N3050P       
+resolved: 8.8 :9.5 and 35.0 : 34.0
+MATCH both angles!  00082+5933 B  STI   8                   1910 035   8.8  2 13.4                                                   00030N5900B       
+resolved: 13.8 :13.9 and 356.0 : 356.0
+MATCH both angles!  00082+5933 C  STI   8                   1910 356  13.8  1 14.4                                                   00030N5900C       
+  notCorrespondsToCriteria 00082+5933BD  STI   8                   1910 156   8.5  1 14.4                                                   00030N5900D       
+resolved: 6.9 :7.4 and 356.0 : 359.0
+MATCH both angles!  00082+5913 B  MLB  36                   1910 356   6.9  4 11.9                                           A   93  00030N5840B       
+  notCorrespondsToCriteria 00083+6218 B  HJ 1936 -002.71-0028.7 65 1913 202  13.0  3 11.3                                           B   16  00030N6144B       
+resolved: 9.2 :8.8 and 349.0 : 345.0
+MATCH both angles!  00083+6202 B  STI   9                   1913 349   9.2  2 12.4                                                   00031N6128B       
+  notCorrespondsToCriteria 00083+2905 B  H    32 -001.36+0045.6 91 1954 280  81.5 11 11.4   *+0001-0016          +28   10.6         A   94N 00032N2832B       
+resolved: 27.3 :26.4 and 74.0 : 73.0
+MATCH both angles!  00083+0040 B  HJ 5533 -000.77+0035.8 65 1897 074  27.3  1 11.7                                           B   17  00030N0007B       
+resolved: 3.5 :3.4 and 69.0 : 67.0
+MATCH both angles!  00083-1124 B  HU    2                   1899 069   3.5 11 11.3                                           A   96  00032S1157B       
+resolved: 0.7 :1.0 and 214.0 : 219.0
+MATCH both angles!  00083-3242 B  RST2233                   1933 214   0.7  3 11.6                                                   00032S3315B    673
+  notCorrespondsToCriteria 00083-4257 B  B  1406                   1945 285   1.1  3 11.3                                                   00033S4330B    674
+resolved: 1.5 :1.5 and 271.0 : 271.0
+MATCH both angles!  00084+4157 B  HDS     +001.91+0028.8 82 1991 271   1.5  1 12.5   *+0004-0003                                                    683
+resolved: 9.5 :9.3 and 285.0 : 287.0
+MATCH both angles!  00084+2451 B  POU   3 -000.35+0028.4 65 1898 285   9.5  1 14.0                                                   00032N2418B       
+resolved: 1.5 :1.6 and 254.0 : 252.0
+MATCH both angles!  00084+1843 B  COU 246                   1968 254   1.5  1  9.7                                                   00032N1810B       
+resolved: 2.9 :2.9 and 198.0 : 197.0
+MATCH both angles!  00085+5702 B  MLB  37                   1918 198   2.9  3 11.0                                           A   97  00033N5628B       
+  notCorrespondsToCriteria 00085+4002 B  ES 1601                   1917 103   5.7  2 14.5                                           A   98  00034N3928B       
+  notCorrespondsToCriteria 00085+3456 B  HDS     -001.53+0004.4 82 1991 358   0.1  1  8.3   *+0114+0010                                                    689
+resolved: 57.7 :60.1 and 272.0 : 272.0
+MATCH both angles!  00085+0447 B  HDO   1                   1903 272  57.7  2 13.1                                           B   20N 00033N0414B       
+  notCorrespondsToCriteria 00086+3228 B  COU 647                   1971  29   0.2  1  9.6                                                   00034N3155B       
+resolved: 13.0 :12.7 and 95.0 : 96.0
+MATCH both angles!  00087+5618 B  STI1282 +000.47-0028.9 65 1917 095  13.0  2 13.3                                                   00035N5544B       
+resolved: 4.6 :5.0 and 32.0 : 31.0
+MATCH both angles!  00087+5006 B  ES  744                   1909 032   4.6  2 12.2                                           A   99  00035N4933B       
+resolved: 10.7 :10.5 and 144.0 : 145.0
+MATCH both angles!  00087+3730 B  ALI 242 +002.55-0018.9 65 1929 144  10.7  2 12.6                                                   00036N3656B       
+resolved: 16.1 :15.8 and 11.0 : 12.0
+MATCH both angles!  00087-0451 B  AG                        1905 011  16.1  1 10.6                                                   00036S0524B       
+resolved: 8.2 :8.3 and 126.0 : 128.0
+MATCH both angles!  00087-5220 B  HU 1551                   1894 126   8.2  4 11.2                                                   00037S5253B    702
+resolved: 13.3 :13.1 and 121.0 : 125.0
+MATCH both angles!  00088+5440 B  STI1283 +001.30-0030.8 65 1917 121  13.3  1 12.2                                                   00036N5406B       
+resolved: 0.7 :0.9 and 282.0 : 282.0
+MATCH both angles!  00088+4955 B  ROE  82                   1916 282   0.7  1 10.7                                           A  100  00036N4922B       
+resolved: 21.3 :21.3 and 247.0 : 247.0
+MATCH both angles!  00088+4955 C  ROE  82 -002.36+0006.8 65 1916 247  21.3  1 12.8                                           A  100  00036N4922C       
+  notCorrespondsToCriteria 00088+0801 B  HDO   2                   1958 127  16.9  7 12.3                                           A  101  00037N0728B       
+resolved: 6.4 :6.2 and 197.0 : 198.0
+MATCH both angles!  00089+4038 B  ES  151                   1904 197   6.4  5 13.0                                           A  103  00037N4005B       
+resolved: 9.7 :9.7 and 286.0 : 287.0
+MATCH both angles!  00089+3713 B  STF   1 -003.22-0001.9 90 1828 286   9.7 11 10.3    +0025-0016                             A  104  00037N3640B       
+  notCorrespondsToCriteria 00089+0042 B  HDS     -001.76-0027.3 82 1991 211   0.3  1  9.3   *+0005+0003                                                    717
+resolved: 1.6 :1.6 and 304.0 : 304.0
+MATCH both angles!  00089-1107 B  RST3342                   1937 304   1.6  3 14.5                                                   00038S1140B       
+resolved: 0.3 :0.3 and 296.0 : 296.0
+MATCH both angles!  00089-2613 B  HDS     +001.30-0025.0 82 1991 296   0.3  1 11.7   *-0000-0008                                                    721
+resolved: 2.8 :2.5 and 43.0 : 40.0
+MATCH both angles!  00090+4051 B  BU  483                   1878 043   2.8 12 11.5                                           A  105  00039N4018B    737
+  notCorrespondsToCriteria 00090+4051 C  BU  483 -010.14-0032.3 65 1879 261 144.0  2  7.9 G5*-0012-0011+40    5.0+40   12.6    413  A  105  00039N4018C    712
+resolved: 74.1 :73.1 and 280.0 : 281.0
+MATCH both angles!  00090+4051CD  BU  483 -016.42-0017.6 65 1909 280  74.1  1 10.9                                           A  105  00039N4018D       
+resolved: 71.0 :68.8 and 320.0 : 320.0
+MATCH both angles!  00090+2739 B  GIC     -000.77+0056.0 63 1961 320  71.0  2 15.5                                                   00038N2705B       
+  notCorrespondsToCriteria 00090+2739 C  PWS   1 +003.56+0045.5 63 1935  29  60.5    14.0                                                  *00038N2705C       
+resolved: 0.4 :0.6 and 72.0 : 69.0
+MATCH both angles!  00090+2339 B  HU  402                   1957 072   0.4  4 12.4                                           A  106  00038N2306B       
+resolved: 1.6 :1.8 and 125.0 : 122.0
+MATCH both angles!  00090-2112 B  B  1903                   1930 125   1.6  3 11.7                                                   00039S2146B    724
+  notCorrespondsToCriteria 00090-5400 B  HDO 181                   1959 206   0.4 17  7.9                                                   00040S5433B    730
+resolved: 24.0 :25.9 and 324.0 : 329.0
+MATCH both angles!  00091+5938 B  ARG   1 +001.02+0015.5 50 1901 324  24.0  9  9.5 A2*+0011+0025+58    4.0+59   12.6 236313  B   27  00038N5904B       
+  notCorrespondsToCriteria 00091-5001 B  RST5492                   1947 316   0.6  1 11.6                                                   00041S5034B    743
+resolved: 25.0 :24.6 and 81.0 : 86.0
+MATCH both angles!  00091-5010 B  HJ 3347                   1914 081  25.0  2 13.0                                                   00041S5043B       
+  notCorrespondsToCriteria 00092+5909 B  AGC  15                   1935 243  31.3  7 13.7                                           A  107  00038N5836B       
+resolved: 15.8 :15.5 and 77.0 : 78.0
+MATCH both angles!  00092+4443 B  HJ 1001                   1901 077  15.8  6  9.2                                           A  108  00040N4410B    750
+not enough data:  00093+7943 B* STF   2                   1830           99  7.1                                           A  102  00038N7910B    760
+  notCorrespondsToCriteria 00093+7943 B* STF   2                   1830           99  7.1                                           A  102  00038N7910B    760
+resolved: 31.0 :29.5 and 233.0 : 237.0
+MATCH both angles!  00093+2517 B  GIC     -004.08-0020.8 65 1961 233  31.0  1 13.7    +0171-0151                                     00041N2443B       
+resolved: 1.4 :1.4 and 265.0 : 259.0
+MATCH both angles!  00093-2759 B  BU  391                   1954 265   1.4 99  6.3 F2                                        A  111  00043S2833B    761
+resolved: 70.0 :73.4 and 243.0 : 243.0
+MATCH both angles!  00093-2759 C  LDS2095                   1954 243  70.0  1 18.6    +0068-0001                             A  111  00043S2833C       
+resolved: 0.3 :0.3 and 169.0 : 164.0
+MATCH both angles!  00094+5840 B  HDS     -000.72-0003.0 82 1991 169   0.3  1  9.9   *+0008-0003                                                    763
+resolved: 2.2 :2.4 and 30.0 : 27.0
+MATCH both angles!  00094+4232 B  COU1046                   1974  30   2.2  1 11.1                                                   00042N4159B       
+  notCorrespondsToCriteria 00094+3841 B  ALI 716 -003.06+0006.9 65 1928 272  14.7  1 13.3                                                   00042N3808B       
+resolved: 4.2 :4.3 and 177.0 : 174.0
+MATCH both angles!  00094-5707 B  RST                       1929 177   4.2  1 12.2                                                   00044S5740B       
+resolved: 24.8 :25.5 and 24.0 : 27.0
+MATCH both angles!  00095+6357 B  BUP                       1909 024  24.8  1 12.9                                                   00043N6324B       
+resolved: 130.3 :131.0 and 69.0 : 69.0
+MATCH both angles!  00095+6357 C  BUP                       1880 069 130.3  2 11.1                                                   00043N6324C       
+resolved: 2.9 :2.9 and 179.0 : 180.0
+MATCH both angles!  00095+5017 B  ES  745                   1909 179   2.9  2 10.6                                           A  112  00043N4944B       
+resolved: 6.3 :6.4 and 318.0 : 318.0
+MATCH both angles!  00095+4758 B  ES 1126                   1911 318   6.3  2 10.3                                           A  113  00044N4725B       
+  notCorrespondsToCriteria 00095+1907 B  COU 247                   1967  31   0.5  2  9.2                                                   00043N1834B    768
+resolved: 0.2 :0.2 and 277.0 : 277.0
+MATCH both angles!  00096+6240 B  HDS     +000.33+0004.2 82 1991 277   0.2  1 11.5   *-0003+0002                                                    779
+  notCorrespondsToCriteria 00096+6055 B  STI  10                   1901 043   6.0  2 12.1                                                   00043N6022B       
+resolved: 3.8 :3.9 and 166.0 : 166.0
+MATCH both angles!  00096+2641 B  A   430                   1903 166   3.8  3 14.5                                           A  115  00044N2608B    780
+  notCorrespondsToCriteria 00096-2123 B  RST2234                   1935 008   0.6  3 11.2                                                   00045S2156B    777
+resolved: 8.2 :8.2 and 80.0 : 84.0
+MATCH both angles!  00097+6040 B  STI  11                   1901 080   8.2  2 12.2                                                   00044N6006B       
+resolved: 1.1 :1.3 and 262.0 : 262.0
+MATCH both angles!  00097+4242 B  COU1047                   1974 262   1.1  1 10.2                                                   00045N4209B       
+resolved: 288.0 :289.3 and 43.0 : 44.0
+MATCH both angles!  00097+1148 B  LDS 860 +008.69+0105.8 65 1936  43 288.0  1 12.8    -0039-0011                                     00045N1112B       
+resolved: 0.8 :0.7 and 165.0 : 159.0
+MATCH both angles!  00097-3616 B  DAW 112                   1939 165   0.8  4 11.1                                                   00047S3649B       
+  notCorrespondsToCriteria 00097-3719 B  B  1904                   1936 080   0.5  2 11.2                                                   00046S3752B    786
+  notCorrespondsToCriteria 00097-3846 B  WG    1                   1904 229   3.4  1 12.2                                                   00046S3919B       
+  notCorrespondsToCriteria 00097-5612 B  B  2062                   1930  11   8.0    11.0                                                   00046S5645B    782
+resolved: 1.3 :1.3 and 183.0 : 183.0
+MATCH both angles!  00097-6335 B  RST2235                   1945 183   1.3  3 13.5                                                   00047S6409B    785
+resolved: 14.6 :14.0 and 269.0 : 269.0
+MATCH both angles!  00098+5900 B  SCA   1 -004.75-0022.7 50 1986 269  14.6    10.5                                                  *00045N5826B       
+  notCorrespondsToCriteria 00098+5710 B  STI1285                   1911 126   7.1  1 13.3                                                   00046N5637B       
+resolved: 13.5 :14.2 and 310.0 : 313.0
+MATCH both angles!  00098+5551 B  STI1284 +000.91+0019.9 65 1917 310  13.5  1 13.4                                                   00045N5518B       
+resolved: 1.9 :2.1 and 156.0 : 159.0
+MATCH both angles!  00098+5202 B  BU  484                   1878 156   1.9  9 12.2                                           A  116  00045N5128B       
+  notCorrespondsToCriteria 00098+5202 C  BU  484 +003.36+0034.3 10 1914 052  82.6  1  9.2 A2*+0027+0018+51   10.0+51   14.6    515  A  116  00045N5128C       
+  notCorrespondsToCriteria 00098-3347 B* SEE   3                   1942 208   0.8  8 10.5                                                   00048S3420B    794
+resolved: 15.0 :13.6 and 26.0 : 28.0
+MATCH both angles!  00099+5731 B  STI1286 +000.05+0011.5 65 1911 026  15.0  1 13.3                                                   00047N5658B       
+resolved: 3.4 :3.3 and 117.0 : 118.0
+MATCH both angles!  00099+5409 B  ES  929                   1910 117   3.4  1 11.4                                           A  117  00047N5336B       
+resolved: 8.4 :8.2 and 191.0 : 190.0
+MATCH both angles!  00099+3014 B  MLB 552                   1928 191   8.4  1 10.6                                                   00047N2940B       
+resolved: 5.7 :5.8 and 302.0 : 299.0
+MATCH both angles!  00099+2450 B  POU   4                   1898 302   5.7  1 11.9                                                   00047N2416B       
+  notCorrespondsToCriteria 00099+1125 B  HJ 1939 -001.79-0032.1 10 1877 161  35.0 11 10.3   *-0011 0000          +11   10.6         B   36  00047N1052B       
+resolved: 5.3 :5.2 and 274.0 : 276.0
+MATCH both angles!  00099+0827 B  STF   4 -002.68+0011.7 10 1829 274   5.3 31  9.3   *+0042-0007          +08   10.6         A  118  00047N0754B    795
+Not correspond to rules:111
+
+
+
+RULE 2 EXECUTION STARTED
+MatchingByAnglesImplementation.resolveOnlyByRho(listCCDMPairs, new CCDMDS())
+  notCorrespondsToCriteria  00003+7305 B  HJ 3231 -000.73+0001.0 65 1905 283  19.5  1 13.0                                           B12689  23553N7232B       
+resolved only by RHO: 0.5 :0.3
+MATCH 1 angle 00003-4417 B  I  1477                   1959 292   0.5 12  7.3                                                   23552S4451B     25
+  notCorrespondsToCriteria  00004+2655 B  AG  299                                                                                    B12686N 23552N2622B     34
+resolved only by RHO: 3.8 :4.3
+MATCH 1 angle 00005+2031 B  COU 444                   1968  39   3.8  1 13.3                                                   23554N1957B       
+resolved only by RHO: 1.9 :1.5
+MATCH 1 angle 00006-5306 B  HJ 5437                   1959 312   1.9 13 10.3                                                   23554S5339B     50
+  notCorrespondsToCriteria  00007+6103 B  STI1249 -001.89+0022.5 65 1913 263  11.5  1 13.1                                                   23556N6030B       
+  notCorrespondsToCriteria  00009+5915 B  STI3081                   1906 081   5.7  2 12.8                                                   23558N5842B       
+  notCorrespondsToCriteria  00012+2502 B  POU5882                   1897 051   9.6  2 13.1                                                   23560N2429B       
+  notCorrespondsToCriteria  00013-7011 B  GLI 290 -000.38-0011.9 10 1919 297  28.4  1 10.0   *+0080-0015-70 3035.4                           23561S7045B       
+not enough data:  00014+3937 B* HLD  60                   1881           99  9.6                                           A17178  23563N3905B    110
+  notCorrespondsToCriteria  00014+3937 B* HLD  60                   1881           99  9.6                                           A17178  23563N3905B    110
+  notCorrespondsToCriteria  00015+5603 B  HJ 1925 -001.17+0039.4 65 1905 338  16.4  1 11.4                                           B12695  23562N5531B       
+resolved only by RHO: 0.9 :1.0
+MATCH 1 angle 00015+3044 B  HO  208                   1956 208   0.9 13 10.2                                           A17167  23564N3011B    114
+resolved only by RHO: 0.7 :0.7
+MATCH 1 angle 00019-4137 B  I  1060                   1912 340   0.7  6 10.9                                                   23568S4210B    151
+not enough data:  00021+2706 B* BU  733                   1878           99 11.0                                           A17175  23569N2633B    171
+not enough data:  00021+2706 B* BU  733                   1878           99 11.0                                           A17175  23569N2633B    171
+not enough data:  00021+2706 B* BU  733                   1878           99 11.0                                           A17175  23569N2633B    171
+not enough data:  00021+2706 B* BU  733                   1878           99 11.0                                           A17175  23569N2633B    171
+  notCorrespondsToCriteria  00021+2706 B* BU  733                   1878           99 11.0                                           A17175  23569N2633B    171
+  notCorrespondsToCriteria  00021+2706 C  BU  733 -002.84+0065.6 10 1932 330  75.5 99  8.6   *-0012-0027+26 4735.0+26 2847.6         A17175  23569N2633C    162
+  notCorrespondsToCriteria  00021+2706 D  BU  733                   1921 296 109.9 16 13.0                                           A17175  23569N2633D       
+resolved only by RHO: 3.7 :4.4
+MATCH 1 angle 00021-6817 B  I   699 +003.17+0008.0 40 1955 120   3.7  3 10.6                                                   23570S6850B    169
+  notCorrespondsToCriteria  00023+3257 C  HO  209 +002.02+0014.1 65 1936 142  17.1  5 13.3                                           A17179  23572N3225C       
+resolved only by RHO: 0.3 :0.2
+MATCH 1 angle 00024+1047 B  A  1249                   1958 245   0.3  8  9.9                                           A17180N 23573N1013B    190
+resolved only by RHO: 63.2 :63.2
+MATCH 1 angle 00024+1047 C  BGH     -002.41+0007.4 10      120  63.2  1  8.4 G0*-0037-0115+09 5313.0+10 3289.6 224984  A17180N 23573N1013C    185
+resolved only by RHO: 0.2 :0.1
+MATCH 1 angle 00026+1841 B  HDS     -002.57+0000.1 82 1991 165   0.2  1 10.6   *-0013+0017                                                    201
+not enough data:  00026-0829 B* A   428                   1902           21  9.5                                           A    4  23575S0903B    210
+  notCorrespondsToCriteria  00026-0829 B* A   428                   1902           21  9.5                                           A    4  23575S0903B    210
+resolved only by RHO: 1.5 :1.6
+MATCH 1 angle 00028+0208 B  BU  281                   1959 179   1.5 99 11.0                                           A    9  23576N0135B    223
+  notCorrespondsToCriteria  00028+0208 C  HJ  998 -002.30+0026.4 65 1922 332  35.0  9 11.7                                           A    9  23576N0135C       
+resolved only by RHO: 1.5 :1.6
+MATCH 1 angle 00029+4715 B  A   800                   1904 290   1.5 25  8.8                                           A   10  23577N4642B    229
+  notCorrespondsToCriteria  00030+0323 B  WEI  46                                                                                    B12714N 23578N0250B    239
+  notCorrespondsToCriteria  00031+6942 C  BU  861 +000.87+0019.5 65 1902 046  16.4  2 14.8                                           A   13  23579N6909C       
+  notCorrespondsToCriteria  00031+6942 D  BU  861                   1907 273  16.8  1 15.6                                           A   13  23579N6909D       
+  notCorrespondsToCriteria  00031+0722 B  HJ 3233 -002.46-0029.9 65 1905 210  12.7  1 12.0                                           B12717  23579N0649B       
+  notCorrespondsToCriteria  00032+4508 B  HJ 1927 -001.98-0026.7 10 1907 076  15.0  2  9.4 F *+0004-0017          +44    4.6 225067  A   14  23580N4434B       
+  notCorrespondsToCriteria  00033+6053 B  HJ 1928 -000.67+0010.7 65 1901 195  13.6  2 10.9                                           B12720  23582N6020B       
+  notCorrespondsToCriteria  00033+6053 C  HJ 1928                   1909 045  20.0  1 14.0                                           B12720  23582N6020C       
+  notCorrespondsToCriteria  00033+5834 B  STI3088                   1910 012   2.8  1 12.9                                                   23582N5800B       
+resolved only by RHO: 1.5 :1.8
+MATCH 1 angle 00033-0409 B  RST4738                   1939 076   1.5  1 12.3                                                   23582S0442B    267
+resolved only by RHO: 0.5 :0.5
+MATCH 1 angle 00034-2900 B  B   634                   1943 307   0.5  5 10.1                                           A   18  23583S2933B    275
+  notCorrespondsToCriteria  00038+1251 B  HJ 3235 +000.02+0023.0 65 1830 082  15.0  1 11.2                                           B12722  23586N1219B       
+  notCorrespondsToCriteria  00039+6041 B  PTT  19                   1916 007   7.8  1 11.1                                           A   23  23587N6007B       
+resolved only by RHO: 28.3 :29.0
+MATCH 1 angle 00039+5723 C  HJ 1926                   1908 082  28.3  1 12.1                                                   23587N5650C       
+not enough data:  00039+5723 D  HJ 1926                   1908 160        1 14.0                                                   23587N5650D    303
+not enough data:  00039+5723 D  HJ 1926                   1908 160        1 14.0                                                   23587N5650D    303
+not enough data:  00039+5723 D  HJ 1926                   1908 160        1 14.0                                                   23587N5650D    303
+  notCorrespondsToCriteria  00039+5723 D  HJ 1926                   1908 160        1 14.0                                                   23587N5650D    303
+  notCorrespondsToCriteria  00039+5627 B  STI3090                   1917 035   2.6  1 12.8                                                   23588N5554B       
+resolved only by RHO: 0.6 :0.5
+MATCH 1 angle 00039+2759 B  A   429                   1954 159   0.6 18  9.6                                           A   24  23588N2725B       
+  notCorrespondsToCriteria  00039-5750 B  I   700                   1954 096   0.6  6  9.6                                                   23588S5823B    306
+resolved only by RHO: 10.9 :11.0
+MATCH 1 angle 00041+6051 B  HJ 1930                   1901 164  10.9  3 10.2                                                   23589N6017B       
+  notCorrespondsToCriteria  00046+3416 C                            1926 361  23.1 20  9.0                                           A   32  23595N3343C    375
+resolved only by RHO: 0.2 :0.2
+MATCH 1 angle 00047+3547 B  HU  800                   1904 072   0.2  3  9.5                                           A   31N 23595N3514B       
+not enough data:  00048+3810 B* BU  862                   1881           24 10.4                                           A   34  23596N3737B    385
+  notCorrespondsToCriteria  00048+3810 B* BU  862                   1881           24 10.4                                           A   34  23596N3737B    385
+resolved only by RHO: 0.6 :0.7
+MATCH 1 angle 00049+3005 B  A  1250                   1956 064   0.6  9 10.6                                           A   40  23597N2932B    392
+  notCorrespondsToCriteria  00049+2639 B  FOX                       1907 122  23.1  1 11.1                                           A   42  23598N2606B       
+resolved only by RHO: 1.1 :1.1
+MATCH 1 angle 00049-3229 B  SEE 500                   1937 179   1.1  4 12.2                                                   23598S3303B       
+  notCorrespondsToCriteria  00052+4514 B  ES 1293                   1914 120  12.9  2 13.5                                           A   46  00000N4440B       
+resolved only by RHO: 0.2 :0.3
+MATCH 1 angle 00055-1835 B  RST3340                   1951 066   0.2  6 10.4                                                   00003S1909B       
+  notCorrespondsToCriteria  00057+5457 B  STI1266                   1917 185  12.1  1 13.2                                                   00006N5423B       
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+not enough data:  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+  notCorrespondsToCriteria  00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+  notCorrespondsToCriteria  00057+4548 C  STT 547 -010.54+0026.0 65 1925 230  44.5  2 13.3                                           A   48  00002N4516C       
+  notCorrespondsToCriteria  00057+4548 D  STT 547 -007.74-0029.5 65 1925 182  84.1  6 11.3                                           A   48  00002N4516D       
+  notCorrespondsToCriteria  00057+4548 E  STT 547 -001.12+0098.4 65 1925 056  77.1  5                                                A   48  00002N4516E       
+resolved only by RHO: 327.6 :327.9
+resolved only by RHO: 327.6 :326.4
+  tooManyMatches  00057+4548 F  STT 547 -030.94-0047.7 65 1897 254 327.6  1 10.1 M2*+0842-0118+44 4548.0                   A   48  00002N4516F    428
+resolved only by RHO: 7.2 :7.1
+MATCH 1 angle 00059+5705 B  STI1269                   1911 023   7.2  2 13.3                                                   00007N5632B       
+  notCorrespondsToCriteria  00059+1805 C  STF3060 -003.29-0026.3 65 1933 265  76.5  4 11.4                                           A   60  00008N1732C       
+  notCorrespondsToCriteria  00059-1426 B  HJ 3238                   1830 246  25.0  1 12.6                                           B12749  00008S1459B       
+resolved only by RHO: 0.3 :0.3
+MATCH 1 angle 00059-3020 B  RST5180                   1951 289   0.3  2  9.9                                                   00008S3053B       
+resolved only by RHO: 0.1 :0.2
+MATCH 1 angle 00061+0943 B  HDS     +002.03-0006.2 82 1991 285   0.1  1  8.9   *+0021-0011                                                    510
+resolved only by RHO: 0.8 :0.9
+MATCH 1 angle 00062+2346 B  HU  401                   1901 215   0.8 11 10.3                                           A   63  00010N2313B       
+resolved only by RHO: 0.5 :0.3
+MATCH 1 angle 00062-0153 B  HDS     +001.14-0013.4 82 1991 324   0.5  1 11.7   *-0010-0047                                                    515
+not enough data:  00063+5826 B* STF3062                   1831           99  7.5                                           A   61  00010N5753B    518
+  notCorrespondsToCriteria  00063+5826 B* STF3062                   1831           99  7.5                                           A   61  00010N5753B    518
+  notCorrespondsToCriteria  00063-4905 B  HDO 180 +001.28+0023.9 90 1900 176   5.4  5 11.5    +0585-0037                                     00011S4938B    522
+  notCorrespondsToCriteria  00064+5715 B  STI1272                   1917 351   5.5  3 12.1                                                   00012N5641B       
+  notCorrespondsToCriteria  00065+2900 B  BUP                       1909 250 158.6  9  8.9                                                   00014N2829B       
+  notCorrespondsToCriteria  00065+2900 C  BUP                       1909 185 153.2  5 10.0                                                   00014N2829C       
+  notCorrespondsToCriteria  00065+2900CD  BU                        1907 210   3.3  5 10.5                                           A   69N 00014N2827D       
+resolved only by RHO: 23.0 :23.3
+MATCH 1 angle 00065+0549 B  LDS3123                   1960 141  23.   1 16.9                                                   00014N0516B       
+  notCorrespondsToCriteria  00067-4803 B  CPO                       1904 045   1.9  1 12.8                                                   00016S4836B       
+  notCorrespondsToCriteria  00068+0427 B  BU 1155                   1890 090   0.4 12 10.1                                           A   73  00017N0354B       
+resolved only by RHO: 9.9 :9.7
+MATCH 1 angle 00068-2106 B  RSU     -002.86+0033.9 40 1978 255   9.9                                                          *00017S2139B    553
+resolved only by RHO: 0.2 :0.2
+MATCH 1 angle 00069+6626 B  MLR 102                   1970 104   0.2  1  9.5                                                   00017N6552B       
+  notCorrespondsToCriteria  00072+6309 B  ES 1934                   1913 073   4.3  3 10.8                                           A   75  00019N6236B       
+  notCorrespondsToCriteria  00073+2058 B  HDS     +000.19-0006.7 82 1991 165   3.1  1 11.5   *-0027+0021                                                    601
+resolved only by RHO: 2.0 :1.9
+MATCH 1 angle 00075+6008 B  ES 1706                   1918 079   2.0  1 11.4                                           A   79  00023N5935B       
+  notCorrespondsToCriteria  00076+4009 B  STF3064                   1955 003  24.8  9 10.0                                           A   82N 00025N3936B       
+  notCorrespondsToCriteria  00076-0433 B  STF3063                   1957 211   1.6 18 11.1                                           A   84  00025S0506B       
+  notCorrespondsToCriteria  00078+6321 B  HU 1002                   1904 300   0.7  4 11.0                                           A   85  00026N6248B       
+  notCorrespondsToCriteria  00078+4508 B  ES 1357                   1915 138   5.1  1 14.2                                           A   88  00026N4434B       
+  notCorrespondsToCriteria  00079+4943 B  ES  443                   1907 033   4.3  1 10.7                                           A   90  00028N4910B       
+resolved only by RHO: 9.6 :9.9
+MATCH 1 angle 00080-1414 B  STF3065 -000.70+0024.3 10 1878 108   9.6 12  9.8   *+0090-0071            147097.8         A   92  00029S1447B    645
+  notCorrespondsToCriteria  00081+3123 P  STT4256                   1912 260  20.1  1 13.6                                           B   15  00029N3050P       
+  notCorrespondsToCriteria  00082+5933BD  STI   8                   1910 156   8.5  1 14.4                                                   00030N5900D       
+  notCorrespondsToCriteria  00083+6218 B  HJ 1936 -002.71-0028.7 65 1913 202  13.0  3 11.3                                           B   16  00030N6144B       
+  notCorrespondsToCriteria  00083+2905 B  H    32 -001.36+0045.6 91 1954 280  81.5 11 11.4   *+0001-0016          +28   10.6         A   94N 00032N2832B       
+resolved only by RHO: 1.1 :0.9
+MATCH 1 angle 00083-4257 B  B  1406                   1945 285   1.1  3 11.3                                                   00033S4330B    674
+  notCorrespondsToCriteria  00085+4002 B  ES 1601                   1917 103   5.7  2 14.5                                           A   98  00034N3928B       
+resolved only by RHO: 0.1 :0.1
+MATCH 1 angle 00085+3456 B  HDS     -001.53+0004.4 82 1991 358   0.1  1  8.3   *+0114+0010                                                    689
+resolved only by RHO: 0.2 :0.3
+MATCH 1 angle 00086+3228 B  COU 647                   1971  29   0.2  1  9.6                                                   00034N3155B       
+  notCorrespondsToCriteria  00088+0801 B  HDO   2                   1958 127  16.9  7 12.3                                           A  101  00037N0728B       
+resolved only by RHO: 0.3 :0.3
+MATCH 1 angle 00089+0042 B  HDS     -001.76-0027.3 82 1991 211   0.3  1  9.3   *+0005+0003                                                    717
+  notCorrespondsToCriteria  00090+4051 C  BU  483 -010.14-0032.3 65 1879 261 144.0  2  7.9 G5*-0012-0011+40    5.0+40   12.6    413  A  105  00039N4018C    712
+  notCorrespondsToCriteria  00090+2739 C  PWS   1 +003.56+0045.5 63 1935  29  60.5    14.0                                                  *00038N2705C       
+resolved only by RHO: 0.4 :0.3
+MATCH 1 angle 00090-5400 B  HDO 181                   1959 206   0.4 17  7.9                                                   00040S5433B    730
+  notCorrespondsToCriteria  00091-5001 B  RST5492                   1947 316   0.6  1 11.6                                                   00041S5034B    743
+  notCorrespondsToCriteria  00092+5909 B  AGC  15                   1935 243  31.3  7 13.7                                           A  107  00038N5836B       
+not enough data:  00093+7943 B* STF   2                   1830           99  7.1                                           A  102  00038N7910B    760
+  notCorrespondsToCriteria  00093+7943 B* STF   2                   1830           99  7.1                                           A  102  00038N7910B    760
+resolved only by RHO: 14.7 :13.8
+MATCH 1 angle 00094+3841 B  ALI 716 -003.06+0006.9 65 1928 272  14.7  1 13.3                                                   00042N3808B       
+resolved only by RHO: 0.5 :0.3
+MATCH 1 angle 00095+1907 B  COU 247                   1967  31   0.5  2  9.2                                                   00043N1834B    768
+resolved only by RHO: 6.0 :6.8
+MATCH 1 angle 00096+6055 B  STI  10                   1901 043   6.0  2 12.1                                                   00043N6022B       
+resolved only by RHO: 0.6 :0.6
+MATCH 1 angle 00096-2123 B  RST2234                   1935 008   0.6  3 11.2                                                   00045S2156B    777
+resolved only by RHO: 0.5 :0.3
+MATCH 1 angle 00097-3719 B  B  1904                   1936 080   0.5  2 11.2                                                   00046S3752B    786
+  notCorrespondsToCriteria  00097-3846 B  WG    1                   1904 229   3.4  1 12.2                                                   00046S3919B       
+  notCorrespondsToCriteria  00097-5612 B  B  2062                   1930  11   8.0    11.0                                                   00046S5645B    782
+resolved only by RHO: 7.1 :7.8
+MATCH 1 angle 00098+5710 B  STI1285                   1911 126   7.1  1 13.3                                                   00046N5637B       
+resolved only by RHO: 82.6 :83.9
+MATCH 1 angle 00098+5202 C  BU  484 +003.36+0034.3 10 1914 052  82.6  1  9.2 A2*+0027+0018+51   10.0+51   14.6    515  A  116  00045N5128C       
+resolved only by RHO: 0.8 :0.8
+MATCH 1 angle 00098-3347 B* SEE   3                   1942 208   0.8  8 10.5                                                   00048S3420B    794
+  notCorrespondsToCriteria  00099+1125 B  HJ 1939 -001.79-0032.1 10 1877 161  35.0 11 10.3   *-0011 0000          +11   10.6         B   36  00047N1052B       
+Not correspond to rules:68 from 360
+
+
+RULE 3 EXECUTION STARTED
+MatchingByCoordinatesRuleImplementation.resolve(listCCDMPairs, new CCDMDS()
+UNRESOLVED! tooManyMatches: 00003+7305 B  HJ 3231 -000.73+0001.0 65 1905 283  19.5  1 13.0                                           B12689  23553N7232B       
+UNRESOLVED! not found matches: 00004+2655 B  AG  299                                                                                    B12686N 23552N2622B     34
+UNRESOLVED! tooManyMatches: 00007+6103 B  STI1249 -001.89+0022.5 65 1913 263  11.5  1 13.1                                                   23556N6030B       
+UNRESOLVED! not found matches: 00009+5915 B  STI3081                   1906 081   5.7  2 12.8                                                   23558N5842B       
+MATCH by coordinates! 00012+2502 B  POU5882                   1897 051   9.6  2 13.1                                                   23560N2429B       
+UNRESOLVED! not found matches: 00013-7011 B  GLI 290 -000.38-0011.9 10 1919 297  28.4  1 10.0   *+0080-0015-70 3035.4                           23561S7045B       
+MATCH by coordinates! 00014+3937 B* HLD  60                   1881           99  9.6                                           A17178  23563N3905B    110
+MATCH by coordinates! 00015+5603 B  HJ 1925 -001.17+0039.4 65 1905 338  16.4  1 11.4                                           B12695  23562N5531B       
+UNRESOLVED! tooManyMatches: 00021+2706 B* BU  733                   1878           99 11.0                                           A17175  23569N2633B    171
+UNRESOLVED! tooManyMatches: 00021+2706 C  BU  733 -002.84+0065.6 10 1932 330  75.5 99  8.6   *-0012-0027+26 4735.0+26 2847.6         A17175  23569N2633C    162
+UNRESOLVED! tooManyMatches: 00021+2706 D  BU  733                   1921 296 109.9 16 13.0                                           A17175  23569N2633D       
+UNRESOLVED! tooManyMatches: 00023+3257 C  HO  209 +002.02+0014.1 65 1936 142  17.1  5 13.3                                           A17179  23572N3225C       
+MATCH by coordinates! 00026-0829 B* A   428                   1902           21  9.5                                           A    4  23575S0903B    210
+UNRESOLVED! tooManyMatches: 00028+0208 C  HJ  998 -002.30+0026.4 65 1922 332  35.0  9 11.7                                           A    9  23576N0135C       
+UNRESOLVED! not found matches: 00030+0323 B  WEI  46                                                                                    B12714N 23578N0250B    239
+UNRESOLVED! tooManyMatches: 00031+6942 C  BU  861 +000.87+0019.5 65 1902 046  16.4  2 14.8                                           A   13  23579N6909C       
+UNRESOLVED! tooManyMatches: 00031+6942 D  BU  861                   1907 273  16.8  1 15.6                                           A   13  23579N6909D       
+UNRESOLVED! tooManyMatches: 00031+0722 B  HJ 3233 -002.46-0029.9 65 1905 210  12.7  1 12.0                                           B12717  23579N0649B       
+MATCH by coordinates! 00032+4508 B  HJ 1927 -001.98-0026.7 10 1907 076  15.0  2  9.4 F *+0004-0017          +44    4.6 225067  A   14  23580N4434B       
+UNRESOLVED! tooManyMatches: 00033+6053 B  HJ 1928 -000.67+0010.7 65 1901 195  13.6  2 10.9                                           B12720  23582N6020B       
+UNRESOLVED! tooManyMatches: 00033+6053 C  HJ 1928                   1909 045  20.0  1 14.0                                           B12720  23582N6020C       
+MATCH by coordinates! 00033+5834 B  STI3088                   1910 012   2.8  1 12.9                                                   23582N5800B       
+MATCH by coordinates! 00038+1251 B  HJ 3235 +000.02+0023.0 65 1830 082  15.0  1 11.2                                           B12722  23586N1219B       
+MATCH by coordinates! 00039+6041 B  PTT  19                   1916 007   7.8  1 11.1                                           A   23  23587N6007B       
+UNRESOLVED! tooManyMatches: 00039+5723 D  HJ 1926                   1908 160        1 14.0                                                   23587N5650D    303
+MATCH by coordinates! 00039+5627 B  STI3090                   1917 035   2.6  1 12.8                                                   23588N5554B       
+MATCH by coordinates! 00039-5750 B  I   700                   1954 096   0.6  6  9.6                                                   23588S5823B    306
+UNRESOLVED! tooManyMatches: 00046+3416 C                            1926 361  23.1 20  9.0                                           A   32  23595N3343C    375
+MATCH by coordinates! 00048+3810 B* BU  862                   1881           24 10.4                                           A   34  23596N3737B    385
+MATCH by coordinates! 00049+2639 B  FOX                       1907 122  23.1  1 11.1                                           A   42  23598N2606B       
+UNRESOLVED! tooManyMatches: 00052+4514 B  ES 1293                   1914 120  12.9  2 13.5                                           A   46  00000N4440B       
+MATCH by coordinates! 00057+5457 B  STI1266                   1917 185  12.1  1 13.2                                                   00006N5423B       
+UNRESOLVED! tooManyMatches: 00057+4548 B* STT 547 -001.20+0037.5 10 1959           99  9.4 M0*+0822-0171          +45    3.6         A   48  00002N4516B    473
+UNRESOLVED! tooManyMatches: 00057+4548 C  STT 547 -010.54+0026.0 65 1925 230  44.5  2 13.3                                           A   48  00002N4516C       
+UNRESOLVED! tooManyMatches: 00057+4548 D  STT 547 -007.74-0029.5 65 1925 182  84.1  6 11.3                                           A   48  00002N4516D       
+UNRESOLVED! tooManyMatches: 00057+4548 E  STT 547 -001.12+0098.4 65 1925 056  77.1  5                                                A   48  00002N4516E       
+UNRESOLVED! tooManyMatches: 00057+4548 F  STT 547 -030.94-0047.7 65 1897 254 327.6  1 10.1 M2*+0842-0118+44 4548.0                   A   48  00002N4516F    428
+UNRESOLVED! tooManyMatches: 00059+1805 C  STF3060 -003.29-0026.3 65 1933 265  76.5  4 11.4                                           A   60  00008N1732C       
+MATCH by coordinates! 00059-1426 B  HJ 3238                   1830 246  25.0  1 12.6                                           B12749  00008S1459B       
+MATCH by coordinates! 00063+5826 B* STF3062                   1831           99  7.5                                           A   61  00010N5753B    518
+MATCH by coordinates! 00063-4905 B  HDO 180 +001.28+0023.9 90 1900 176   5.4  5 11.5    +0585-0037                                     00011S4938B    522
+MATCH by coordinates! 00064+5715 B  STI1272                   1917 351   5.5  3 12.1                                                   00012N5641B       
+UNRESOLVED! tooManyMatches: 00065+2900 B  BUP                       1909 250 158.6  9  8.9                                                   00014N2829B       
+UNRESOLVED! tooManyMatches: 00065+2900 C  BUP                       1909 185 153.2  5 10.0                                                   00014N2829C       
+UNRESOLVED! not found matches: 00065+2900CD  BU                        1907 210   3.3  5 10.5                                           A   69N 00014N2827D       
+MATCH by coordinates! 00067-4803 B  CPO                       1904 045   1.9  1 12.8                                                   00016S4836B       
+MATCH by coordinates! 00068+0427 B  BU 1155                   1890 090   0.4 12 10.1                                           A   73  00017N0354B       
+UNRESOLVED! tooManyMatches: 00072+6309 B  ES 1934                   1913 073   4.3  3 10.8                                           A   75  00019N6236B       
+MATCH by coordinates! 00073+2058 B  HDS     +000.19-0006.7 82 1991 165   3.1  1 11.5   *-0027+0021                                                    601
+MATCH by coordinates! 00076+4009 B  STF3064                   1955 003  24.8  9 10.0                                           A   82N 00025N3936B       
+MATCH by coordinates! 00076-0433 B  STF3063                   1957 211   1.6 18 11.1                                           A   84  00025S0506B       
+MATCH by coordinates! 00078+6321 B  HU 1002                   1904 300   0.7  4 11.0                                           A   85  00026N6248B       
+UNRESOLVED! tooManyMatches: 00078+4508 B  ES 1357                   1915 138   5.1  1 14.2                                           A   88  00026N4434B       
+UNRESOLVED! not found matches: 00079+4943 B  ES  443                   1907 033   4.3  1 10.7                                           A   90  00028N4910B       
+UNRESOLVED! tooManyMatches: 00081+3123 P  STT4256                   1912 260  20.1  1 13.6                                           B   15  00029N3050P       
+UNRESOLVED! not found matches: 00082+5933BD  STI   8                   1910 156   8.5  1 14.4                                                   00030N5900D       
+UNRESOLVED! not found matches: 00083+6218 B  HJ 1936 -002.71-0028.7 65 1913 202  13.0  3 11.3                                           B   16  00030N6144B       
+UNRESOLVED! tooManyMatches: 00083+2905 B  H    32 -001.36+0045.6 91 1954 280  81.5 11 11.4   *+0001-0016          +28   10.6         A   94N 00032N2832B       
+MATCH by coordinates! 00085+4002 B  ES 1601                   1917 103   5.7  2 14.5                                           A   98  00034N3928B       
+MATCH by coordinates! 00088+0801 B  HDO   2                   1958 127  16.9  7 12.3                                           A  101  00037N0728B       
+UNRESOLVED! tooManyMatches: 00090+4051 C  BU  483 -010.14-0032.3 65 1879 261 144.0  2  7.9 G5*-0012-0011+40    5.0+40   12.6    413  A  105  00039N4018C    712
+UNRESOLVED! tooManyMatches: 00090+2739 C  PWS   1 +003.56+0045.5 63 1935  29  60.5    14.0                                                  *00038N2705C       
+MATCH by coordinates! 00091-5001 B  RST5492                   1947 316   0.6  1 11.6                                                   00041S5034B    743
+UNRESOLVED! tooManyMatches: 00092+5909 B  AGC  15                   1935 243  31.3  7 13.7                                           A  107  00038N5836B       
+MATCH by coordinates! 00093+7943 B* STF   2                   1830           99  7.1                                           A  102  00038N7910B    760
+UNRESOLVED! not found matches: 00097-3846 B  WG    1                   1904 229   3.4  1 12.2                                                   00046S3919B       
+MATCH by coordinates! 00097-5612 B  B  2062                   1930  11   8.0    11.0                                                   00046S5645B    782
+MATCH by coordinates! 00099+1125 B  HJ 1939 -001.79-0032.1 10 1877 161  35.0 11 10.3   *-0011 0000          +11   10.6         B   36  00047N1052B       
+Not correspond to rules:39 from 360

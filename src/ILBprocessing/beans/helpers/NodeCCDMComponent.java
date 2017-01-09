@@ -3,13 +3,12 @@ package ILBprocessing.beans.helpers;
 import ILBprocessing.MainEntryPoint;
 import ILBprocessing.beans.NodeCCDMPair;
 import lib.model.service.KeysDictionary;
-import lib.model.service.NodeForParsedCatalogue;
 import lib.tools.ConverterFINALIZED;
 import lib.tools.GlobalPoolOfIdentifiers;
 
 import java.util.ArrayList;
 
-public class NodeCCDMComponent extends NodeForParsedCatalogue {
+public class NodeCCDMComponent{
     public String source = "";
     public String pairCCDM = "";
     public String nameOfObserver = "";
@@ -20,10 +19,10 @@ public class NodeCCDMComponent extends NodeForParsedCatalogue {
     public String ADS = "";
     public String HIP = "";
     public char componentInfo;
-    public int coord_I2_1 = 0;// in 00149-3209 00149
-    public int coord_I2_2 = 0;// in 00149-3209 -3209
-    public int coord_F2_1 = 0;
-    public int coord_F2_2 = 0;
+    public String coord_I2_1fake = "";// in 00149-3209 00149
+    public String coord_I2_2fake ="";// in 00149-3209 -3209
+    public double coord_F2_1fake = 0;
+    public double coord_F2_2fake = 0;
     public boolean astrometric = false;
 
     public NodeCCDMComponent(String s) {
@@ -61,30 +60,27 @@ public class NodeCCDMComponent extends NodeForParsedCatalogue {
     }
     public void parseCoordinates(String s) {//refactored. finished method
         try {
-            coord_I2_1 = (int) Integer.parseInt(s.substring(1, 6));
+            coord_I2_1fake = s.substring(1, 6);
             if (s.charAt(6) != ' ') {
-                coord_I2_2 = (int) Integer.parseInt(s.substring(6, 11));
+                coord_I2_2fake = s.substring(6, 11);
             } else {
-                coord_I2_2 = (int) Integer.parseInt(s.substring(7, 11));
+                coord_I2_2fake = s.substring(7, 11);
             }
 
             if (s.charAt(27) != ' ') {
                 if (s.charAt(23) != ' ') {
-                    coord_I2_1 += (int) Integer.parseInt(s.substring(23, 27));
-                    coord_F2_1 = (int) Integer.parseInt("" + "" + s.charAt(23) + s.substring(28, 30));
-                } else {
-                    coord_I2_1 += (int) Integer.parseInt(s.substring(24, 27));
-                    coord_F2_1 = (int) Integer.parseInt("" + s.substring(28, 30));
+                    coord_F2_1fake=Double.parseDouble(s.substring(23, 30));
+                }else{
+                    coord_F2_1fake=Double.parseDouble(s.substring(24, 30));
                 }
 
                 if (s.charAt(30) != ' ') {
-                    coord_I2_2 += (int) Integer.parseInt(s.substring(30, 35));
-                    coord_F2_2 = (int) Integer.parseInt("" + s.charAt(30) + s.charAt(36));
-                } else {
-                    coord_I2_2 += (int) Integer.parseInt(s.substring(31, 35));
-                    coord_F2_2 = (int) Integer.parseInt("" + s.charAt(36));
+                    coord_F2_2fake=Double.parseDouble(s.substring(30, 37));
+                }else{
+                    coord_F2_2fake=Double.parseDouble(s.substring(31, 37));
                 }
             }
+
         }catch (Exception e){
             e.printStackTrace();
             System.err.println("causedBy:"+s);
@@ -104,6 +100,8 @@ public class NodeCCDMComponent extends NodeForParsedCatalogue {
                 }
                 propagateToPairNode(e,listComp.get(i));
                 e.source=listComp.get(i).source;
+                e.params.put(KeysDictionary.THETA,""+listComp.get(i).source.substring(46,49));
+                e.params.put(KeysDictionary.RHO,""+listComp.get(i).source.substring(50,55));
                 MainEntryPoint.listCCDMPairs.add(e);
             }
         }
@@ -130,16 +128,24 @@ public class NodeCCDMComponent extends NodeForParsedCatalogue {
             e.params.put(KeysDictionary.WDSSYSTEM,c.wdsID);
         }
         if(!e.params.containsKey(KeysDictionary.COORD_I1_1)){
-            e.params.put(KeysDictionary.COORD_I1_1,""+c.coord_I2_1);
-            e.params.put(KeysDictionary.COORD_I1_2,""+c.coord_I2_2);
-            e.params.put(KeysDictionary.COORD_F1_1,""+c.coord_F2_1);
-            e.params.put(KeysDictionary.COORD_F1_2,""+c.coord_F2_2);
+            e.params.put(KeysDictionary.COORD_I1_1,""+c.coord_I2_1fake);
+            e.params.put(KeysDictionary.COORD_I1_2,""+c.coord_I2_2fake);
+            e.params.put(KeysDictionary.COORD_F1_1,""+c.coord_F2_1fake);
+            e.params.put(KeysDictionary.COORD_F1_2,""+c.coord_F2_2fake);
+            //050612.55+372122.2
+            //00018+6437
+            float h = Integer.parseInt(c.coord_I2_1fake)/10*100+Integer.parseInt(c.coord_I2_1fake)%10*6;
+            double x = ConverterFINALIZED.hrsToRad(h,c.coord_F2_1fake*100)/Math.PI*180;
+            double y = ConverterFINALIZED.grToRad(Double.parseDouble(c.coord_I2_2fake)*100,c.coord_F2_2fake*10)/Math.PI*180;
+
+            e.params.put(KeysDictionary.X,""+x);
+            e.params.put(KeysDictionary.Y,""+y);
         }else{
-            e.params.put(KeysDictionary.COORD_I2_1,""+c.coord_I2_1);
-            e.params.put(KeysDictionary.COORD_I2_2,""+c.coord_I2_2);
-            e.params.put(KeysDictionary.COORD_F2_1,""+c.coord_F2_1);
-            e.params.put(KeysDictionary.COORD_F2_2,""+c.coord_F2_2);
-            ConverterFINALIZED.calculateRhoTheta(e);
+            e.params.put(KeysDictionary.COORD_I2_1,""+c.coord_I2_1fake);
+            e.params.put(KeysDictionary.COORD_I2_2,""+c.coord_I2_2fake);
+            e.params.put(KeysDictionary.COORD_F2_1,""+c.coord_F2_1fake);
+            e.params.put(KeysDictionary.COORD_F2_2,""+c.coord_F2_2fake);
+           // ConverterFINALIZED.calculateRhoTheta(e);
         }
     }
 }

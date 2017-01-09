@@ -66,21 +66,21 @@ public class NodeWDSFINALIZED extends NodeForParsedCatalogue {
 			coordinatesNotFoundInWDS =true;
 		}
 		try {
-			rho = Double.parseDouble(s.substring(52, 57)) * Math.PI / 60 / 10800;
+			rho = Double.parseDouble(s.substring(52, 57));
 			if(rho==-1){
-				rho=0;
+				rho=-1;
 				System.err.println("found pair with rho=-1: "+source);
 			}
 		}catch (Exception e){
 			System.err.println("ERR10 Exception caught"+s.substring(52, 57));
-			rho=0;
+			rho=-1;
 		}
 		try{
 			theta=Double.parseDouble(s.substring(42, 45));
 		}catch (Exception e){
 			System.err.println("ERR09 Exception caught"+s.substring(42, 45));
-			theta=0;
-			rho=0;
+			theta=-1;
+			rho=-1;
 		}
 	};
 	public void calculateNameOfObserver(String s){
